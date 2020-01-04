@@ -1,0 +1,5 @@
+const StageManager = {
+    
+    currentStage: null,
+
+}

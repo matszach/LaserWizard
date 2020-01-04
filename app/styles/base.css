@@ -1,0 +1,14 @@
+/* places gameplay canvas behind the gui div */
+#gameplay-canvas{
+    position: absolute;
+    background-color: #120600;
+    z-index: 1;
+}
+
+#gui-div{
+    position: absolute;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+}

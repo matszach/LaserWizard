@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+
+  <!-- ==================== HEAD ==================== -->
+  <head>
+	<!-- ===== META ===== -->
+    <meta charset="UTF-8">
+	<title>Laser Wizard</title>
+	<!-- ===== STYLES ===== -->
+	<link rel="stylesheet" href="styles/reset.css">
+	<link rel="stylesheet" href="styles/default.css">
+	<link rel="stylesheet" href="styles/var.css">
+	<link rel="stylesheet" href="styles/animations.css">
+	<link rel="stylesheet" href="styles/base.css">
+	<link rel="stylesheet" href="styles/menus.css">
+	<!-- ===== SCRIPTS ===== -->
+	<script>
+		// allows for in-html loading of scripts
+		if (typeof module === 'object') {
+			window.module = module; 
+			module = undefined;
+		}
+	</script>
+	<!-- LIB / UTIL -->
+	<script src="lib/jquery.js"></script>
+	<script src="src/util/util.js"></script>
+	<!-- MAIN -->
+	<script src="src/main.js"></script>
+	<!-- CLOSE / PERSISTANCE -->
+	<script src="src/saveStateHanding/saveStateHandler.js"></script>
+	<!-- GUI / DISPLAY -->
+	<script src="src/guiLoader/guiLoader.js"></script>
+	<script src="src/canvasManager/imageLoader.js"></script>
+	<script src="src/canvasManager/canvasManager.js"></script>
+	<script src="src/canvasManager/stagePainter.js"></script>
+	<!-- GAMEPLAY -->
+	<!--    general     -->
+	<script src="src/gameplay/pauseHandler.js"></script>
+	<!-- 	entities 	-->
+	<script src="src/gameplay/entities/_entity.js"></script>
+	<script src="src/gameplay/entities/_damageable.js"></script>
+	<script src="src/gameplay/entities/_character.js"></script>
+	<script src="src/gameplay/entities/projectiles/_projectile.js"></script>
+	<script src="src/gameplay/entities/projectiles/projectileSpawner.js"></script>
+	<script src="src/gameplay/entities/players/player.js"></script>
+	<script src="src/gameplay/entities/monsters/_monster.js"></script>
+	<script src="src/gameplay/entities/items/_item.js"></script>
+	<!-- 	stages 		-->
+	<script src="src/gameplay/stage/stageLoader.js"></script>
+	<script src="src/gameplay/stage/stage.js"></script>
+	<script src="src/gameplay/stage/stageManager.js"></script>
+	<script src="src/gameplay/stage/monsterBeacon.js"></script>
+  </head>
+
+  <!-- ==================== BODY ==================== -->
+  <body>
+	<div id='gui-div'></div>
+	<canvas id='gameplay-canvas'></canvas>
+  </body>
+
+</html>

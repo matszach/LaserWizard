@@ -1,0 +1,3 @@
+const PauseHandler = {
+    paused: true,
+}
