@@ -14,7 +14,8 @@ const ItemFactory = {
      * @param {number} y - item y position
      */
     getItem(id, x, y){
-        let item = this._itemTypeDict[id] ? new this._itemTypeDict[id]() : new this._itemTypeDict.default();
+        var itemClass = this._itemTypeDict[id] ? this._itemTypeDict[id] : this._itemTypeDict.default;
+        var item = new itemClass();
         if(x && y){
             item.x = x;
             item.y = y;   
