@@ -15,6 +15,7 @@ class _Item extends _Entity{
     _onCollisionWithPlayer(p){
        if(this.shouldPickUp(p)){
            this.onPickUp(p);
+           this.expire();
        }
     }
 
