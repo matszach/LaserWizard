@@ -22,7 +22,7 @@ const StageLoader = {
                 e.monsterList.forEach(m => mb.addMonster(m.id, e.x + m.relX, e.y + m.relY));
                 stage.monsterBeacons.push(mb);
             });
-            // stage.items = data.items; 
+            data.items.forEach(e => stage.items.push(ItemFactory.getItem(e.id, e.x, e.y)));
             StageManager.currentStage = stage;
         });
     }

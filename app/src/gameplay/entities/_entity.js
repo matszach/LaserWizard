@@ -1,8 +1,8 @@
 class _Entity {
 
     // ==================== fields ====================
-    collisionSizeRadius;    // - used in collision detection
-    displaySizeRadius;      // - used when the entity's image is drawn
+    collisionSize;          // - used in collision detection
+    displaySize;            // - used when the entity's image is drawn
     image;                  // - reference to the entity's sprites
     x;                      // - current character's X position
     y;                      // - current character's Y position 
@@ -26,8 +26,8 @@ class _Entity {
     // ==================== constructor ====================
     constructor(){
         // default values
-        this.collisionSizeRadius = 1;
-        this.displaySizeRadius = 1;
+        this.collisionSize = 1;
+        this.displaySize = 1;
         this.image = null; // todo: default, fallback image
         this.x = 0;
         this.y = 0;
@@ -111,7 +111,7 @@ class _Entity {
         var dx = this.x - entity.x;
         var dy = this.y - entity.y;
         var dr = Math.sqrt(dx*dx + dy*dy);
-        var maxR = this.collisionSizeRadius + entity.collisionSizeRadius;
+        var maxR = this.collisionSize + entity.collisionSizeRadius;
         return dr < maxR;
     }
 

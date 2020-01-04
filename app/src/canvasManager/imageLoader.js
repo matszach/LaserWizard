@@ -11,6 +11,7 @@ const ImageLoader = {
     init(){
         this.floors.src = 'assets/images/floor_tiles.png';
         this.walls.src = 'assets/images/wall_tiles.png';
+        this.items.src = 'assets/images/items.png';
     }
 
 }

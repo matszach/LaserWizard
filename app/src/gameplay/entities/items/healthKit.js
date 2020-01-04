@@ -25,6 +25,7 @@ class SmallHealthKit extends HealthKit {
         super(15);
         this.tileX = 3;
         this.tileY = 0;
+        this.displaySize = 0.6;
     }
 }
 
@@ -33,6 +34,7 @@ class MediumHealthKit extends HealthKit {
         super(30);
         this.tileX = 4;
         this.tileY = 0;
+        this.displaySize = 0.75;
     }
 }
 
@@ -41,5 +43,6 @@ class LargeHealthKit extends HealthKit {
         super(50);
         this.tileX = 5;
         this.tileY = 0;
+        this.displaySize = 0.9;
     }
 }

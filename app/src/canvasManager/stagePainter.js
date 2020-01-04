@@ -96,7 +96,10 @@ const StagePainter = {
     },
 
     drawItems(c){
-
+        StageManager.currentStage.items.forEach(e => {
+            CanvasManager.paintImageAt(ImageLoader.items, e.tileX, e.tileY, c.unit,
+                (e.x - c.xMin), (e.y - c.yMin), c.vOffset, c.hOffset, e.displaySize);
+        });
     },
 
     drawMonsters(c){
@@ -104,7 +107,9 @@ const StagePainter = {
     },
 
     drawPlayer(c){
-
+        // var p = StageManager.currentStage.player;
+        // CanvasManager.paintImageAt(ImageLoader.items, e.tileX, e.tileY, c.unit,
+        //     (p.x - c.xMin), (p.y - c.yMin), c.vOffset, c.hOffset, e.displaySize);
     },
 
     drawProjectiles(c){

@@ -1,13 +1,13 @@
 const ItemFactory = {
 
-    _itemTypeDict = {
+    _itemTypeDict : {
         0 : SmallHealthKit,
         1 : MediumHealthKit,
         2 : LargeHealthKit,
         3 : RedEnergyOrb,
         4 : YellowEnergyOrb,
         5 : BlueEnergyOrb,
-        
+
         default : SmallHealthKit
     },
 
@@ -17,7 +17,9 @@ const ItemFactory = {
      * @param {number} y - item y position
      */
     getItem(id, x, y){
-        var itemClass = this._itemTypeDict[id] ? this._itemTypeDict[id] : this._itemTypeDict.d;
+        console.log(id);
+        var itemClass = this._itemTypeDict[id] ? this._itemTypeDict[id] : this._itemTypeDict.default;
+        console.log(itemClass);
         var item = new itemClass();
         if(x && y){
             item.x = x;

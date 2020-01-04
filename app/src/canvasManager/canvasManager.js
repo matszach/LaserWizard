@@ -48,8 +48,8 @@ const CanvasManager = {
         var cropSize = tileSize - 1;
         
         var drawOffset = unitSize * (scale - 1)/2;
-        var drawX = inCanvasX * unitSize + drawOffset + offsetX;
-        var drawY = inCanvasY * unitSize + drawOffset + offsetY;
+        var drawX = inCanvasX * unitSize - drawOffset + offsetX;
+        var drawY = inCanvasY * unitSize - drawOffset + offsetY;
         var drawSize = unitSize * scale;
 
         // drawing proper
