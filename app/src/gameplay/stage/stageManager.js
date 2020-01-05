@@ -12,6 +12,7 @@ const StageManager = {
     awakenAll(){
         if(this.currentStage){
             this.currentStage.items.forEach(e => e.awaken());
+            this.currentStage.player.awaken();
         }
     }
 

@@ -29,6 +29,7 @@ class Player extends _Character {
         // todo init weapon actions here
     }
 
+
     // weapon usage
     unlockWeapon(i){
         this.weaponsUnlockedState[i] = true;
@@ -39,6 +40,7 @@ class Player extends _Character {
             this.weaponActions[i].execute();
         }
     }
+
 
     // red energy
     hasRedEnergy(n){
@@ -56,6 +58,7 @@ class Player extends _Character {
         }
     }
 
+
     // blue energy
     hasBlueEnergy(n){
         return this.currentBlueEnergy > n;
@@ -72,6 +75,7 @@ class Player extends _Character {
         }
     }
 
+
     // yellow energy
     hasYellowEnergy(n){
         return this.currentYellowEnergy > n;
@@ -87,5 +91,42 @@ class Player extends _Character {
             return false;
         }
     }
+
+
+    // user input/ actions
+    _doExist(player){
+        player.handleMovement();
+        player.handleTurning();
+    }
+
+    handleMovement(){
+        var up = UserInputHandler.isKeyDown('W');
+        var down = UserInputHandler.isKeyDown('S');
+        var left = UserInputHandler.isKeyDown('A');
+        var right = UserInputHandler.isKeyDown('D');
+        if((up && down) || (!up && !down)){
+            if((left && right) || (!left && !right)){}
+            else if(left){this.travel(270)}
+            else if(right){this.travel(90)}            
+        } else if (up){
+            if((left && right) || (!left && !right)){this.travel(0)}
+            else if(left){this.travel(315)}
+            else if(right){this.travel(45)}  
+        } else if(down){
+            if((left && right) || (!left && !right)){this.travel(180)}
+            else if(left){this.travel(225)}
+            else if(right){this.travel(135)}  
+        }
+    }
+
+    handleTurning(){
+        var dx = UserInputHandler.mouse.x - CanvasManager.cnvWidth/2;
+        var dy = UserInputHandler.mouse.y - CanvasManager.cnvHeight/2;
+        var dir = Math.atan(dy/dx) * 180 / Math.PI + 90;
+        if(dx < 0) dir += 180;
+        this.direction = dir;
+    }
+
+
 
 }

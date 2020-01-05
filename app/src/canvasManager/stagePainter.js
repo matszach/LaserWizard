@@ -2,8 +2,10 @@ const StagePainter = {
 
     _stagePainterInterval: null,
 
-    displayHeightInUnits: 22,
-    displayWidthInUnits: 40,
+    displayHeightInUnits: 18,
+    displayWidthInUnits: 32,
+
+    unit: 0,
 
     init(){
         if(this._stagePainterInterval){
@@ -30,6 +32,7 @@ const StagePainter = {
         c.xMax = c.centerX + this.displayWidthInUnits/2;
         c.yMin = c.centerY - this.displayHeightInUnits/2;
         c.yMax = c.centerY + this.displayHeightInUnits/2;
+        this.unit = c.unit;
         return c;
     },
 
@@ -66,29 +69,27 @@ const StagePainter = {
     },
 
     drawFloors(c){
-        for(var x = Math.floor(c.xMin); x < Math.ceil(c.xMax); x++){
-            for(var y = Math.floor(c.yMin); y < Math.ceil(c.yMax); y++){ 
-                try {
-                    var tilePos = StageManager.currentStage.floorIds[x][y];
+        for(var x = Math.floor(c.xMin); x <= Math.ceil(c.xMax); x++){
+            for(var y = Math.floor(c.yMin); y <= Math.ceil(c.yMax); y++){ 
+                var floors = StageManager.currentStage.floorIds;
+                if(x >= 0 && y >= 0 && x < floors.length && y < floors[0].length){
+                    var tilePos = floors[x][y];
                     CanvasManager.paintImageAt(ImageLoader.floors, tilePos[0], tilePos[1], c.unit,
                         (x - c.xMin), (y - c.yMin), c.vOffset, c.hOffset);
-                } catch {
-                    // index out of range
                 }
             }
         }
     },
 
     drawWalls(c){
-        for(var x = Math.floor(c.xMin); x < Math.ceil(c.xMax); x++){
-            for(var y = Math.floor(c.yMin); y < Math.ceil(c.yMax); y++){ 
-                try {
-                    var tilePos = StageManager.currentStage.wallIds[x][y];
+        for(var x = Math.floor(c.xMin); x <= Math.ceil(c.xMax); x++){
+            for(var y = Math.floor(c.yMin); y <= Math.ceil(c.yMax); y++){ 
+                var walls = StageManager.currentStage.wallIds;
+                if(x >= 0 && y >= 0 && x < walls.length && y < walls[0].length){
+                    var tilePos = walls[x][y];
                     CanvasManager.paintImageAt(ImageLoader.walls, tilePos[0], tilePos[1], c.unit,
                         (x - c.xMin), (y - c.yMin), c.vOffset, c.hOffset);
-                } catch {
-                    // index out of range
-                }
+                } 
             }
         }
     },

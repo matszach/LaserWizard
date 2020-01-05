@@ -37,7 +37,7 @@ class _Entity {
         this.expired = false;
         this.xPrev = 0;
         this.yPrev = 0;
-        this.speed = 0.1;
+        this.speed = 0.05;
         this.checksCollisions = false;
         this.collisoonCheckFrequency = 5;
         this.collisionCheckTimer = 0;
@@ -82,9 +82,8 @@ class _Entity {
     }
 
     _move(d, v){
-        dx += Math.cos(d) * v;
-        dy += Math.sin(d) * v;
-        this.place(dx, dy);
+        this.x += Math.sin(d * Math.PI/180) * v;
+        this.y -= Math.cos(d * Math.PI/180) * v;
     }
 
     restorePreviousPosition(){
@@ -103,7 +102,7 @@ class _Entity {
     }
 
     travel(direction) {
-        this.move(direction, this.speed);
+        this._move(direction, this.speed);
         this._onTravel(direction);
     }
 

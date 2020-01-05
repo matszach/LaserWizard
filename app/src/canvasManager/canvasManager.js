@@ -50,8 +50,8 @@ const CanvasManager = {
         var cropSize = tileSize - 1;
         
         var drawOffset = unitSize * (scale - 1)/2;
-        var drawX = inCanvasX * unitSize - drawOffset + offsetX;
-        var drawY = inCanvasY * unitSize - drawOffset + offsetY;
+        var drawX = (inCanvasX - 0.5) * unitSize - drawOffset + offsetX;
+        var drawY = (inCanvasY - 0.5) * unitSize - drawOffset + offsetY;
         var drawSize = unitSize * scale;
 
         this.context.globalAlpha = alpha;
@@ -84,8 +84,8 @@ const CanvasManager = {
         var cropY = tileY * (tileSize + borderSize) + 0.5;
         var cropSize = tileSize - 1;
         
-        var drawX = inCanvasX * unitSize + 0.5 * unitSize + offsetX;
-        var drawY = inCanvasY * unitSize + 0.5 * unitSize + offsetY;
+        var drawX = inCanvasX * unitSize + offsetX;
+        var drawY = inCanvasY * unitSize + offsetY;
         var drawSize = unitSize * scale;
 
         this.context.save();
