@@ -7,6 +7,7 @@ const Main = {
         SaveStateHandler.init();
         StagePainter.init();
         ImageLoader.init();
+        UserInputHandler.init();
     },
 
 }

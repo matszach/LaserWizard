@@ -2,8 +2,8 @@ const StagePainter = {
 
     _stagePainterInterval: null,
 
-    displayHeightInUnits: 24,
-    displayWidthInUnits: 44,
+    displayHeightInUnits: 22,
+    displayWidthInUnits: 40,
 
     init(){
         if(this._stagePainterInterval){
@@ -46,8 +46,6 @@ const StagePainter = {
         StagePainter.drawMonsters(c);
         StagePainter.drawPlayer(c);
         StagePainter.drawProjectiles(c);
-        StageManager.currentStage.player.y -= 0.03; //tmp
-        StageManager.currentStage.player.x -= 0.002; // tmp
         StagePainter.clearUnuseableArea(c);
     },
 
@@ -97,10 +95,17 @@ const StagePainter = {
 
     drawItems(c){
         StageManager.currentStage.items.forEach(e => {
-            CanvasManager.paintImageAt(ImageLoader.misc, 1, 0, c.unit,
-                (e.x - c.xMin), (e.y - c.yMin), c.vOffset, c.hOffset, e.displaySize + 0.6, 0.4);
-            CanvasManager.paintRotatedImageAt(ImageLoader.items, e.tileX, e.tileY, c.unit,
-                (e.x - c.xMin), (e.y - c.yMin), c.vOffset, c.hOffset, e.direction, e.displaySize);
+            var x = e.x - c.xMin;
+            var y = e.y - c.yMin;
+            // no need to draw items that would be outside of the canvas range anyways
+            if(x  > -1 && y > -1 && x < this.displayWidthInUnits + 1 && y < this.displayHeightInUnits + 1){
+                // item background circle
+                CanvasManager.paintImageAt(ImageLoader.misc, 1, 0, c.unit,
+                    x, y, c.vOffset, c.hOffset, e.displaySize + 0.6, 0.4);
+                // rotating item image
+                CanvasManager.paintRotatedImageAt(ImageLoader.items, e.tileX, e.tileY, c.unit,
+                    x, y, c.vOffset, c.hOffset, e.direction, e.displaySize);
+            } 
         });
     },
 
@@ -109,9 +114,9 @@ const StagePainter = {
     },
 
     drawPlayer(c){
-        // var p = StageManager.currentStage.player;
-        // CanvasManager.paintImageAt(ImageLoader.items, e.tileX, e.tileY, c.unit,
-        //     (p.x - c.xMin), (p.y - c.yMin), c.vOffset, c.hOffset, e.displaySize);
+        var p = StageManager.currentStage.player;
+        CanvasManager.paintRotatedImageAt(ImageLoader.player, p.tileX, p.tileY, c.unit,
+            (p.x - c.xMin), (p.y - c.yMin), c.vOffset, c.hOffset, p.direction, p.displaySize);
     },
 
     drawProjectiles(c){
