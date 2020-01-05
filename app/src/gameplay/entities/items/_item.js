@@ -1,14 +1,9 @@
 class _Item extends _Entity{
 
-    // ==================== fields ====================
-    tileX;              // x position in tileset
-    tileY;              // y position in tileset
-
     // ==================== constructor ====================
     constructor(){
         super();
-        this.tileX = 0;
-        this.tileY = 0;
+        this.direction = Math.random() * 360; // random starting rotation
     }
 
     // ==================== methods ====================
@@ -19,6 +14,15 @@ class _Item extends _Entity{
        }
     }
 
+    rotate(){
+        this.direction += 0.5;
+    }
+
+    _doExist(thisEntity){
+        thisEntity.rotate();
+        // todo
+    }
+
     shouldPickUp(player){
         // abstract
     }
@@ -26,5 +30,8 @@ class _Item extends _Entity{
     onPickUp(player){
         // abstract
     }
+
+
+    
 
 }

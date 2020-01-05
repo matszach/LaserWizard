@@ -20,6 +20,8 @@ class _Entity {
     collidesBarrier;        // - states if the entity checks for collision with a barrier
     collidesItem;           // - states if the entity checks for collision with an item
     stopsOnWall;            // - states if the entity can pass through walls
+    tileX;                  // - x position in tileset (can be changed through animations)
+    tileY;                  // - y position in tileset (can be changed through animations)
 
     lifecycleInterval;      // - entity's lifecycle interval reference
 
@@ -45,6 +47,8 @@ class _Entity {
         this.collidesProjectile = false;
         this.collidesItem = false;
         this.stopsOnWall = true;
+        this.tileX = 0;
+        this.tileY = 0;
     }
 
     // ==================== methods ====================

@@ -41,13 +41,13 @@ const StagePainter = {
         StagePainter.clearCanvas(c);
         StagePainter.markUseableArea(c); // tmp
         StagePainter.drawFloors(c);
-        StagePainter.drawItems(c);
         StagePainter.drawWalls(c);
+        StagePainter.drawItems(c);
         StagePainter.drawMonsters(c);
         StagePainter.drawPlayer(c);
         StagePainter.drawProjectiles(c);
-        StageManager.currentStage.player.y -= 0.15; //tmp
-        StageManager.currentStage.player.x -= 0.01; // tmp
+        StageManager.currentStage.player.y -= 0.03; //tmp
+        StageManager.currentStage.player.x -= 0.002; // tmp
         StagePainter.clearUnuseableArea(c);
     },
 
@@ -97,8 +97,10 @@ const StagePainter = {
 
     drawItems(c){
         StageManager.currentStage.items.forEach(e => {
-            CanvasManager.paintImageAt(ImageLoader.items, e.tileX, e.tileY, c.unit,
-                (e.x - c.xMin), (e.y - c.yMin), c.vOffset, c.hOffset, e.displaySize);
+            CanvasManager.paintImageAt(ImageLoader.misc, 1, 0, c.unit,
+                (e.x - c.xMin), (e.y - c.yMin), c.vOffset, c.hOffset, e.displaySize + 0.6, 0.4);
+            CanvasManager.paintRotatedImageAt(ImageLoader.items, e.tileX, e.tileY, c.unit,
+                (e.x - c.xMin), (e.y - c.yMin), c.vOffset, c.hOffset, e.direction, e.displaySize);
         });
     },
 

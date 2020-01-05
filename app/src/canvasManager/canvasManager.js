@@ -30,18 +30,20 @@ const CanvasManager = {
      * @param {number} offsetX - x offset of the image drawn (in pixels)
      * @param {number} offsetY - y offset of the image drawn (in pixels)
      * @param {number} scale - size of the drawn image (in units) *optional
+     * @param {number} alpha - alpha of the drawn image
      * @param {number} tileSize - size of a tile in the tileset image (in pixels) *optional
      * @param {number} borderSize - size of the border in the tileset image (in pixels) *optional
      */
     paintImageAt(image, tileX, tileY, unitSize, 
             inCanvasX, inCanvasY, offsetX, offsetY, 
-            scale, tileSize, borderSize){
+            scale, alpha, tileSize, borderSize){
 
         // optional values
         var scale = scale ? scale : 1.0; 
         var tileSize = tileSize ? tileSize : 64;
         var borderSize = borderSize ? borderSize : 4;
-        
+        var alpha = alpha ? alpha : 1.0;
+
         // drawing parametres calculation
         var cropX = tileX * (tileSize + borderSize) + 0.5;
         var cropY = tileY * (tileSize + borderSize) + 0.5;
@@ -52,10 +54,52 @@ const CanvasManager = {
         var drawY = inCanvasY * unitSize - drawOffset + offsetY;
         var drawSize = unitSize * scale;
 
+        this.context.globalAlpha = alpha;
+
         // drawing proper
         this.context.drawImage(image, 
             cropX, cropY, cropSize, cropSize, 
             drawX, drawY, drawSize, drawSize);
-    }
+
+        this.context.globalAlpha = 1.0;
+
+    },
+
+    /**
+     * @param @see this.paintImageAt()
+     * @param {*} degrees 
+     */
+    paintRotatedImageAt(image, tileX, tileY, unitSize, 
+        inCanvasX, inCanvasY, offsetX, offsetY, degrees,
+        scale, alpha, tileSize, borderSize){  
+
+        // optional values
+        var scale = scale ? scale : 1.0; 
+        var tileSize = tileSize ? tileSize : 64;
+        var borderSize = borderSize ? borderSize : 4;
+        var alpha = alpha ? alpha : 1.0;
+
+        // drawing parametres calculation
+        var cropX = tileX * (tileSize + borderSize) + 0.5;
+        var cropY = tileY * (tileSize + borderSize) + 0.5;
+        var cropSize = tileSize - 1;
+        
+        var drawX = inCanvasX * unitSize + 0.5 * unitSize + offsetX;
+        var drawY = inCanvasY * unitSize + 0.5 * unitSize + offsetY;
+        var drawSize = unitSize * scale;
+
+        this.context.save();
+        this.context.globalAlpha = alpha;
+        this.context.translate(drawX, drawY); // !!! first translate, then rotate
+        this.context.rotate(degrees * Math.PI/180);
+
+        // drawing proper
+        this.context.drawImage(image, 
+            cropX, cropY, cropSize, cropSize, 
+            -drawSize/2, -drawSize/2, drawSize, drawSize);
+
+        this.context.globalAlpha = 1.0;
+        this.context.restore();
+    },
 
 }
