@@ -40,8 +40,8 @@ ITEMS = {
     (0, 0, 150)     : (12, 'weapon 8 (blue +)'),
     (0, 0, 100)     : (13, 'weapon 9 (blue + +)'),
     (0, 0, 50)      : (14, 'weapon 0 (blue + + +)'),
-    (0, 150, 150)   : (15, 'teal key'),
-    (150, 0, 150)   : (16, 'cyan key')
+    (0, 150, 150)   : (15, 'cyan key'),
+    (150, 0, 150)   : (16, 'magenta key')
 }
 
 ITEMS_IMG = {

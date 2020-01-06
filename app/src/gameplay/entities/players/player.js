@@ -21,6 +21,11 @@ class Player extends _Character {
         false,      // yellow 3
     ];
 
+    keys = {
+        magenta : false,
+        cyan : false
+    };
+
     weaponActions = [];
 
     // ==================== constructor ====================
@@ -124,7 +129,7 @@ class Player extends _Character {
         var dy = UserInputHandler.mouse.y - CanvasManager.cnvHeight/2;
         var dir = Math.atan(dy/dx) * 180 / Math.PI + 90;
         if(dx < 0) dir += 180;
-        this.direction = dir;
+        this.turn(dir);
     }
 
 

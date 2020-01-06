@@ -8,6 +8,9 @@ const ItemFactory = {
         4 : YellowEnergyOrb,
         5 : BlueEnergyOrb,
 
+        15 : CyanKey,
+        16 : MagentaKey,
+
         default : SmallHealthKit
     },
 

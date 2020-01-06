@@ -1,4 +1,4 @@
-class WeaponAction{
+class _WeaponAction{
 
     // ==================== fields ====================
     player;

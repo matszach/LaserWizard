@@ -114,7 +114,7 @@ class _Entity {
         var dx = this.x - entity.x;
         var dy = this.y - entity.y;
         var dr = Math.sqrt(dx*dx + dy*dy);
-        var maxR = this.collisionSize + entity.collisionSizeRadius;
+        var maxR = this.collisionSize + entity.collisionSize;
         return dr < maxR;
     }
 
