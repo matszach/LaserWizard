@@ -4,14 +4,17 @@ class _Item extends _Entity{
     constructor(){
         super();
         this.direction = Math.random() * 360; // random starting rotation
+        this.checksCollisions = true;
+        this.collisoonCheckFrequency = 5;
+        this.collidesPlayer = true;
     }
 
     // ==================== methods ====================
     _onCollisionWithPlayer(p){
-       if(this.shouldPickUp(p)){
-           this.onPickUp(p);
-           this.expire();
-       }
+        if(!this.expired && this.shouldPickUp(p)){
+            this.onPickUp(p);
+            this.expire();
+        }
     }
 
     rotate(){
@@ -20,7 +23,7 @@ class _Item extends _Entity{
 
     _doExist(thisEntity){
         thisEntity.rotate();
-        // todo
+        thisEntity.doCheckCollisions();
     }
 
     shouldPickUp(player){
@@ -30,8 +33,5 @@ class _Item extends _Entity{
     onPickUp(player){
         // abstract
     }
-
-
-    
 
 }

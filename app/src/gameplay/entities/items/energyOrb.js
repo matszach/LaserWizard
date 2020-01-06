@@ -6,6 +6,7 @@ class EnergyOrb extends _Item {
         super();
         this.energyRestored = 15;
         this.displaySize = 0.5;
+        this.collisionSize = 0.4;
     }
 
 }

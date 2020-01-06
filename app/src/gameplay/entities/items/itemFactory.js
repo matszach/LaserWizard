@@ -7,7 +7,15 @@ const ItemFactory = {
         3 : RedEnergyOrb,
         4 : YellowEnergyOrb,
         5 : BlueEnergyOrb,
-
+        6 : WeaponRed1,
+        7 : WeaponRed2,
+        8 : WeaponRed3,
+        9 : WeaponYellow1,
+        10 : WeaponYellow2,
+        11 : WeaponYellow3,
+        12 : WeaponBlue1,
+        13 : WeaponBlue2,
+        14 : WeaponBlue3,
         15 : CyanKey,
         16 : MagentaKey,
 

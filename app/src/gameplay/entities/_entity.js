@@ -114,12 +114,12 @@ class _Entity {
         var dx = this.x - entity.x;
         var dy = this.y - entity.y;
         var dr = Math.sqrt(dx*dx + dy*dy);
-        var maxR = this.collisionSize + entity.collisionSize;
+        var maxR = (this.collisionSize + entity.collisionSize) * 0.5;
         return dr < maxR;
     }
 
     _shouldCheckCollisions(){
-        if(this.checksCollision){
+        if(this.checksCollisions){
             this.collisionCheckTimer += 1;
             if(this.collisionCheckTimer == this.collisoonCheckFrequency){
                 this.collisionCheckTimer = 0;

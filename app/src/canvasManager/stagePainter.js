@@ -95,17 +95,17 @@ const StagePainter = {
     },
 
     drawItems(c){
-        StageManager.currentStage.items.forEach(e => {
+        StageManager.currentStage.items.filter(e => {return !e.expired}).forEach(e => {
             var x = e.x - c.xMin;
             var y = e.y - c.yMin;
             // no need to draw items that would be outside of the canvas range anyways
             if(x  > -1 && y > -1 && x < this.displayWidthInUnits + 1 && y < this.displayHeightInUnits + 1){
-                // item background circle
-                CanvasManager.paintImageAt(ImageLoader.misc, 1, 0, c.unit,
-                    x, y, c.vOffset, c.hOffset, e.displaySize + 0.6, 0.4);
                 // rotating item image
                 CanvasManager.paintRotatedImageAt(ImageLoader.items, e.tileX, e.tileY, c.unit,
                     x, y, c.vOffset, c.hOffset, e.direction, e.displaySize);
+                // item sphere
+                CanvasManager.paintImageAt(ImageLoader.misc, 1, 0, c.unit,
+                    x, y, c.vOffset, c.hOffset, e.displaySize + 0.6, 0.3);
             } 
         });
     },

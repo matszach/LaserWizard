@@ -2,6 +2,8 @@ class Key extends _Item{
 
     constructor(){
         super();
+        this.displaySize = 1.0;
+        this.collisionSize = 0.8; 
     }
 
     shouldPickUp(player){
@@ -19,7 +21,7 @@ class MagentaKey extends Key {
     }
 
     onPickUp(player){
-        player.key.magenta = true;
+        player.keys.magenta = true;
     }
 }
 
@@ -33,6 +35,6 @@ class CyanKey extends Key {
     }
 
     onPickUp(player){
-        player.key.cyan = true;
+        player.keys.cyan = true;
     }
 }
