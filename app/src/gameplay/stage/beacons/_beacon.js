@@ -1,10 +1,9 @@
-class MonsterBeacon {
+class _Beacon {
     
     // ===== fields =====
     x = 0;
     y = 0;
     range = 0;
-    monsters = [];
     fired = false;
 
 
@@ -16,18 +15,12 @@ class MonsterBeacon {
     }
     
     // ===== public =====
-    addMonster(mId, mX, mY){
-        this.monsters.push({
-            id: mId,
-            x: mX,
-            y: mY
-        });
-    }
-
     test(){
         if(this._isPlayerInRange()){
-            this._spawnMonsters();      
-            this.fired = true;  
+            if(!this.fired && this._shoudlFire()){
+                this._fire();      
+                this.fired = true;  
+            }
         }
     }
 
@@ -39,8 +32,12 @@ class MonsterBeacon {
         return Math.sqrt(dX * dX + dY * dY) < this.range;
     }
 
-    _spawnMonsters(){
-        this.monsters.forEach((m) => StageManager.currentStage.monsters.push(m));
+    _shoudlFire(){
+        return true; // abstract
+    }
+
+    _fire(){
+       // abstract
     }
 
 }
