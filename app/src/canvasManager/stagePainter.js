@@ -114,7 +114,10 @@ const StagePainter = {
     },
 
     drawMonsters(c){
-        
+        StageManager.currentStage.monsters.filter(e => {return !e.expired}).forEach(e => {
+            CanvasManager.paintRotatedImageAt(ImageLoader.monsters, e.tileX, e.tileY, c.unit,
+                (e.x - c.xMin), (e.y - c.yMin), c.vOffset, c.hOffset, e.direction, e.displaySize);
+        });
     },
 
     drawPlayer(c){

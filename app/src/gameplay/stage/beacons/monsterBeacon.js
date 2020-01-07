@@ -19,7 +19,10 @@ class MonsterBeacon extends _Beacon{
     }
 
     _fire(){
-        this.monsters.forEach((m) => StageManager.currentStage.monsters.push(m));
+        this.monsters.forEach(m => {
+            StageManager.currentStage.monsters.push(m);
+            // m.awaken();
+        });
     }
 
 }

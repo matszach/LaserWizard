@@ -25,6 +25,7 @@ const StageLoader = {
             data.items.forEach(e => stage.items.push(ItemFactory.getItem(e.id, e.x, e.y)));
             StageManager.currentStage = stage;
             StageManager.awakenAll();
+            HudManager.start();
         });
     }
 

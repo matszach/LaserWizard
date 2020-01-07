@@ -1,0 +1,29 @@
+#hud-div{
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    margin: 10px;
+    color: #83684e;
+    font-size: 20px;
+    font-family: fantasy;
+}
+
+#top-hud-div{
+    height: 5%;
+    min-height: 50px;
+}
+
+#weapons-div{
+    height: 100%;
+    float: left;
+} 
+
+#health-div{
+    height: 100%;
+    float: right;
+}
+
+.x-mark-span{
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}

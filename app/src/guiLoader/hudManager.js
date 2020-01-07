@@ -1,0 +1,11 @@
+const HudManager = {
+
+
+    start(){
+
+    },
+
+    stop(){
+
+    }
+}
