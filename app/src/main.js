@@ -8,6 +8,7 @@ const Main = {
         StagePainter.init();
         ImageLoader.init();
         UserInputHandler.init();
+        AudioRegistry.init();
     },
 
 }

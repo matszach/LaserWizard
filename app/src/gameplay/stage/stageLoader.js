@@ -20,7 +20,7 @@ const StageLoader = {
             data.monsterSpawnBeacons.forEach(e => {
                 var mb = new MonsterBeacon(e.x, e.y, e.triggerRange);
                 e.monsterList.forEach(m => mb.addMonster(m.id, e.x + m.relX, e.y + m.relY));
-                stage.monsterBeacons.push(mb);
+                stage.beacons.push(mb);
             });
             data.items.forEach(e => stage.items.push(ItemFactory.getItem(e.id, e.x, e.y)));
             StageManager.currentStage = stage;

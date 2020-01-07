@@ -1,6 +1,8 @@
 const StageManager = {
     
     currentStage: null,
+    
+    beaconTestInterval: null,
 
 
     sleepAll(){
@@ -10,7 +12,8 @@ const StageManager = {
             this.currentStage.particles.forEach(e => e.sleep());
             this.currentStage.projectiles.forEach(e => e.sleep());
             this.currentStage.barriers.forEach(e => e.sleep());
-            this.currentStage.player.sleep()
+            this.currentStage.player.sleep();
+            clearInterval(this.beaconTestInterval);
         }
 
     },
@@ -24,7 +27,12 @@ const StageManager = {
             this.currentStage.projectiles.forEach(e => e.awaken());
             this.currentStage.barriers.forEach(e => e.awaken());
             this.currentStage.player.awaken();
+            this.beaconTestInterval = setInterval(this.testAllBeacons, 200);
         }
+    },
+
+    testAllBeacons(){
+        StageManager.currentStage.beacons.forEach(e => e.test());
     }
 
 }

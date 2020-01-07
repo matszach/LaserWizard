@@ -8,7 +8,7 @@ class Stage {
     collisionMap;
 
     // event triggers
-    monsterBeacons;
+    beacons;
 
     // active entities
     player;
@@ -25,7 +25,7 @@ class Stage {
         this.barriers = [];
         this.particles = [];
         this.items = [];
-        this.monsterBeacons = [];
+        this.beacons = [];
     }
 
 }

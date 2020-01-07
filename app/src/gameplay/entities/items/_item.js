@@ -5,7 +5,7 @@ class _Item extends _Entity{
         super();
         this.direction = Math.random() * 360; // random starting rotation
         this.checksCollisions = true;
-        this.collisoonCheckFrequency = 5;
+        this.collisoonCheckFrequency = 10;
         this.collidesPlayer = true;
     }
 
@@ -14,6 +14,7 @@ class _Item extends _Entity{
         if(!this.expired && this.shouldPickUp(p)){
             this.onPickUp(p);
             this.expire();
+            AudioRegistry.sounds.itemPickup.play();
         }
     }
 
@@ -24,6 +25,7 @@ class _Item extends _Entity{
     _doExist(thisEntity){
         thisEntity.rotate();
         thisEntity.doCheckCollisions();
+        AudioRegistry.sounds.itemPickup.play();
     }
 
     shouldPickUp(player){

@@ -3,7 +3,6 @@ class DoorBeacon extends _Beacon {
     // ===== fields =====
     doorTileIds = [];
 
-
     // ===== constructors =====
     constructor(x, y, range){
         super(x, y, range)
@@ -24,18 +23,13 @@ class DoorBeacon extends _Beacon {
 }
 
 class MagentaDoorBeacon extends DoorBeacon {
-
     _shoudlFire(){
         return StageManager.currentStage.player.keys.magenta;
     }
-
 }
 
-
 class CyanDoorBeacon extends DoorBeacon {
-
     _shoudlFire(){
         return StageManager.currentStage.player.keys.cyan;
     }
-
 }
