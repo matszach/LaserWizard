@@ -25,7 +25,6 @@ class _Item extends _Entity{
     _doExist(thisEntity){
         thisEntity.rotate();
         thisEntity.doCheckCollisions();
-        AudioRegistry.sounds.itemPickup.play();
     }
 
     shouldPickUp(player){

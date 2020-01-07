@@ -15,4 +15,8 @@ class _Character extends _Damageable{
     launchProjectile(projectileClass, direction){
         ProjectileSpawner.spawn(projectileClass, this, this.x, this.y, direction);
     }
+
+    _onIsInWall(){
+        this.restorePreviousPosition(); // if moved into t
+    }
 }

@@ -19,7 +19,6 @@ class _Entity {
     collidesProjectile;     // - states if the entity checks for collision with a projectile
     collidesBarrier;        // - states if the entity checks for collision with a barrier
     collidesItem;           // - states if the entity checks for collision with an item
-    stopsOnWall;            // - states if the entity can pass through walls
     tileX;                  // - x position in tileset (can be changed through animations)
     tileY;                  // - y position in tileset (can be changed through animations)
 
@@ -46,7 +45,6 @@ class _Entity {
         this.collidesBarrier = false;
         this.collidesProjectile = false;
         this.collidesItem = false;
-        this.stopsOnWall = true;
         this.tileX = 0;
         this.tileY = 0;
     }
@@ -82,6 +80,7 @@ class _Entity {
     }
 
     _move(d, v){
+        this._savePosition();
         this.x += Math.sin(d * Math.PI/180) * v;
         this.y -= Math.cos(d * Math.PI/180) * v;
     }
@@ -197,5 +196,24 @@ class _Entity {
     _onCollisionWithItem(entity){
         // abstract
     }
+
+    
+
+    // stopping on wall
+    _isInWall(){
+        return StageManager.currentStage.collisionMap[Math.round(this.x)][Math.round(this.y)] == 1;
+    }
+
+    checkForInWall(){
+        if(this._isInWall()){
+            this._onIsInWall();
+        }
+    }
+
+    _onIsInWall(){
+        // abstract
+    }
+
+
 
 }

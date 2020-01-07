@@ -102,6 +102,7 @@ class Player extends _Character {
     _doExist(player){
         player.handleMovement();
         player.handleTurning();
+        player.checkForInWall();
     }
 
     handleMovement(){
