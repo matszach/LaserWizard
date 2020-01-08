@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="styles/hud.css">
 	<!-- ===== SCRIPTS ===== -->
 	<script>
-		// allows for in-html loading of scripts
+		// allows for in-html loading of scripts (this is required in elecrin.js if we want to import scripts this way)
 		if (typeof module === 'object') {
 			window.module = module; 
 			module = undefined;
@@ -51,10 +51,12 @@
 	<script src="src/gameplay/entities/projectiles/projectileSpawner.js"></script>
 	<script src="src/gameplay/entities/players/player.js"></script>
 	<script src="src/gameplay/entities/monsters/_monster.js"></script>
+	<script src="src/gameplay/entities/monsters/zombie.js"></script>
+	<script src="src/gameplay/entities/monsters/drone.js"></script>
 	<script src="src/gameplay/entities/monsters/monsterFactory.js"></script>
 	<script src="src/gameplay/entities/items/_item.js"></script>
 	<script src="src/gameplay/entities/items/healthKit.js"></script>
-	<script src="src/gameplay/entities/items/energyOrb.js"></script>
+	<script src="src/gameplay/entities/items/energyBattery.js"></script>
 	<script src="src/gameplay/entities/items/key.js"></script>
 	<script src="src/gameplay/entities/items/weapon.js"></script>
 	<script src="src/gameplay/entities/items/itemFactory.js"></script>

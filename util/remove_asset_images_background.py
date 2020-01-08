@@ -5,9 +5,8 @@ ROOT_PATH = '..\\app\\assets\\images'
 BG_COLOR = (255, 255, 255, 255) # white pixel with full alpha
 
 for filename in os.listdir(ROOT_PATH):
-    print(filename) 
     if(filename.endswith('.png')):
-
+        print(filename) 
         img = Image.open(f'{ROOT_PATH}\\{filename}')
         width, height = img.size
         pix = img.load()
@@ -18,5 +17,3 @@ for filename in os.listdir(ROOT_PATH):
                     pix[x, y] = (255, 255, 255, 0) # white pixel with no alpha
         
         img.save(f'{ROOT_PATH}\\{filename}')
-
-    

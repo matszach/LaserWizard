@@ -1,18 +1,18 @@
-class EnergyOrb extends _Item {
+class EnergyBattery extends _Item {
 
     energyRestored;
 
     constructor(){
         super();
         this.energyRestored = 15;
-        this.displaySize = 0.5;
-        this.collisionSize = 0.4;
+        this.displaySize = 0.7;
+        this.collisionSize = 0.6;
     }
 
 }
 
 
-class RedEnergyOrb extends EnergyOrb{
+class RedEnergyBattery extends EnergyBattery{
 
     constructor(){
         super();
@@ -31,7 +31,7 @@ class RedEnergyOrb extends EnergyOrb{
 }
 
 
-class BlueEnergyOrb extends EnergyOrb{
+class BlueEnergyBattery extends EnergyBattery{
 
     constructor(){
         super();
@@ -50,7 +50,7 @@ class BlueEnergyOrb extends EnergyOrb{
 }
 
 
-class YellowEnergyOrb extends EnergyOrb{
+class YellowEnergyBattery extends EnergyBattery{
 
     constructor(){
         super();
