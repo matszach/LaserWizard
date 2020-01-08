@@ -2,15 +2,15 @@
     width: calc(100% - 20px);
     height: calc(100% - 20px);
     margin: 10px;
-    color: #83684e;
-    -webkit-text-stroke: 1.5px #3a2e23;
+    color: #ceab8a;
+    -webkit-text-stroke: 1.5px #241c15;
     font-size: 20px;
     font-family: fantasy;
 }
 
 #top-hud-div{
     height: 5%;
-    min-height: 50px;
+    min-height: 75px;
 }
 
 #weapons-div{
@@ -26,15 +26,15 @@
 .x-mark-span, .hud-value-span{
     display: inline-block;
     height: 40px;
-    line-height: 50px;
+    line-height: 40px;
     font-weight: bold;
     font-size: 30px;
     margin-left: 3px;
 }
 
 .battery-img{
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
 }
 
 .hp-icon{
@@ -43,6 +43,17 @@
     opacity: 0.1;
 }
 
-.hp-icon, .battery-img{
-    filter: drop-shadow(2px 2px 2px#000000);
+#selected-weapon-icon{
+    height: 55px;
+    width: 55px;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: rgba(218, 202, 186, 0.9);
+    border: 2px solid rgb(54, 50, 45);
+}
+
+.hp-icon, .battery-img, #selected-weapon-icon{
+    filter: drop-shadow(3px 3px 3px#000000);
 }

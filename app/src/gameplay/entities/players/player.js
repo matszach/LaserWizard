@@ -8,6 +8,8 @@ class Player extends _Character {
     maxYellowEnergy = 100;
     currentYellowEnergy = 0;
 
+    selectedWeaponIndex = 0;
+
     weaponsUnlockedState = [
         true,       // default 
         false,      // red 1
@@ -27,6 +29,7 @@ class Player extends _Character {
     };
 
     weaponActions = [];
+    
 
     // ==================== constructor ====================
     constructor(){
@@ -132,7 +135,5 @@ class Player extends _Character {
         if(dx < 0) dir += 180;
         this.turn(dir);
     }
-
-
 
 }
