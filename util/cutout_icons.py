@@ -35,4 +35,7 @@ create_icon(items, 'weapon-8-b1', (7, 1))
 create_icon(items, 'weapon-9-b2', (8, 1))
 create_icon(items, 'weapon-10-b3', (9, 1))
 
+create_icon(misc, 'heart', (2, 0))
+
+
 

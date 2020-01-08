@@ -85,11 +85,11 @@ const StagePainter = {
         for(var x = Math.floor(c.xMin); x <= Math.ceil(c.xMax); x++){
             for(var y = Math.floor(c.yMin); y <= Math.ceil(c.yMax); y++){ 
                 var walls = StageManager.currentStage.wallIds;
-                var tilePos = walls[x][y];
-                if(tilePos[0] == 0 && tilePos[1] == 0){
-                    continue;
-                }
-                if(x >= 0 && y >= 0 && x < walls.length && y < walls[0].length){                    
+                if(x >= 0 && y >= 0 && x < walls.length && y < walls[0].length){    
+                    var tilePos = walls[x][y];
+                    if(tilePos[0] == 0 && tilePos[1] == 0){
+                        continue;
+                    }                
                     CanvasManager.paintImageAt(ImageLoader.walls, tilePos[0], tilePos[1], c.unit,
                         (x - c.xMin), (y - c.yMin), c.vOffset, c.hOffset);
                 } 
