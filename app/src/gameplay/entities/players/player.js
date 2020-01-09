@@ -23,6 +23,10 @@ class Player extends _Character {
         false,      // yellow 3
     ];
 
+    // weaponsUnlockedState = [
+    //     true, true, true, true, true, true, true, true, true, true
+    // ];
+
     keys = {
         magenta : false,
         cyan : false
@@ -46,6 +50,32 @@ class Player extends _Character {
     fireWeapon(i){
         if(this.weaponsUnlockedState[i]){
             this.weaponActions[i].execute();
+        }
+    }
+
+    selectNextWeapon(){
+        this.selectedWeaponIndex++; // to next weapon
+        if(this.selectedWeaponIndex > 9){ // if last weapon -> wrap to first
+            this.selectedWeaponIndex = 0;
+        }
+        if(!this.weaponsUnlockedState[this.selectedWeaponIndex]){ // if next weapon not unlocked -> to next weapon
+            this.selectNextWeapon();
+        } 
+    }
+
+    selectPrevWeapon(){
+        this.selectedWeaponIndex--; // to prev weapon
+        if(this.selectedWeaponIndex < 0){ // if first weapon -> wrap to last
+            this.selectedWeaponIndex = 9;
+        }
+        if(!this.weaponsUnlockedState[this.selectedWeaponIndex]){ // if prev weapon not unlocked -> to next weapon
+            this.selectPrevWeapon();
+        }   
+    }
+
+    selectWeaponIfUnlocked(id){
+        if(this.weaponsUnlockedState[id]){
+            this.selectedWeaponIndex = id;
         }
     }
 
@@ -106,6 +136,7 @@ class Player extends _Character {
         player.handleMovement();
         player.handleTurning();
         player.checkForInWall();
+        player.handleWeaponSelectByButtonPress();
     }
 
     handleMovement(){
@@ -135,5 +166,13 @@ class Player extends _Character {
         if(dx < 0) dir += 180;
         this.turn(dir);
     }
+
+    handleWeaponSelectByButtonPress(){
+        for(var i = 0; i < 9; i++){
+            if(UserInputHandler.isKeyDown(String(i+1))) this.selectWeaponIfUnlocked(i);
+        }
+        if(UserInputHandler.isKeyDown('0')) this.selectWeaponIfUnlocked(9);
+    }
+    
 
 }

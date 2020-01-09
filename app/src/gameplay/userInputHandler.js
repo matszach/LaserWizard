@@ -5,11 +5,12 @@ const UserInputHandler = {
     },
 
     mouse : {
-        x : 0,          // - x position in canvas (in pixels)
-        y : 0,          // - y position in canvas (in pixels)
-        left : false,   // - is mouse left button down
-        middle : false, // - is mouse middle button down
-        right : false   // - is mouse right button down
+        x : 0,              // - x position in canvas (in pixels)
+        y : 0,              // - y position in canvas (in pixels)
+        left : false,       // - is mouse left button down
+        middle : false,     // - is mouse middle button down
+        right : false,      // - is mouse right button down
+        wheel : 0,          // - mouse wheel state, reduced on mouse down, increased on mouse up
     },
 
     init(){
@@ -18,6 +19,7 @@ const UserInputHandler = {
         $(document).mousemove(e => this.onMouseMove(e));
         $(document).mousedown(e => this.onMouseButton(e));
         $(document).mouseup(e => this.onMouseButton(e));
+        $(document).on('wheel', e => this.onScroll(e));
     },
 
 
@@ -79,6 +81,15 @@ const UserInputHandler = {
 
     onMouseButton(e){
         
+    },
+
+    onScroll(e){
+        var event = e.originalEvent;
+        if(event.deltaY < 0){
+            this.mouse.wheel++;
+        } else {
+            this.mouse.wheel--;
+        }
     }
 
 

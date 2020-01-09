@@ -1,14 +1,19 @@
 const HudManager = {
 
-    // used to get an 'ease-in' type animation when a resource is gained or lost
-    onDisplayValues: {
-        hp: 0,
-        prevHp : 0,
-        redEnergy: 0,
-        yellowEnergy: 0,
-        blueEnergy: 0,
-        selectedWeaponIndex: 0
+    getDisplayValues(){
+        return {
+            hp: 0,
+            prevHp : 0,
+            redEnergy: 0,
+            yellowEnergy: 0,
+            blueEnergy: 0,
+            selectedWeaponIndex: 0, 
+            wheel: UserInputHandler.mouse.wheel
+        }
     },
+
+    // used to get an 'ease-in' type animation when a resource is gained or lost
+    onDisplayValues: null,
 
     interval: null,
 
@@ -27,11 +32,28 @@ const HudManager = {
         'weapon-10-b3'
     ],
 
+    reset(){
+        this.onDisplayValues = this.getDisplayValues();
+    },
+
+
+    start(){
+        this.reset();
+        this.interval = setInterval(this.manage, 50);
+    },
+
+
+    stop(){
+        clearInterval(this.interval);
+    },
+
+
     manage(){
         var p = StageManager.currentStage.player;
         var dv = HudManager.onDisplayValues;
         HudManager.applyEnergyDisplayChange(p, dv);
         HudManager.applyHpDisplayChage(p, dv);
+        HudManager.applyScrollSelectWeapon(p, dv);
         HudManager.applyWeaponChange(p, dv);
     },
 
@@ -108,26 +130,15 @@ const HudManager = {
         }
     },
 
-    
-    start(){
-        this.reset();
-        this.interval = setInterval(this.manage, 50);
-    },
-
-
-    stop(){
-        clearInterval(this.interval);
-    },
-
-
-    reset(){
-        this.onDisplayValues = {
-            hp: 0,
-            prevHp : 0,
-            redEnergy: 0,
-            yellowEnergy: 0,
-            blueEnergy: 0,
-            selectedWeaponIndex: 0
-        };
+    applyScrollSelectWeapon(p, dv){
+        if(dv.wheel == UserInputHandler.mouse.wheel){
+            return; // wheel did not change, no need to continue
+        } else if (dv.wheel > UserInputHandler.mouse.wheel){
+            p.selectPrevWeapon();
+        } else {
+            p.selectNextWeapon();
+        }
+        dv.wheel = UserInputHandler.mouse.wheel;
     }
+
 }
