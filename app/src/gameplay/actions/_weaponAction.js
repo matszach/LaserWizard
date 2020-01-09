@@ -8,7 +8,7 @@ class _WeaponAction{
     // ==================== constructor ====================
     constructor(player){
         this.player = player;        
-        this.cooldownDuration = 100;
+        this.cooldownDuration = 250;
         this.isOnCooldown = false;
     }
 

@@ -4,6 +4,7 @@ class _Projectile extends _Entity {
     duration;                // - duration left in animation ticks
     accuracy;                // - projectiles accuracy, 100 = perfect, 0 = fully random
     parentEntity;            // - entity that's the origin of the projectile
+    travelDirection;         // - direction of the projectile's travel (not necessarily equal to this.direction (eg. in rotating projectiles))
     
     // ==================== constructor ====================
     constructor(parentEntity, direction, x, y){
@@ -19,7 +20,8 @@ class _Projectile extends _Entity {
         this.parentEntity = parentEntity;
         this.x = x;
         this.y = y;
-        this.direction = direction + 180 * (100 - this.accuracy) * (Math.random() * 2 - 1);
+        this.travelDirection = direction + 180 * (100 - this.accuracy) * (Math.random() * 2 - 1);
+        this.direction = this.travelDirection;
     }
 
     // ==================== methods ====================
@@ -31,9 +33,18 @@ class _Projectile extends _Entity {
     }
 
     _doExist(){
-        this.travel(this.direction);
+        this.travel(this.travelDirection);
         this.checkCollisions();
         this.tickDuration();
+        this.animate();
+    }
+
+    animate(){
+        // abstract
+    }
+
+    rotate(val){
+        this.direction += val;
     }
 
 }

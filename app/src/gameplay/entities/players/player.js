@@ -38,7 +38,18 @@ class Player extends _Character {
     // ==================== constructor ====================
     constructor(){
         super();
-        // todo init weapon actions here
+        this.weaponActions = [
+            new WeaponAction1n(this),
+            new WeaponAction1n(this),
+            new WeaponAction1n(this),
+            new WeaponAction1n(this),
+            new WeaponAction1n(this),
+            new WeaponAction1n(this),
+            new WeaponAction1n(this),
+            new WeaponAction1n(this),
+            new WeaponAction1n(this),
+            new WeaponAction1n(this)
+        ]
     }
 
 
@@ -138,6 +149,7 @@ class Player extends _Character {
         player.handleTurning();
         player.checkForInWall();
         player.handleWeaponSelectByButtonPress();
+        player.handleWeaponActions();
     }
 
     handleMovement(){
@@ -175,6 +187,11 @@ class Player extends _Character {
         if(UserInputHandler.isKeyDown('0')) this.selectWeaponIfUnlocked(9);
         HudManager.refreshWeapomSelectionDisplay(this);
     }
-    
+
+    handleWeaponActions(){
+        if(UserInputHandler.mouse.left){
+            this.weaponActions[this.selectedWeaponIndex].execute();
+        }
+    }
 
 }
