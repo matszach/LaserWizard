@@ -80,7 +80,19 @@ const UserInputHandler = {
     },
 
     onMouseButton(e){
-        
+        if(e.buttons == 0){
+            this.mouse.left = false;
+            this.mouse.right = false;
+        } else if(e.buttons == 1){
+            this.mouse.left = true;
+            this.mouse.right = false;
+        } else if(e.buttons == 2){
+            this.mouse.left = false;
+            this.mouse.right = true;
+        } else if(e.buttons == 3){
+            this.mouse.left = true;
+            this.mouse.right = true;
+        }
     },
 
     onScroll(e){

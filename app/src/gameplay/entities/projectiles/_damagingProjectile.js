@@ -16,10 +16,12 @@ class _DamagingProjectile extends _Projectile {
 
     _onCollisionWithMonster(m){
         m.takeDmg(this.calculateDamage());
+        this.expire();
     }
 
     _onCollisionWithPlayer(p){
         p.takeDmg(this.calculateDamage());
+        this.expire();
     }
 
 }

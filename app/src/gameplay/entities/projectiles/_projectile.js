@@ -32,11 +32,12 @@ class _Projectile extends _Entity {
         }
     }
 
-    _doExist(){
-        this.travel(this.travelDirection);
-        this.checkCollisions();
-        this.tickDuration();
-        this.animate();
+    _doExist(thisEntity){
+        thisEntity.travel(thisEntity.travelDirection);
+        thisEntity.animate();
+        thisEntity.checkForInWall();
+        thisEntity.doCheckCollisions();
+        thisEntity.tickDuration();
     }
 
     animate(){
@@ -45,6 +46,10 @@ class _Projectile extends _Entity {
 
     rotate(val){
         this.direction += val;
+    }
+
+    _onIsInWall(){
+        this.expire();
     }
 
 }

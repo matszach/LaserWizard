@@ -15,6 +15,7 @@ const ImageLoader = {
         this.monsters.src = 'assets/images/monsters.png';
         this.items.src = 'assets/images/items.png';
         this.player.src = 'assets/images/player.png';
+        this.projectiles.src = 'assets/images/projectiles.png';
         this.misc.src = 'assets/images/misc.png';
     }
 

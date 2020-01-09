@@ -127,7 +127,11 @@ const StagePainter = {
     },
 
     drawProjectiles(c){
-
+        StageManager.currentStage.projectiles.filter(e => {return !e.expired}).forEach(e => {
+            
+            CanvasManager.paintRotatedImageAt(ImageLoader.projectiles, e.tileX, e.tileY, c.unit,
+                (e.x - c.xMin), (e.y - c.yMin), c.vOffset, c.hOffset, e.direction, e.displaySize);
+        });
     }
 
 

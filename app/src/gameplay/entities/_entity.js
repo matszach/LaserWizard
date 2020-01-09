@@ -3,7 +3,6 @@ class _Entity {
     // ==================== fields ====================
     collisionSize;         // - used in collision detection
     displaySize;            // - used when the entity's image is drawn
-    image;                  // - reference to the entity's sprites
     x;                      // - current character's X position
     y;                      // - current character's Y position 
     direction;              // - current direction the character is facing
@@ -57,7 +56,7 @@ class _Entity {
 
     awaken(){
         if(!this.lifecycleInterval){
-            setInterval(this._doExist, 10, this);
+            this.lifecycleInterval = setInterval(this._doExist, 10, this);
         }
     }
 
