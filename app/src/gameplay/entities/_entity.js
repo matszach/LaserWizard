@@ -1,7 +1,7 @@
 class _Entity {
 
     // ==================== fields ====================
-    collisionSize;          // - used in collision detection
+    collisionSize;         // - used in collision detection
     displaySize;            // - used when the entity's image is drawn
     image;                  // - reference to the entity's sprites
     x;                      // - current character's X position
@@ -215,5 +215,13 @@ class _Entity {
     }
 
 
+    // misc
+    getDirectionToPoint(x, y){
+        var dx = x - this.x;
+        var dy = y - this.y;
+        var dir = Math.atan(dy/dx) * 180 / Math.PI + 90;
+        if(dx < 0) dir += 180;
+        return dir;
+    }
 
 }

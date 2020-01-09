@@ -34,6 +34,10 @@ const HudManager = {
 
     reset(){
         this.onDisplayValues = this.getDisplayValues();
+        var p = StageManager.currentStage.player;
+        this.refreshWeaponUnlockStateDisplay(p);
+        this.refreshWeapomSelectionDisplay(p);
+
     },
 
 
@@ -139,6 +143,23 @@ const HudManager = {
             p.selectNextWeapon();
         }
         dv.wheel = UserInputHandler.mouse.wheel;
+        this.refreshWeapomSelectionDisplay(p);
+    },
+
+
+    refreshWeaponUnlockStateDisplay(player){
+        for(var i = 0; i < 10; i++){
+            if(player.weaponsUnlockedState[i]){
+                $(`#weapon-choice-${i+1}`).removeClass('locked');
+            } else {
+                $(`#weapon-choice-${i+1}`).addClass('locked');
+            }
+        }
+    },
+
+    refreshWeapomSelectionDisplay(player){
+        $('.weapon-choice.selected').removeClass('selected');
+        $(`#weapon-choice-${player.selectedWeaponIndex + 1}`).addClass('selected');
     }
 
 }

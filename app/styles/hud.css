@@ -44,6 +44,7 @@
 }
 
 #selected-weapon-icon{
+    float: left;
     height: 55px;
     width: 55px;
     padding: 5px;
@@ -51,9 +52,38 @@
     margin-right: 10px;
     border-radius: 50%;
     background-color: rgba(218, 202, 186, 0.9);
-    border: 2px solid rgb(54, 50, 45);
+    border: 2px solid rgb(80, 60, 35);
 }
 
-.hp-icon, .battery-img, #selected-weapon-icon{
+.weapon-choice{
+    height: 22px;
+    width: 22px;
+    padding: 2px;
+    border-radius: 50%;
+    background-color: rgba(218, 202, 186, 0.9);
+    border: 2px solid rgb(54, 50, 45);
+    transition-duration: 400ms;
+    filter: brightness(0.8);
+    opacity: 0.7;
+}
+
+.weapon-choice.locked{
+    filter: grayscale(1);
+    filter: brightness(0.4);
+    opacity: 0.5;
+}
+
+.weapon-choice.selected{
+    filter: brightness(1);
+    opacity: 1;
+    border: 2px solid rgb(80, 60, 35);
+}
+
+#weapon-selection-top-panel{
+    margin-left: 5px;
+    float: left;
+}
+
+.hp-icon, .battery-img, #selected-weapon-icon, .weapon-choice{
     filter: drop-shadow(3px 3px 3px#000000);
 }

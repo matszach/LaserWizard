@@ -45,6 +45,7 @@ class Player extends _Character {
     // weapon usage
     unlockWeapon(i){
         this.weaponsUnlockedState[i] = true;
+        HudManager.refreshWeaponUnlockStateDisplay(this);
     }
 
     fireWeapon(i){
@@ -172,6 +173,7 @@ class Player extends _Character {
             if(UserInputHandler.isKeyDown(String(i+1))) this.selectWeaponIfUnlocked(i);
         }
         if(UserInputHandler.isKeyDown('0')) this.selectWeaponIfUnlocked(9);
+        HudManager.refreshWeapomSelectionDisplay(this);
     }
     
 
