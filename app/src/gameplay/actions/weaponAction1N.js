@@ -2,7 +2,7 @@ class WeaponAction1N extends _WeaponAction{
 
     constructor(player){
         super(player);
-        this.cooldownDuration = 500;
+        this.cooldownDuration = 600;
     }
 
     onSuccess(){
