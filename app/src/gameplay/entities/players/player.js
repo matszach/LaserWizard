@@ -39,9 +39,9 @@ class Player extends _Character {
             new WeaponAction2R1(this),
             new WeaponAction3R2(this),
             new WeaponAction4R3(this),
-            new WeaponAction1N(this),
-            new WeaponAction1N(this),
-            new WeaponAction1N(this),
+            new WeaponAction5Y1(this),
+            new WeaponAction6Y2(this),
+            new WeaponAction7Y3(this),
             new WeaponAction1N(this),
             new WeaponAction1N(this),
             new WeaponAction1N(this)

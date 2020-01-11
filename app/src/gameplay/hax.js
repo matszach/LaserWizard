@@ -10,8 +10,8 @@ const Hax = {
     refillAmmo(){
         var p = StageManager.currentStage.player;
         p.gainRedEnergy(100);
-        p.gainRedEnergy(100);
-        p.gainRedEnergy(100);
+        p.gainYellowEnergy(100);
+        p.gainBlueEnergy(100);
     },
 
     insaneAmmo(){
