@@ -289,7 +289,7 @@ for i in range(1, nof_stages_ready + 1):
         tr = msb['triggerRange']
         preview_draw.ellipse(((msb['x'] - tr) * UNIT + UNIT/2, (msb['y'] - tr) * UNIT + UNIT/2,
                         (msb['x'] + tr) * UNIT + UNIT/2, (msb['y'] + tr) * UNIT + UNIT/2), 
-                        fill=None, outline='blue', width=3)
+                        fill=None, outline='red', width=3)
 
     # player
     plr_image = player.crop((0, 0, UNIT, UNIT))
