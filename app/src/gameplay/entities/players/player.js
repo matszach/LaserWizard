@@ -41,8 +41,8 @@ class Player extends _Character {
         this.weaponActions = [
             new WeaponAction1N(this),
             new WeaponAction2R1(this),
-            new WeaponAction1N(this),
-            new WeaponAction1N(this),
+            new WeaponAction3R2(this),
+            new WeaponAction4R3(this),
             new WeaponAction1N(this),
             new WeaponAction1N(this),
             new WeaponAction1N(this),
