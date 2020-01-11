@@ -2,7 +2,6 @@ class _Monster extends _Character {
 
     constructor(){
         super();
-        this.speed = 0.02;
     }
 
     _doExist(thisEntity){

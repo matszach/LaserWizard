@@ -1,4 +1,4 @@
-class WeaponAction1n extends _WeaponAction{
+class WeaponAction1N extends _WeaponAction{
 
     constructor(player){
         super(player);

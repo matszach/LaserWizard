@@ -138,28 +138,28 @@ class _Entity {
             }
         }
         if(this.collidesMonster){
-            st.monsters.forEach(e => {
+            st.monsters.filter(e => {return !e.expired}).forEach(e => {
                 if(this._isCollisionWithEntity(e)){
                     this._onCollisionWithMonster(e);
                 }
             });
         }
         if(this.collidesProjectile){
-            st.projectiles.forEach(e => {
+            st.projectiles.filter(e => {return !e.expired}).forEach(e => {
                 if(this._isCollisionWithEntity(e)){
                     this._onCollisionWithProjectile(e);
                 }
             });
         }
         if(this.collidesBarrier){
-            st.barriers.forEach(e => {
+            st.barriers.filter(e => {return !e.expired}).forEach(e => {
                 if(this._isCollisionWithEntity(e)){
                     this._onCollisionWithBarrier(e);
                 }
             });
         }
         if(this.collidesItem){
-            st.items.forEach(e => {
+            st.items.filter(e => {return !e.expired}).forEach(e => {
                 if(this._isCollisionWithEntity(e)){
                     this._onCollisionWithItem(e);
                 }

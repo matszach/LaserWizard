@@ -39,17 +39,18 @@ class Player extends _Character {
     constructor(){
         super();
         this.weaponActions = [
-            new WeaponAction1n(this),
-            new WeaponAction1n(this),
-            new WeaponAction1n(this),
-            new WeaponAction1n(this),
-            new WeaponAction1n(this),
-            new WeaponAction1n(this),
-            new WeaponAction1n(this),
-            new WeaponAction1n(this),
-            new WeaponAction1n(this),
-            new WeaponAction1n(this)
-        ]
+            new WeaponAction1N(this),
+            new WeaponAction2R1(this),
+            new WeaponAction1N(this),
+            new WeaponAction1N(this),
+            new WeaponAction1N(this),
+            new WeaponAction1N(this),
+            new WeaponAction1N(this),
+            new WeaponAction1N(this),
+            new WeaponAction1N(this),
+            new WeaponAction1N(this)
+        ];
+        this.speed = 0.04;
     }
 
 
@@ -94,7 +95,7 @@ class Player extends _Character {
 
     // red energy
     hasRedEnergy(n){
-        return this.currentRedEnergy > n;
+        return this.currentRedEnergy >= n;
     }
     gainRedEnergy(n){
         this.currentRedEnergy += n;
@@ -106,12 +107,14 @@ class Player extends _Character {
         if(!this.hasRedEnergy(n)){
             return false;
         }
+        this.currentRedEnergy -= n;
+        return true;
     }
 
 
     // blue energy
     hasBlueEnergy(n){
-        return this.currentBlueEnergy > n;
+        return this.currentBlueEnergy >= n;
     }
     gainBlueEnergy(n){
         this.currentBlueEnergy += n;
@@ -123,12 +126,14 @@ class Player extends _Character {
         if(!this.hasBlueEnergy(n)){
             return false;
         }
+        this.currentBlueEnergy -= n;
+        return true;
     }
 
 
     // yellow energy
     hasYellowEnergy(n){
-        return this.currentYellowEnergy > n;
+        return this.currentYellowEnergy >= n;
     }
     gainYellowEnergy(n){
         this.currentYellowEnergy += n;
@@ -140,6 +145,8 @@ class Player extends _Character {
         if(!this.hasYellowEnergy(n)){
             return false;
         }
+        this.currentYellowEnergy -= n;
+        return true;
     }
 
 

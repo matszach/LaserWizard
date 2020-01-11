@@ -18,7 +18,7 @@ class _Damageable extends _Entity{
     // ==================== methods ====================
     // damage and death
     takeDmg(d){
-        this.hp -= d * (100 - this.defence);
+        this.hp -= d * (100 - this.defence)/100;
         if(this.hp <= 0){
             this.expire();
         }

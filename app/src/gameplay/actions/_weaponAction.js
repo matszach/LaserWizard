@@ -14,7 +14,7 @@ class _WeaponAction{
 
     // ==================== methods ====================
     execute(){
-        if(!this.isOnCooldown){
+        if(!this.isOnCooldown && this.test()){
             this.startCooldown();
             this.onSuccess();
         } else {
@@ -33,6 +33,11 @@ class _WeaponAction{
 
     onFailure(){
         // abstract
+    }
+
+    test(){
+        return true;
+        // override if, for eg. the weapon requires ammo and should not fire if  the ammo is absent
     }
 
 }
