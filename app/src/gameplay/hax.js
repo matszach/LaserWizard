@@ -1,0 +1,31 @@
+const Hax = {
+
+    unlockAllWeapons(){
+        var p = StageManager.currentStage.player;
+        for(var i = 0; i < p.weaponsUnlockedState.length; i++){
+            p.unlockWeapon(i);
+        }
+    },
+
+    refillAmmo(){
+        var p = StageManager.currentStage.player;
+        p.gainRedEnergy(100);
+        p.gainRedEnergy(100);
+        p.gainRedEnergy(100);
+    },
+
+    insaneAmmo(){
+        var p = StageManager.currentStage.player;
+        p.maxRedEnergy = 9999;
+        p.maxYellowEnergy = 9999;
+        p.maxBlueEnergy = 9999;
+        p.gainRedEnergy(9999);
+        p.gainYellowEnergy(9999);
+        p.gainBlueEnergy(9999);
+    },
+
+
+
+
+
+}

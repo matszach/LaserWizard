@@ -1,4 +1,4 @@
-class WeaponAction2R3 extends _WeaponAction{
+class WeaponAction4R3 extends _WeaponAction{
 
     cost = 5;
     nofProjectiles = 10;
@@ -10,7 +10,7 @@ class WeaponAction2R3 extends _WeaponAction{
 
     onSuccess(){
         for(var i = 0; i < this.nofProjectiles; i++){
-            ProjectileSpawner.spawn(Weapon2R3Projectile, this.player, this.player.x, this.player.y, this.player.direction);
+            ProjectileSpawner.spawn(Weapon4R3Projectile, this.player, this.player.x, this.player.y, this.player.direction);
         }         
     }
 

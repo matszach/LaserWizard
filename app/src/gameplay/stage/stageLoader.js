@@ -26,6 +26,11 @@ const StageLoader = {
             StageManager.currentStage = stage;
             StageManager.awakenAll();
             HudManager.start();
+
+
+            // hax todo remove this
+            Hax.unlockAllWeapons();
+            Hax.insaneAmmo();
         });
     }
 

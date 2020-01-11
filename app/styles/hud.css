@@ -84,6 +84,6 @@
     float: left;
 }
 
-.hp-icon, .battery-img, #selected-weapon-icon, .weapon-choice{
+.hp-icon, .battery-img, #selected-weapon-icon{
     filter: drop-shadow(3px 3px 3px#000000);
 }

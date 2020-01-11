@@ -23,10 +23,6 @@ class Player extends _Character {
         false,      // yellow 3
     ];
 
-    // weaponsUnlockedState = [
-    //     true, true, true, true, true, true, true, true, true, true
-    // ];
-
     keys = {
         magenta : false,
         cyan : false

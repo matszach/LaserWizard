@@ -138,9 +138,9 @@ const HudManager = {
         if(dv.wheel == UserInputHandler.mouse.wheel){
             return; // wheel did not change, no need to continue
         } else if (dv.wheel > UserInputHandler.mouse.wheel){
-            p.selectPrevWeapon();
-        } else {
             p.selectNextWeapon();
+        } else {
+            p.selectPrevWeapon();
         }
         dv.wheel = UserInputHandler.mouse.wheel;
         this.refreshWeapomSelectionDisplay(p);
