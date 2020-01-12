@@ -42,9 +42,9 @@ class Player extends _Character {
             new WeaponAction5Y1(this),
             new WeaponAction6Y2(this),
             new WeaponAction7Y3(this),
-            new WeaponAction1N(this),
-            new WeaponAction1N(this),
-            new WeaponAction1N(this)
+            new WeaponAction8B1(this),
+            new WeaponAction9B2(this),
+            new WeaponAction10B3(this)
         ];
         this.speed = 0.04;
     }

@@ -10,10 +10,15 @@ BORDER = 4
 # --- structure
 EMPTY = (255, 255, 255)
 WALL = (0, 0, 0)
+DECOR_1_FLOOR = (180, 250, 180)
+DECOR_2_FLOOR = (180, 180, 180)
 
 # --- doors and keys
 CYAN_DOOR = (255, 0, 255)
+
 TEAL_DOOR = (0, 255, 255)
+
+DOOR_BEACON = (120, 60, 30)
 
 # --- player 
 PLAYER_SPAWN = (255, 125, 0)
@@ -90,8 +95,10 @@ for i in range(1, nof_stages_ready + 1):
     print(f'======================== Building stage {i} ========================')
 
     image = Image.open(f'in\\stage{i}\map.png')
-    beacons = loads(''.join([line for line in open(f'in\\stage{i}\\beacons.json')]))
-    beacon_index = 0
+    monster_beacons = loads(''.join([line for line in open(f'in\\stage{i}\\monster_beacons.json')]))
+    monster_beacon_index = 0
+    door_beacons = loads(''.join([line for line in open(f'in\\stage{i}\\door_beacons.json')]))
+    door_beacon_index = 0
     width, height = image.size
     pixels = image.load()
 
@@ -101,6 +108,7 @@ for i in range(1, nof_stages_ready + 1):
     level['collisionMap'] = np.zeros((width, height), dtype=int).tolist()
     level['items'] = []
     level['monsterSpawnBeacons'] = []
+    level['doorBeacons'] = []
 
 
     for y in range(height):
@@ -116,9 +124,18 @@ for i in range(1, nof_stages_ready + 1):
 
 
             if c == EMPTY:
-                continue
+                if randint(1, 100) > 95:
+                    level['floorIds'][x][y][1] = 2  # move to 'damaged tiles' row
 
 
+            elif c == DECOR_1_FLOOR:
+                level['floorIds'][x][y] = [randint(0, 3), 1]
+				
+				
+            elif c == DECOR_2_FLOOR:
+                level['floorIds'][x][y] = [randint(4, 11), 1]
+
+                
             elif c == WALL:
 
                 left = is_field_in(pixels, x-1, y, [WALL])
@@ -168,7 +185,7 @@ for i in range(1, nof_stages_ready + 1):
 
                 level['wallIds'][x][y] = [x_index, y_index]
                 level['collisionMap'][x][y] = 1
-            
+				
 
             elif c == TEAL_DOOR:
                 level['wallIds'][x][y] = [1, 3]
@@ -191,19 +208,34 @@ for i in range(1, nof_stages_ready + 1):
                 level['items'].append(item)
 
             elif c == MONSTER_SPAWN_BEACON:
-                # TODO read monster list from file
                 msb = {
                     'x' : x,
                     'y' : y,
                     'triggerRange' : 0,
                     'monsterList' : []
                 }
-                if beacon_index < len(beacons):
-                    msb['monsterList'] = beacons[beacon_index]['monsterList']
-                    msb['triggerRange'] = beacons[beacon_index]['triggerRange']
+                if monster_beacon_index < len(monster_beacons):
+                    msb['monsterList'] = monster_beacons[monster_beacon_index]['monsterList']
+                    msb['triggerRange'] = monster_beacons[monster_beacon_index]['triggerRange']
 
                 level['monsterSpawnBeacons'].append(msb)
-                beacon_index += 1
+                monster_beacon_index += 1
+
+            elif c == DOOR_BEACON:
+                db = {
+                    'x' : x,
+                    'y' : y,
+                    'triggerRange' : 0,
+                    'affectedTiles' : [],
+                    'condition' : 0                 # 0 - none, 1 - has cyan(magenta) key, 2 - has teal key 
+                }
+                if door_beacon_index < len(door_beacons):
+                    db['affectedTiles'] = door_beacons[door_beacon_index]['affectedTiles']
+                    db['triggerRange'] = door_beacons[door_beacon_index]['triggerRange']
+                    db['condition'] = door_beacons[door_beacon_index]['condition']
+
+                level['doorBeacons'].append(db)
+                door_beacon_index += 1
 
             elif c == PLAYER_EXIT:
                 left = is_field_in(pixels, x-1, y, [PLAYER_EXIT])
@@ -290,6 +322,19 @@ for i in range(1, nof_stages_ready + 1):
         preview_draw.ellipse(((msb['x'] - tr) * UNIT + UNIT/2, (msb['y'] - tr) * UNIT + UNIT/2,
                         (msb['x'] + tr) * UNIT + UNIT/2, (msb['y'] + tr) * UNIT + UNIT/2), 
                         fill=None, outline='red', width=3)
+
+    # db
+    for db in level['doorBeacons']:
+        db_image = misc.crop((0, 0, UNIT, UNIT))
+        preview.paste(db_image, (db['x'] * UNIT, db['y'] * UNIT), db_image)
+        for d in db['affectedTiles']:
+            preview_draw.line((db['x'] * UNIT + UNIT/2 , db['y'] * UNIT + UNIT/2, 
+                            (db['x'] + d['relX']) * UNIT + UNIT/2, (db['y'] + d['relY']) * UNIT + UNIT/2), 
+                            fill='black', width=2)
+        tr = db['triggerRange']
+        preview_draw.ellipse(((db['x'] - tr) * UNIT + UNIT/2, (db['y'] - tr) * UNIT + UNIT/2,
+                        (db['x'] + tr) * UNIT + UNIT/2, (db['y'] + tr) * UNIT + UNIT/2), 
+                        fill=None, outline='green', width=3)
 
     # player
     plr_image = player.crop((0, 0, UNIT, UNIT))

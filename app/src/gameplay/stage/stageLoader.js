@@ -22,6 +22,7 @@ const StageLoader = {
                 e.monsterList.forEach(m => mb.addMonster(m.id, e.x + m.relX, e.y + m.relY));
                 stage.beacons.push(mb);
             });
+            data.doorBeacons.forEach(e => stage.beacons.push(DoorBeaconFactory.getDoorBeacon(e)));
             data.items.forEach(e => stage.items.push(ItemFactory.getItem(e.id, e.x, e.y)));
             StageManager.currentStage = stage;
             StageManager.awakenAll();

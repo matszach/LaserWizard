@@ -1,4 +1,4 @@
-class Weapon1NProjectile extends _DamagingProjectile {
+class Weapon8B1Projectile extends _DamagingProjectile {
 
     // ==================== constructor ====================
     constructor(parentEntity, direction, x, y){
@@ -6,13 +6,13 @@ class Weapon1NProjectile extends _DamagingProjectile {
         super(parentEntity, direction, x, y);
 
         this.speed = 0.13;
-        this.minDmg = 5;
-        this.maxDmg = 8;
-        this.duration = 90;
+        this.minDmg = 8;
+        this.maxDmg = 12;
+        this.duration = 100;
         this.accuracy = 99;
         
         this.tileX = 0;
-        this.tileY = 0;
+        this.tileY = 3;
         
         this.collisionSize = 0.2;
         this.displaySize = 0.6;
@@ -20,7 +20,7 @@ class Weapon1NProjectile extends _DamagingProjectile {
     }
 
     animate(){
-
+        
     }
 
 }

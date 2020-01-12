@@ -24,6 +24,7 @@ class DoorBeacon extends _Beacon {
 
 class MagentaDoorBeacon extends DoorBeacon {
     _shoudlFire(){
+        console.log(StageManager.currentStage.player.keys.magenta);
         return StageManager.currentStage.player.keys.magenta;
     }
 }
