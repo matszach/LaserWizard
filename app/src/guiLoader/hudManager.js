@@ -66,19 +66,19 @@ const HudManager = {
         if(p.currentRedEnergy > dv.redEnergy){
             dv.redEnergy++;
         } else {
-            dv.redEnergy = p.currentRedEnergy
+            dv.redEnergy = Math.floor(p.currentRedEnergy);
         }
         $('.hud-value-span.red').html(dv.redEnergy);
         if(p.currentYellowEnergy > dv.yellowEnergy){
             dv.yellowEnergy++;
         } else {
-            dv.yellowEnergy = p.currentYellowEnergy
+            dv.yellowEnergy = Math.floor(p.currentYellowEnergy);
         }
         $('.hud-value-span.yellow').html(dv.yellowEnergy);
         if(p.currentBlueEnergy > dv.blueEnergy){
             dv.blueEnergy++;
         } else {
-            dv.blueEnergy = p.currentBlueEnergy
+            dv.blueEnergy = Math.floor(p.currentBlueEnergy);
         }
         $('.hud-value-span.blue').html(dv.blueEnergy);
     },
