@@ -18,12 +18,12 @@
     font-family: Impact;
     letter-spacing: 10px;
 
-    background: -webkit-linear-gradient(#442200, #221100);
+    background: -webkit-linear-gradient(#884400, #442200);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     
-    filter: drop-shadow(0px 30px 100px #884400);
+    filter: drop-shadow(0px 30px 100px #aa6600);
     animation-duration: 2s;
     animation-name: fade-in;
     white-space: nowrap;
@@ -36,7 +36,7 @@
     font-family: Impact;
     letter-spacing: 5px;
     transition-duration: 1200ms;
-    color: #331700;
+    color: #663300;
     background-color: transparent;
     margin-left: calc(50% - 90px);
     width: 180px;

@@ -39,27 +39,27 @@
 
 
 @keyframes menu-bg-animation{
-    from{background: linear-gradient(#140700 0%,  #020100 100%);}
-    5%  {background: linear-gradient(#140700 4%,  #020100 100%);}
-    10% {background: linear-gradient(#140700 8%,  #020100 100%);}
-    15% {background: linear-gradient(#140700 12%  #020100 100%);}
-    20% {background: linear-gradient(#140700 16%, #020100 100%);}
-    25% {background: linear-gradient(#140700 20%, #020100 100%);}
-    30% {background: linear-gradient(#140700 24%, #020100 100%);}
-    35% {background: linear-gradient(#140700 28%, #020100 100%);}
-    40% {background: linear-gradient(#140700 32%, #020100 100%);}
-    45% {background: linear-gradient(#140700 36%, #020100 100%);}
-    50% {background: linear-gradient(#140700 40%, #020100 100%);}
-    55% {background: linear-gradient(#140700 36%, #020100 100%);}
-    60% {background: linear-gradient(#140700 32%, #020100 100%);}
-    65% {background: linear-gradient(#140700 28%, #020100 100%);}
-    70% {background: linear-gradient(#140700 24%, #020100 100%);}
-    75% {background: linear-gradient(#140700 20%, #020100 100%);}
-    80% {background: linear-gradient(#140700 16%, #020100 100%);}
-    85% {background: linear-gradient(#140700 12%, #020100 100%);}
-    90% {background: linear-gradient(#140700 8%,  #020100 100%);}
-    95% {background: linear-gradient(#140700 4%,  #020100 100%);}
-    to  {background: linear-gradient(#140700 0%,  #020100 100%);}
+    from{background: linear-gradient(#221100 0%,  #040100 100%);}
+    5%  {background: linear-gradient(#221100 4%,  #040100 100%);}
+    10% {background: linear-gradient(#221100 8%,  #040100 100%);}
+    15% {background: linear-gradient(#221100 12%  #040100 100%);}
+    20% {background: linear-gradient(#221100 16%, #040100 100%);}
+    25% {background: linear-gradient(#221100 20%, #040100 100%);}
+    30% {background: linear-gradient(#221100 24%, #040100 100%);}
+    35% {background: linear-gradient(#221100 28%, #040100 100%);}
+    40% {background: linear-gradient(#221100 32%, #040100 100%);}
+    45% {background: linear-gradient(#221100 36%, #040100 100%);}
+    50% {background: linear-gradient(#221100 40%, #040100 100%);}
+    55% {background: linear-gradient(#221100 36%, #040100 100%);}
+    60% {background: linear-gradient(#221100 32%, #040100 100%);}
+    65% {background: linear-gradient(#221100 28%, #040100 100%);}
+    70% {background: linear-gradient(#221100 24%, #040100 100%);}
+    75% {background: linear-gradient(#221100 20%, #040100 100%);}
+    80% {background: linear-gradient(#221100 16%, #040100 100%);}
+    85% {background: linear-gradient(#221100 12%, #040100 100%);}
+    90% {background: linear-gradient(#221100 8%,  #040100 100%);}
+    95% {background: linear-gradient(#221100 4%,  #040100 100%);}
+    to  {background: linear-gradient(#221100 0%,  #040100 100%);}
 }
 
 @keyframes stage-item-button-fade-in {

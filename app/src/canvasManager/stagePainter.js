@@ -42,7 +42,7 @@ const StagePainter = {
         if(!stg) return;
         var c = StagePainter.calcDisplaySizes();
         StagePainter.clearCanvas(c);
-        StagePainter.markUseableArea(c); // tmp
+        // StagePainter.markUseableArea(c);
         StagePainter.drawFloors(c);
         StagePainter.drawWalls(c);
         StagePainter.drawItems(c);
@@ -58,7 +58,7 @@ const StagePainter = {
     },
 
     markUseableArea(c){
-        c.ctx.fillStyle = '#160800';
+        c.ctx.fillStyle = '#111111';
         c.ctx.fillRect(c.vOffset, c.hOffset, c.dWidth, c.dHeight);
     },
 
@@ -148,10 +148,9 @@ const StagePainter = {
                 var dy = y - c.yMin;
                 // var dx = (x - c.xMin - 0.5) * c.unit + c.vOffset;
                 // var dy = (y - c.yMin - 0.5) * c.unit + c.hOffset;
-                var opacity = shadowsHolder.get(x, y)/ShadowsCalculator.MAX_DEPTH;
-                // c.ctx.globalAlpha = opacity;
+                var opacity = shadowsHolder.get(x, y)/(ShadowsCalculator.MAX_DEPTH);
                 // c.ctx.fillRect(dx + 1, dy + 1, c.unit - 2, c.unit - 2);
-                // opacity = opacity > 0.85 ? opacity : 0.85;
+                // opacity = opacity < ShadowsCalculator.LIM_OPACITY ? opacity : ShadowsCalculator.LIM_OPACITY;
                 CanvasManager.paintImageAt(ImageLoader.misc, 3, 0, c.unit,
                    dx, dy, c.vOffset, c.hOffset, 1, opacity); 
             }

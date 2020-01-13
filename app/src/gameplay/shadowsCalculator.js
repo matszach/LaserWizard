@@ -1,6 +1,7 @@
 const ShadowsCalculator = {
 
     MAX_DEPTH : 13,
+    // LIM_OPACITY : 0.97,
 
     _getShadowHolder(){
         return {
