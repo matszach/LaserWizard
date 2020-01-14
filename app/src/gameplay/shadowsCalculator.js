@@ -79,6 +79,11 @@ const ShadowsCalculator = {
         this.depthSearch(x - 1, y, depth, sh, cm);
         this.depthSearch(x, y + 1, depth, sh, cm);
         this.depthSearch(x, y - 1, depth, sh, cm);
+
+        // this.depthSearch(x + 1, y + 1, depth + 0.4, sh, cm);
+        // this.depthSearch(x - 1, y - 1, depth + 0.4, sh, cm);
+        // this.depthSearch(x + 1, y - 1, depth + 0.4, sh, cm);
+        // this.depthSearch(x - 1, y + 1, depth + 0.4, sh, cm);
     }
 
 

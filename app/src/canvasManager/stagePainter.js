@@ -50,6 +50,7 @@ const StagePainter = {
         StagePainter.drawPlayer(c);
         StagePainter.drawProjectiles(c);
         StagePainter.drawShadows(c);
+        StagePainter.drawDamageAnimations(c);
         StagePainter.clearUnuseableArea(c);
     },
 
@@ -157,5 +158,17 @@ const StagePainter = {
         }
 
         // c.ctx.globalAlpha = 1;
+    },
+
+    drawDamageAnimations(c){
+        c.ctx.font = parseInt(c.unit/2) + 'px Arial';
+        c.ctx.fillStyle = '#ff0000';
+        StageManager.currentStage.damageAnimations.filter(e => !e.expired).forEach((e) =>{
+            var x = (e.x - c.xMin) * c.unit + c.vOffset;
+            var y = (e.y - c.yMin) * c.unit + c.hOffset;
+            c.ctx.globalAlpha = e.opacity;
+            c.ctx.fillText(parseInt(e.value), x, y);
+        });
+        c.ctx.globalAlpha = 1;
     }
 }

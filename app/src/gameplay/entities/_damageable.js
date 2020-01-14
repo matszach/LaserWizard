@@ -35,7 +35,7 @@ class _Damageable extends _Entity{
 
     // "on" triggers
     _onDamaged(damage){
-        // abstract
+        StageManager.currentStage.damageAnimations.push(new FloatingDamageNumber(damage, this.x, this.y));
     }
 
     _onHealed(healing){

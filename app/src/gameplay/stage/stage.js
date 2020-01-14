@@ -18,14 +18,20 @@ class Stage {
     particles;
     items;
 
-    constructor(){
-        this.player = new Player();
+    // animations
+    damageAnimations;
+
+    constructor(player){
+        // if a player is passed as an argument then it will be used
+        // a brand new one is created otherwise
+        this.player = player ?  player : new Player(); 
         this.monsters = [];
         this.projectiles = [];
         this.barriers = [];
         this.particles = [];
         this.items = [];
         this.beacons = [];
+        this.damageAnimations = [];
     }
 
 }
