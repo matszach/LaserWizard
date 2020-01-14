@@ -4,6 +4,8 @@ const StageManager = {
     
     beaconTestInterval: null,
 
+    cullEntitiesInterval: null,
+
 
     sleepAll(){
         if(this.currentStage){
@@ -14,6 +16,7 @@ const StageManager = {
             this.currentStage.barriers.forEach(e => e.sleep());
             this.currentStage.player.sleep();
             clearInterval(this.beaconTestInterval);
+            clearInterval(this.cullEntitiesInterval);
         }
 
     },
@@ -28,11 +31,23 @@ const StageManager = {
             this.currentStage.barriers.forEach(e => e.awaken());
             this.currentStage.player.awaken();
             this.beaconTestInterval = setInterval(this.testAllBeacons, 200);
+            this.cullEntitiesInterval = setInterval(this.cullEntityLists, 5000);
+
         }
     },
 
     testAllBeacons(){
         StageManager.currentStage.beacons.forEach(e => e.test());
+        console.log(StageManager.currentStage.projectiles.length);
+    },
+
+    cullEntityLists(){
+        var cs = StageManager.currentStage;
+        cs.items = cs.items.filter(e => !e.expired);
+        cs.monsters = cs.monsters.filter(e => !e.expired);
+        cs.particles = cs.particles.filter(e => !e.expired);
+        cs.projectiles = cs.projectiles.filter(e => !e.expired);
+        cs.barriers = cs.barriers.filter(e => !e.expired);
     }
 
 }
