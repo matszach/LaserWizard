@@ -6,6 +6,7 @@ function createWindow () {
   win = new BrowserWindow({
     width: 800,
     height: 600,
+	icon:'icon.png',
     toolbar: false,
     autoHideMenuBar: true,
     webPreferences: {
