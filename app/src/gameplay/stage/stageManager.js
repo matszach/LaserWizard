@@ -32,7 +32,6 @@ const StageManager = {
             this.currentStage.player.awaken();
             this.beaconTestInterval = setInterval(this.testAllBeacons, 200);
             this.cullEntitiesInterval = setInterval(this.cullEntityLists, 5000);
-
         }
     },
 
