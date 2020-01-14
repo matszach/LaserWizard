@@ -42,7 +42,7 @@ const GuiLoader = {
             if(i % 8 == 0) html += '<div class="ss-stage-row">';
             levelNumber = i + 1;
             html += 
-            `<input id='ss-stage-${levelNumber}' class='ss-stage-item-button' value='${levelNumber}' 
+            `<input type='button' id='ss-stage-${levelNumber}' class='ss-stage-item-button' value='${levelNumber}' 
                 onclick='StageLoader.loadStage(${levelNumber})'
                 style='animation-duration: ${0.3 + 0.04 * levelNumber}s;'/>`;
             if(i % 8 == 7) html += '</div>';

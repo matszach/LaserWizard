@@ -17,16 +17,17 @@ const ShadowsCalculator = {
              * @param {*} depth - tile's depth from the origin point
              */
             put(x, y, depth){
-                var rs = this.tiles.filter(e => e.x == x).filter(e => e.y == y);
+                var rs = this.tiles.filter((e) => {return e[0] == x && e[1] == y});
                 if(rs.length == 0){
-                    this.tiles.push({x: x, y: y, depth: depth});
+                    // this.tiles.push({x: x, y: y, depth: depth});
+                    this.tiles.push([x, y, depth]);
                     return true;
-                } else if(rs[0].depth > depth) {
-                    rs[0].depth = depth;
+                } else if(rs[0][2] > depth) {
+                    rs[0][2] = depth;
                     return true;
                 } else {
                     return false;
-                }
+                }w
             },
 
             /**
@@ -36,11 +37,11 @@ const ShadowsCalculator = {
              * @param {*} y - y location of the tile
              */
             get(x, y){
-                var rs = this.tiles.filter(e => e.x == x).filter(e => e.y == y);
+                var rs = this.tiles.filter((e) => {return e[0] == x && e[1] == y});
                 if(rs.length == 0){
                     return this.MAX_DEPTH;
                 } 
-                return rs[0].depth;
+                return rs[0][2];
             }
         };
     },
@@ -72,7 +73,7 @@ const ShadowsCalculator = {
         } else if(cm[x][y] == 0){
             depth += 1;
         } else {
-            depth += 5;
+            depth += 6;
         }
         this.depthSearch(x + 1, y, depth, sh, cm);
         this.depthSearch(x - 1, y, depth, sh, cm);
