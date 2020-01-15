@@ -11,7 +11,7 @@ const StagePainter = {
         if(this._stagePainterInterval){
             clearInterval(this._stagePainterInterval)
         }
-        setInterval(this._doPaint, 20);
+        setInterval(this._doPaint, 25); // todo read this from config/options
     },
 
     calcDisplaySizes(){

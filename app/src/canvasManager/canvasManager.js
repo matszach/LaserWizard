@@ -7,7 +7,7 @@ const CanvasManager = {
 
     init(){
         this.canvas = document.getElementById('gameplay-canvas');
-        this.context = this.canvas.getContext('2d');
+        this.context = this.canvas.getContext('2d', {alpha: false});
         this.context.imageSmoothingEnabled = false;
         this.refitCanvas();
         $(window).resize(this.refitCanvas);

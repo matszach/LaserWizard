@@ -12,8 +12,8 @@ class FloatingDamageNumber {
     // ==================== constructor ====================
     constructor(v, x, y){
         this.value = v;
-        this.x = x + Math.random() * 1 - 0.5; // random position of the number
-        this.y = y + Math.random() * 1 - 0.5;
+        this.x = x + Math.random() * 1.5 - 0.75; // random position of the number
+        this.y = y + Math.random() * 1.5 - 0.75;
         this.start();
     }
 

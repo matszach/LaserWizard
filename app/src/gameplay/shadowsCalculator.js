@@ -3,6 +3,11 @@ const ShadowsCalculator = {
     MAX_DEPTH : 13,
     // LIM_OPACITY : 0.97,
 
+    // lastShadowHolder : null,
+    
+    // calcShadowsFrequency : 10,
+    // calcShadowsIter : 10,
+
     _getShadowHolder(){
         return {
             tiles: [],  
@@ -52,6 +57,15 @@ const ShadowsCalculator = {
      * @param {*} cm - collision map reference
      */
     calculate(p, cm){
+        // if(this.calcShadowsIter == this.calcShadowsFrequency){
+        //     this.calcShadowsIter = 0;
+        //     var sh = this._getShadowHolder();
+        //     this.depthSearch(Math.round(p.x), Math.round(p.y), 1, sh, cm);
+        //     this.lastShadowHolder = sh;
+        // } else {
+        //     this.calcShadowsIter += 1;
+        // }
+        // return this.lastShadowHolder;
         var sh = this._getShadowHolder();
         this.depthSearch(Math.round(p.x), Math.round(p.y), 1, sh, cm);
         return sh;
