@@ -87,3 +87,18 @@
 .hp-icon, .battery-img, #selected-weapon-icon{
     filter: drop-shadow(3px 3px 3px#000000);
 }
+
+#in-game-menus-div{
+    background-color: transparent;
+}
+
+.in-game-menu-div{
+    margin: auto;
+    padding-bottom: 50px;
+    width: 30%;
+    min-width: 300px;
+    -webkit-text-stroke: 1.5px #442200;
+    background-color: rgba(40, 20, 0, 0.5);
+    border-radius: 30px;
+    filter: drop-shadow(3px 3px 3px#000000);
+}

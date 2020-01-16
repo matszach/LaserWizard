@@ -5,7 +5,6 @@ const StageLoader = {
         if($(`#ss-stage-${stageNum}`).hasClass('unlocked')){
             GuiLoader.loadInGameGui();
             this._loadPrototype(stageNum);
-            PauseHandler.paused = false;
         }
     },
 
@@ -25,9 +24,8 @@ const StageLoader = {
             data.doorBeacons.forEach(e => stage.beacons.push(DoorBeaconFactory.getDoorBeacon(e)));
             data.items.forEach(e => stage.items.push(ItemFactory.getItem(e.id, e.x, e.y)));
             StageManager.currentStage = stage;
-            StageManager.awakenAll();
             HudManager.start();
-
+            PauseHandler.unpause();
 
             // hax todo remove this
             Hax.unlockAllWeapons();

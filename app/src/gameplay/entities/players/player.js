@@ -153,6 +153,7 @@ class Player extends _Character {
         player.checkForInWall();
         player.handleWeaponSelectByButtonPress();
         player.handleWeaponActions();
+        player.handlePause();
     }
 
     handleMovement(){
@@ -194,6 +195,13 @@ class Player extends _Character {
     handleWeaponActions(){
         if(UserInputHandler.mouse.left){
             this.weaponActions[this.selectedWeaponIndex].execute();
+        }
+    }
+
+
+    handlePause(){
+        if(UserInputHandler.isKeyDown('P')){
+            PauseHandler.pause();
         }
     }
 

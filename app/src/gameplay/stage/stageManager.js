@@ -21,9 +21,10 @@ const StageManager = {
 
     },
 
-
     awakenAll(){
+        console.log('wim');
         if(this.currentStage){
+            console.log('bum');
             this.currentStage.items.forEach(e => e.awaken());
             this.currentStage.monsters.forEach(e => e.awaken());
             this.currentStage.particles.forEach(e => e.awaken());
@@ -47,6 +48,12 @@ const StageManager = {
         cs.projectiles = cs.projectiles.filter(e => !e.expired);
         cs.barriers = cs.barriers.filter(e => !e.expired);
         cs.damageAnimations = cs.damageAnimations.filter(e => !e.expired);
+    },
+
+    recycle(){
+        this.sleepAll();
+        this.currentStage = null;
+        StagePainter.clearCanvas(StagePainter.calcDisplaySizes());
     }
 
 }

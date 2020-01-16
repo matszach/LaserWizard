@@ -63,6 +63,8 @@ class _Entity {
     sleep(){
         if(this.lifecycleInterval){
             clearInterval(this.lifecycleInterval);
+            // interval has to be nulled after clearing, otherwise next .awaken() would fail
+            this.lifecycleInterval = null; 
         }
     }
 
