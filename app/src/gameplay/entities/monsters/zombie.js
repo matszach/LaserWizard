@@ -20,10 +20,15 @@ class Zombie extends _Monster {
 
     _onExpire(){
         super._onExpire();
-        var numberOfProjectiles = 15 + 15 * Math.random();
-        for(var i = 0; i < numberOfProjectiles; i++){
+        var numberOfGutsProjectiles = 5 + 5 * Math.random();
+        for(var i = 0; i < numberOfGutsProjectiles; i++){
+            ParticleSpawner.spawn(ZombieGutsParticle, this.x, this.y);
+        }
+        var numberOfBloodProjectiles = 15 + 15 * Math.random();
+        for(var i = 0; i < numberOfBloodProjectiles; i++){
             ParticleSpawner.spawn(BloodParticle, this.x, this.y);
         }
+        
     }
 
 }

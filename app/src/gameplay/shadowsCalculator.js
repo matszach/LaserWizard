@@ -1,72 +1,57 @@
+class ShadowHolder1{
+
+    tiles = null;
+    rootX = 0;
+    rootY = 0;
+
+    constructor(player) {
+        this.rootX = Math.round(player.x);
+        this.rootY = Math.round(player.y);
+        var shDim = ShadowsCalculator.MAX_DEPTH * 2 + 1;
+        this.tiles = new Array(shDim);
+        for(var i = 0; i < shDim; i++){
+            this.tiles[i] = new Array(shDim);
+            for(var j = 0; j < shDim; j++){
+                this.tiles[i][j] = ShadowsCalculator.MAX_DEPTH;
+            }
+        }
+    }
+
+    put(x, y, depth){
+        var tx = x - this.rootX + ShadowsCalculator.MAX_DEPTH;
+        var ty = y - this.rootY + ShadowsCalculator.MAX_DEPTH;
+        if(tx < 0 || ty < 0 || tx >= this.tiles.length || ty >= this.tiles[0].length){
+            return false;
+        }
+        if(this.tiles[tx][ty] > depth){
+            this.tiles[tx][ty] = depth;
+            return true;
+        }
+        return false;
+    }
+
+    get(x, y){
+        var tx = x - this.rootX + ShadowsCalculator.MAX_DEPTH;
+        var ty = y - this.rootY + ShadowsCalculator.MAX_DEPTH;
+        if(tx < 0 || ty < 0 || tx >= this.tiles.length || ty >= this.tiles[0].length){
+            return ShadowsCalculator.MAX_DEPTH;
+        }
+        return this.tiles[tx][ty];
+    }
+
+}
+
+
 const ShadowsCalculator = {
 
     MAX_DEPTH : 13,
-    // LIM_OPACITY : 0.97,
-
-    // lastShadowHolder : null,
-    
-    // calcShadowsFrequency : 10,
-    // calcShadowsIter : 10,
-
-    _getShadowHolder(){
-        return {
-            tiles: [],  
-
-            /**
-             * Tries to add a new tile to th tile list.
-             * Returns true if the tile is succesfully added or 
-             * a depth value of an existing one gets updated.
-             * False otherwise.
-             * @param {*} x - x location of the tile
-             * @param {*} y - y location of the tile
-             * @param {*} depth - tile's depth from the origin point
-             */
-            put(x, y, depth){
-                var rs = this.tiles.filter((e) => {return e[0] == x && e[1] == y});
-                if(rs.length == 0){
-                    // this.tiles.push({x: x, y: y, depth: depth});
-                    this.tiles.push([x, y, depth]);
-                    return true;
-                } else if(rs[0][2] > depth) {
-                    rs[0][2] = depth;
-                    return true;
-                } else {
-                    return false;
-                }w
-            },
-
-            /**
-             * Returns the depth value of a tile.
-             * If no such tile found, defaults to MAX_DEPTH.
-             * @param {*} x - x location of the tile
-             * @param {*} y - y location of the tile
-             */
-            get(x, y){
-                var rs = this.tiles.filter((e) => {return e[0] == x && e[1] == y});
-                if(rs.length == 0){
-                    return this.MAX_DEPTH;
-                } 
-                return rs[0][2];
-            }
-        };
-    },
-
 
     /**
-     * @param {*} p - player character reference
+     * @param {*} p - player character referencejj
      * @param {*} cm - collision map reference
      */
     calculate(p, cm){
-        // if(this.calcShadowsIter == this.calcShadowsFrequency){
-        //     this.calcShadowsIter = 0;
-        //     var sh = this._getShadowHolder();
-        //     this.depthSearch(Math.round(p.x), Math.round(p.y), 1, sh, cm);
-        //     this.lastShadowHolder = sh;
-        // } else {
-        //     this.calcShadowsIter += 1;
-        // }
-        // return this.lastShadowHolder;
-        var sh = this._getShadowHolder();
+        var sh = new ShadowHolder1(p);
         this.depthSearch(Math.round(p.x), Math.round(p.y), 1, sh, cm);
         return sh;
     },
@@ -94,16 +79,11 @@ const ShadowsCalculator = {
         this.depthSearch(x, y + 1, depth, sh, cm);
         this.depthSearch(x, y - 1, depth, sh, cm);
 
-        // this.depthSearch(x + 1, y + 1, depth + 0.4, sh, cm);
-        // this.depthSearch(x - 1, y - 1, depth + 0.4, sh, cm);
-        // this.depthSearch(x + 1, y - 1, depth + 0.4, sh, cm);
-        // this.depthSearch(x - 1, y + 1, depth + 0.4, sh, cm);
+        this.depthSearch(x + 1, y + 1, depth + 0.4, sh, cm);
+        this.depthSearch(x - 1, y - 1, depth + 0.4, sh, cm);
+        this.depthSearch(x + 1, y - 1, depth + 0.4, sh, cm);
+        this.depthSearch(x - 1, y + 1, depth + 0.4, sh, cm);
     }
-
-
-
-
-
 
 
 }

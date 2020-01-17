@@ -7,6 +7,10 @@ const MonsterFactory = {
         default : Zombie
     },
 
+    getAttributeMultiplier(){
+        return 0.9 + Math.random() * 0.2;
+    },
+
     /**
      * @param {number} id - monster id 
      * @param {number} x - monster x position
@@ -19,6 +23,9 @@ const MonsterFactory = {
             monster.x = x;
             monster.y = y;   
         }
+        monster.hp *= this.getAttributeMultiplier();
+        monster.speed *= this.getAttributeMultiplier();
+        monster.displaySize *= this.getAttributeMultiplier();
         return monster;
     }
 
