@@ -65,24 +65,25 @@ const ShadowsCalculator = {
      * @param {*} cm - collision map reference
      */
     depthSearch(x, y, depth, sh, cm){
+        let depthChange;
         if(depth > this.MAX_DEPTH){
             return;
         } else if(!sh.put(x, y, depth)){
             return;
         } else if(cm[x][y] == 0){
-            depth += 1;
+            depthChange = 1;
         } else {
-            depth += 6;
+            depthChange = 6;
         }
-        this.depthSearch(x + 1, y, depth, sh, cm);
-        this.depthSearch(x - 1, y, depth, sh, cm);
-        this.depthSearch(x, y + 1, depth, sh, cm);
-        this.depthSearch(x, y - 1, depth, sh, cm);
+        this.depthSearch(x + 1, y, depth + depthChange, sh, cm);
+        this.depthSearch(x - 1, y, depth + depthChange, sh, cm);
+        this.depthSearch(x, y + 1, depth + depthChange, sh, cm);
+        this.depthSearch(x, y - 1, depth + depthChange, sh, cm);
 
-        this.depthSearch(x + 1, y + 1, depth + 0.4, sh, cm);
-        this.depthSearch(x - 1, y - 1, depth + 0.4, sh, cm);
-        this.depthSearch(x + 1, y - 1, depth + 0.4, sh, cm);
-        this.depthSearch(x - 1, y + 1, depth + 0.4, sh, cm);
+        this.depthSearch(x + 1, y + 1, depth + depthChange * 1.5, sh, cm);
+        this.depthSearch(x - 1, y - 1, depth + depthChange * 1.5, sh, cm);
+        this.depthSearch(x + 1, y - 1, depth + depthChange * 1.5, sh, cm);
+        this.depthSearch(x - 1, y + 1, depth + depthChange * 1.5, sh, cm);
     }
 
 
