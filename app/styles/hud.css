@@ -98,7 +98,7 @@
     width: 30%;
     min-width: 300px;
     -webkit-text-stroke: 1.5px #442200;
-    background-color: rgba(40, 20, 0, 0.5);
+    background-color: rgba(40, 20, 0, 0.4);
     border-radius: 30px;
     filter: drop-shadow(3px 3px 3px#000000);
 }

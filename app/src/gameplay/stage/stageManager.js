@@ -22,9 +22,7 @@ const StageManager = {
     },
 
     awakenAll(){
-        console.log('wim');
         if(this.currentStage){
-            console.log('bum');
             this.currentStage.items.forEach(e => e.awaken());
             this.currentStage.monsters.forEach(e => e.awaken());
             this.currentStage.particles.forEach(e => e.awaken());

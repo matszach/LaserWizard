@@ -11,6 +11,8 @@ class _Projectile extends _Entity {
         // super constructor
         super();
         // on-init calculated values
+        this.direction = direction;
+        this.travelDirection = direction;
         this.checksCollisions = true;
         this.collidesBarrier = true;
         this.parentEntity = parentEntity;

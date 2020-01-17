@@ -41,15 +41,19 @@ const StagePainter = {
         var stg = StageManager.currentStage;
         if(!stg) return;
         var c = StagePainter.calcDisplaySizes();
+        var player = StageManager.currentStage.player;
+        var collisionMap = StageManager.currentStage.collisionMap;
+        var shadowsHolder = ShadowsCalculator.calculate(player, collisionMap);
         StagePainter.clearCanvas(c);
         // StagePainter.markUseableArea(c);
-        StagePainter.drawFloors(c);
-        StagePainter.drawWalls(c);
+        StagePainter.drawFloors(c, shadowsHolder);
+        StagePainter.drawWalls(c, shadowsHolder);
         StagePainter.drawItems(c);
         StagePainter.drawMonsters(c);
         StagePainter.drawPlayer(c);
+        StagePainter.drawParticles(c);
         StagePainter.drawProjectiles(c);
-        StagePainter.drawShadows(c);
+        StagePainter.drawShadows(c, shadowsHolder);
         StagePainter.drawDamageAnimations(c);
         StagePainter.clearUnuseableArea(c);
     },
@@ -70,12 +74,15 @@ const StagePainter = {
         c.ctx.clearRect(c.cnvWidth - c.vOffset, 0, c.vOffset, c.cnvHeight);
     },
 
-    drawFloors(c){
+    drawFloors(c, shadowsHolder){
         for(var x = Math.floor(c.xMin); x <= Math.ceil(c.xMax); x++){
             for(var y = Math.floor(c.yMin); y <= Math.ceil(c.yMax); y++){ 
                 var floors = StageManager.currentStage.floorIds;
                 if(x >= 0 && y >= 0 && x < floors.length && y < floors[0].length){
                     var tilePos = floors[x][y];
+                    if (shadowsHolder.get(x, y) == 0){
+                        continue;
+                    } 
                     CanvasManager.paintImageAt(ImageLoader.floors, tilePos[0], tilePos[1], c.unit,
                         (x - c.xMin), (y - c.yMin), c.vOffset, c.hOffset);
                 }
@@ -83,7 +90,7 @@ const StagePainter = {
         }
     },
 
-    drawWalls(c){
+    drawWalls(c, shadowsHolder){
         for(var x = Math.floor(c.xMin); x <= Math.ceil(c.xMax); x++){
             for(var y = Math.floor(c.yMin); y <= Math.ceil(c.yMax); y++){ 
                 var walls = StageManager.currentStage.wallIds;
@@ -91,7 +98,10 @@ const StagePainter = {
                     var tilePos = walls[x][y];
                     if(tilePos[0] == 0 && tilePos[1] == 0){
                         continue;
-                    }                
+                    }          
+                    if (shadowsHolder.get(x, y) == 0){
+                        continue;
+                    }      
                     CanvasManager.paintImageAt(ImageLoader.walls, tilePos[0], tilePos[1], c.unit,
                         (x - c.xMin), (y - c.yMin), c.vOffset, c.hOffset);
                 } 
@@ -130,19 +140,20 @@ const StagePainter = {
 
     drawProjectiles(c){
         StageManager.currentStage.projectiles.filter(e => {return !e.expired}).forEach(e => {
-            
             CanvasManager.paintRotatedImageAt(ImageLoader.projectiles, e.tileX, e.tileY, c.unit,
                 (e.x - c.xMin), (e.y - c.yMin), c.vOffset, c.hOffset, e.direction, e.displaySize);
         });
     },
 
-    drawShadows(c){
-        var player = StageManager.currentStage.player;
-        var collisionMap = StageManager.currentStage.collisionMap;
-        var shadowsHolder = ShadowsCalculator.calculate(player, collisionMap);
+    drawParticles(c){
+        StageManager.currentStage.particles.filter(e => {return !e.expired}).forEach(e => {
+            CanvasManager.paintRotatedImageAt(ImageLoader.particles, e.tileX, e.tileY, c.unit,
+                (e.x - c.xMin), (e.y - c.yMin), c.vOffset, c.hOffset, e.direction, e.displaySize);
+        });
+    },
 
+    drawShadows(c, shadowsHolder){
         // c.ctx.fillStyle = '#000000';
-
         for(var x = Math.floor(c.xMin); x <= Math.ceil(c.xMax); x++){
             for(var y = Math.floor(c.yMin); y <= Math.ceil(c.yMax); y++){ 
                 var dx = x - c.xMin;
@@ -156,7 +167,6 @@ const StagePainter = {
                    dx, dy, c.vOffset, c.hOffset, 1, opacity); 
             }
         }
-
         // c.ctx.globalAlpha = 1;
     },
 
