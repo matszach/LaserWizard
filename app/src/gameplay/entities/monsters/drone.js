@@ -13,19 +13,12 @@ class Drone extends _Monster {
 
     _onDamaged(d){
         super._onDamaged(d);
-        var numberOfProjectiles = Util.randInt(0, d/3);
-        for(var i = 0; i < numberOfProjectiles; i++){
-            ParticleSpawner.spawn(ScrapParticle, this.x, this.y);
-        }
+        ParticleSpawner.createExplosion(ScrapParticle, this.x, this.y, Util.randInt(0, d/3));
     }
 
     _onExpire(){
         super._onExpire();
-        var numberOfBloodProjectiles = Util.randInt(10, 20);
-        for(var i = 0; i < numberOfBloodProjectiles; i++){
-            ParticleSpawner.spawn(ScrapParticle, this.x, this.y);
-        }
-        
+        ParticleSpawner.createExplosion(ScrapParticle, this.x, this.y, Util.randInt(10, 30));
     }
 
 }

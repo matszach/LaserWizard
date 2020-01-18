@@ -13,22 +13,13 @@ class Zombie extends _Monster {
 
     _onDamaged(d){
         super._onDamaged(d);
-        var numberOfProjectiles = Util.randInt(1, d/2);
-        for(var i = 0; i < numberOfProjectiles; i++){
-            ParticleSpawner.spawn(BloodParticle, this.x, this.y);
-        }
+        ParticleSpawner.createExplosion(BloodParticle, this.x, this.y, Util.randInt(1, 1/d));
     }
 
     _onExpire(){
         super._onExpire();
-        var numberOfGutsProjectiles = Util.randInt(5, 10);
-        for(var i = 0; i < numberOfGutsProjectiles; i++){
-            ParticleSpawner.spawn(ZombieGutsParticle, this.x, this.y);
-        }
-        var numberOfBloodProjectiles = Util.randInt(10, 20);
-        for(var i = 0; i < numberOfBloodProjectiles; i++){
-            ParticleSpawner.spawn(BloodParticle, this.x, this.y);
-        }
+        ParticleSpawner.createExplosion(ZombieGutsParticle, this.x, this.y, Util.randInt(5, 10));
+        ParticleSpawner.createExplosion(BloodParticle, this.x, this.y, Util.randInt(10, 20));
         
     }
 

@@ -12,6 +12,12 @@ const ParticleSpawner = {
         var p = new particleClass(dir, originX, originY);
         StageManager.currentStage.particles.push(p);
         p.awaken();
+    },
+
+    createExplosion(particleClass, originX, originY, nofParticles){
+        for(var i = 0; i < nofParticles; i++){
+            this.spawn(particleClass, originX, originY);
+        }
     }
 
 }

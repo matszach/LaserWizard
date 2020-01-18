@@ -26,10 +26,7 @@ class Weapon5Y1Projectile extends _DamagingProjectile {
 
     _onExpire(){
         super._onExpire();
-        var numberOfProjectiles = Util.randInt(2, 5);
-        for(var i = 0; i < numberOfProjectiles; i++){
-            ParticleSpawner.spawn(YellowSparkParticle,  this.x, this.y);
-        }
+        ParticleSpawner.createExplosion(YellowSparkParticle,  this.x, this.y, Util.randInt(2, 5));
     }
 
 }

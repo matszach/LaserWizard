@@ -27,10 +27,12 @@ class Weapon10B3Projectile extends _DamagingProjectile {
     _onCollisionWithMonster(m){
         // this one does not expire on collision WITH MONSTER
         m.takeDmg(this.calculateDamage());
-        var numberOfProjectiles = Util.randInt(2, 5);
-        for(var i = 0; i < numberOfProjectiles; i++){
-            ParticleSpawner.spawn(CyanSparkParticle,  this.x, this.y);
-        }
+        ParticleSpawner.createExplosion(CyanSparkParticle, this.x, this.y, Util.randInt(2, 5));
+    }
+
+    _onExpire(){
+        super._onExpire();
+        ParticleSpawner.createExplosion(CyanSparkParticle, this.x, this.y, Util.randInt(50, 100));
     }
 
 }
