@@ -21,7 +21,8 @@ class Weapon10B3Projectile extends _DamagingProjectile {
     }
 
     animate(){
-        // TODO
+        this.rotate(10);
+        ParticleSpawner.createExplosion(CyanSparkParticle, this.x, this.y, Util.randInt(1, 2));
     }
 
     _onCollisionWithMonster(m){

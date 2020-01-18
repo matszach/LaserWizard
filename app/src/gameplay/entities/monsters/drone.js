@@ -3,7 +3,7 @@ class Drone extends _Monster {
 
     constructor(){
         super();
-        this.tileX = 0;
+        this.tileX = Util.randInt(0, 3);
         this.tileY = 1;
         this.maxHp = 25;
         this.hp = 25;

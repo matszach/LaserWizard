@@ -3,7 +3,7 @@ class Zombie extends _Monster {
 
     constructor(){
         super();
-        this.tileX = Util.randInt(0, 3);
+        this.tileX = Util.randInt(0, 7);
         this.tileY = 0;
         this.maxHp = 20;
         this.hp = 20;
