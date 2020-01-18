@@ -1,3 +1,4 @@
+"use strict";
 class BloodParticle extends _Particle {
 
     constructor(direction, x, y){

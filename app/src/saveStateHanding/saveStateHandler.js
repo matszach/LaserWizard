@@ -1,3 +1,4 @@
+"use strict";
 const SaveStateHandler = {
 
     _saveStateData : null,

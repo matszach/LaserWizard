@@ -1,3 +1,4 @@
+"use strict";
 const GuiLoader = {
 
     /**
@@ -40,7 +41,7 @@ const GuiLoader = {
         var html = '';
         for(var i = 0; i < nof_stages; i++){
             if(i % 8 == 0) html += '<div class="ss-stage-row">';
-            levelNumber = i + 1;
+            var levelNumber = i + 1;
             html += 
             `<input type='button' id='ss-stage-${levelNumber}' class='ss-stage-item-button' value='${levelNumber}' 
                 onclick='StageLoader.loadStage(${levelNumber})'

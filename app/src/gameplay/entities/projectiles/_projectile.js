@@ -1,3 +1,4 @@
+"use strict";
 class _Projectile extends _Entity {
 
     // ==================== fields ====================

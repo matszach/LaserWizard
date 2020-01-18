@@ -1,3 +1,4 @@
+"use strict";
 class HealthKit extends _Item {
 
     // ==================== fields ====================

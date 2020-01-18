@@ -1,3 +1,4 @@
+"use strict";
 class Zombie extends _Monster {
 
     constructor(){

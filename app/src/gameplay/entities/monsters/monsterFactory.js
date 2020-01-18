@@ -1,3 +1,4 @@
+"use strict";
 const MonsterFactory = {
 
     _monsterTypeDict : {

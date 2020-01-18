@@ -1,3 +1,4 @@
+"use strict";
 /*
 An Audio object cannot .play() while its already playing.
 This class creates multiple Audio instances of the same sound file and plays them in sequence.

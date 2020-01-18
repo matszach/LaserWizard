@@ -1,3 +1,4 @@
+"use strict";
 const PauseHandler = {
 
     paused: true,
@@ -13,7 +14,4 @@ const PauseHandler = {
         $('#in-game-menus-div').html('');
         StageManager.awakenAll();
     }
-
-
-
 }

@@ -1,3 +1,4 @@
+"use strict";
 class _Particle extends _Projectile{
 
     // ==================== constructor ====================

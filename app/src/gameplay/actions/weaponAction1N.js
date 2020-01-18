@@ -1,3 +1,4 @@
+"use strict";
 class WeaponAction1N extends _WeaponAction{
 
     constructor(player){

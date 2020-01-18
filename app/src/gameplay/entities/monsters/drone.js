@@ -1,3 +1,4 @@
+"use strict";
 class Drone extends _Monster {
 
     constructor(){

@@ -1,3 +1,4 @@
+"use strict";
 const ItemFactory = {
 
     _itemTypeDict : {

@@ -1,3 +1,4 @@
+"use strict";
 const DoorBeaconFactory = {
 
     _getByCondition(x, y, range, condition){

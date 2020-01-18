@@ -1,3 +1,4 @@
+"use strict";
 class _Item extends _Entity{
 
     // ==================== constructor ====================

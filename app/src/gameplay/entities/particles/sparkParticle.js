@@ -1,3 +1,4 @@
+"use strict";
 class _SparkParticle extends _Particle {
 
     constructor(direction, x, y){

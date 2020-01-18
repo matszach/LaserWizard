@@ -1,3 +1,4 @@
+"use strict";
 class ZombieGutsParticle extends _Particle {
 
     constructor(direction, x, y){

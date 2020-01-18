@@ -1,3 +1,4 @@
+"use strict";
 class _Monster extends _Character {
 
     constructor(){

@@ -1,3 +1,4 @@
+"use strict";
 const StagePainter = {
 
     _stagePainterInterval: null,
@@ -17,7 +18,7 @@ const StagePainter = {
     calcDisplaySizes(){
         var hU = CanvasManager.cnvHeight / this.displayHeightInUnits;
         var wU = CanvasManager.cnvWidth / this.displayWidthInUnits;
-        c = {};
+        var c = {};
         c.cnvWidth = CanvasManager.cnvWidth;
         c.cnvHeight = CanvasManager.cnvHeight;
         c.ctx = CanvasManager.context;

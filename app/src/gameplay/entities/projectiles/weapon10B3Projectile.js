@@ -1,3 +1,4 @@
+"use strict";
 class Weapon10B3Projectile extends _DamagingProjectile {
 
     // ==================== constructor ====================

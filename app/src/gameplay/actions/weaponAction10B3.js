@@ -1,3 +1,4 @@
+"use strict";
 class WeaponAction10B3 extends _WeaponAction{
 
     cost = 8;

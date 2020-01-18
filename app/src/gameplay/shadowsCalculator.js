@@ -1,4 +1,5 @@
-class ShadowHolder1{
+"use strict";
+class ShadowHolder{
 
     tiles = null;
     rootX = 0;
@@ -46,7 +47,7 @@ const ShadowsCalculator = {
      * @param {*} cm - collision map reference
      */
     calculate(p, cm){
-        var sh = new ShadowHolder1(p);
+        var sh = new ShadowHolder(p);
         this.depthSearch(Math.round(p.x), Math.round(p.y), 1, sh, cm);
         return sh;
     },

@@ -1,3 +1,4 @@
+"use strict";
 const Main = {
 
     // called on game init

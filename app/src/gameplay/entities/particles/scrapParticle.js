@@ -1,3 +1,4 @@
+"use strict";
 class ScrapParticle extends _Particle {
 
     constructor(direction, x, y){

@@ -1,3 +1,4 @@
+"use strict";
 class EnergyBattery extends _Item {
 
     energyRestored;

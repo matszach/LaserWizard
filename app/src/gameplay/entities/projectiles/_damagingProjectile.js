@@ -1,3 +1,4 @@
+"use strict";
 class _DamagingProjectile extends _Projectile {
 
     // ==================== fields ====================

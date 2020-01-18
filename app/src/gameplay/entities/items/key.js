@@ -1,3 +1,4 @@
+"use strict";
 class Key extends _Item{
 
     constructor(){

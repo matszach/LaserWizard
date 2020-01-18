@@ -1,3 +1,4 @@
+"use strict";
 class _Damageable extends _Entity{
 
     // ==================== fields ====================

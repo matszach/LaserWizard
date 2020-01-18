@@ -1,3 +1,4 @@
+"use strict";
 class Weapon extends _Item {
 
     weaponIndex;

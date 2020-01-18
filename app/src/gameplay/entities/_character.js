@@ -1,3 +1,4 @@
+"use strict";
 class _Character extends _Damageable{
 
     // ==================== fields ====================

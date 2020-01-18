@@ -1,7 +1,8 @@
+"use strict";
 const Util = {
 
     get2Darray(sizeX, sizeY, defaultValue){
-        a = new Array(sizeX);
+        var a = new Array(sizeX);
         for(var x = 0; x < sizeX; x++){
             var row = new Array(sizeY);
             if(!(defaultValue == undefined)){

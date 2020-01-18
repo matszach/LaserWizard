@@ -1,3 +1,4 @@
+"use strict";
 class Stage {   
 
     // ids to diplay the correct image from tilesets

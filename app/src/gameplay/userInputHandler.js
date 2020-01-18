@@ -1,3 +1,4 @@
+"use strict";
 const UserInputHandler = {
 
     keys : {
@@ -27,7 +28,6 @@ const UserInputHandler = {
     onKeyDown(e){
         var k = e.which;
         this.keys[k] = true;
-        console.log(k);
     },
 
     onKeyUp(e){

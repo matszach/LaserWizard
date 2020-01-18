@@ -1,3 +1,4 @@
+"use strict";
 class MonsterBeacon extends _Beacon{
     
     // ===== fields =====
