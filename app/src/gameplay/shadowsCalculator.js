@@ -8,13 +8,7 @@ class ShadowHolder1{
         this.rootX = Math.round(player.x);
         this.rootY = Math.round(player.y);
         var shDim = ShadowsCalculator.MAX_DEPTH * 2 + 1;
-        this.tiles = new Array(shDim);
-        for(var i = 0; i < shDim; i++){
-            this.tiles[i] = new Array(shDim);
-            for(var j = 0; j < shDim; j++){
-                this.tiles[i][j] = ShadowsCalculator.MAX_DEPTH;
-            }
-        }
+        this.tiles = Util.get2Darray(shDim, shDim, ShadowsCalculator.MAX_DEPTH);
     }
 
     put(x, y, depth){
@@ -45,6 +39,7 @@ class ShadowHolder1{
 const ShadowsCalculator = {
 
     MAX_DEPTH : 13,
+    DIAG_MOD : Math.sqrt(2),
 
     /**
      * @param {*} p - player character referencejj
@@ -55,7 +50,6 @@ const ShadowsCalculator = {
         this.depthSearch(Math.round(p.x), Math.round(p.y), 1, sh, cm);
         return sh;
     },
-
 
     /**
      * @param {*} x - x location of the tile
@@ -80,11 +74,9 @@ const ShadowsCalculator = {
         this.depthSearch(x, y + 1, depth + depthChange, sh, cm);
         this.depthSearch(x, y - 1, depth + depthChange, sh, cm);
 
-        this.depthSearch(x + 1, y + 1, depth + depthChange * 1.5, sh, cm);
-        this.depthSearch(x - 1, y - 1, depth + depthChange * 1.5, sh, cm);
-        this.depthSearch(x + 1, y - 1, depth + depthChange * 1.5, sh, cm);
-        this.depthSearch(x - 1, y + 1, depth + depthChange * 1.5, sh, cm);
+        this.depthSearch(x + 1, y + 1, depth + depthChange * this.DIAG_MOD, sh, cm);
+        this.depthSearch(x - 1, y - 1, depth + depthChange * this.DIAG_MOD, sh, cm);
+        this.depthSearch(x + 1, y - 1, depth + depthChange * this.DIAG_MOD, sh, cm);
+        this.depthSearch(x - 1, y + 1, depth + depthChange * this.DIAG_MOD, sh, cm);
     }
-
-
 }

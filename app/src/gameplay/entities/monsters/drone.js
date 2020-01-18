@@ -12,7 +12,7 @@ class Drone extends _Monster {
 
     _onDamaged(d){
         super._onDamaged(d);
-        var numberOfProjectiles = d * Math.random() / 3;
+        var numberOfProjectiles = Util.randInt(0, d/3);
         for(var i = 0; i < numberOfProjectiles; i++){
             ParticleSpawner.spawn(ScrapParticle, this.x, this.y);
         }
@@ -20,7 +20,7 @@ class Drone extends _Monster {
 
     _onExpire(){
         super._onExpire();
-        var numberOfBloodProjectiles = 10 + 10 * Math.random();
+        var numberOfBloodProjectiles = Util.randInt(10, 20);
         for(var i = 0; i < numberOfBloodProjectiles; i++){
             ParticleSpawner.spawn(ScrapParticle, this.x, this.y);
         }

@@ -11,7 +11,7 @@ class _DamagingProjectile extends _Projectile {
     }
 
     calculateDamage(){
-        return this.minDmg + (this.maxDmg - this.minDmg) * Math.random();
+        return Util.randFloat(this.minDmg, this.maxDmg);
     }
 
     _onCollisionWithMonster(m){
