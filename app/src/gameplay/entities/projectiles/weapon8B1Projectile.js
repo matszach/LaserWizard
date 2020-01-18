@@ -23,4 +23,12 @@ class Weapon8B1Projectile extends _DamagingProjectile {
         
     }
 
+    _onExpire(){
+        super._onExpire();
+        var numberOfProjectiles = Util.randInt(3, 7);
+        for(var i = 0; i < numberOfProjectiles; i++){
+            ParticleSpawner.spawn(CyanSparkParticle,  this.x, this.y);
+        }
+    }
+
 }

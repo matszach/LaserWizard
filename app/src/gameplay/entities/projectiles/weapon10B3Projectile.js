@@ -11,7 +11,7 @@ class Weapon10B3Projectile extends _DamagingProjectile {
         this.duration = 100;
         this.accuracy = 98;
         
-        this.tileX = 2;
+        this.tileX = 8;
         this.tileY = 3;
         
         this.collisionSize = 0.6;
@@ -24,8 +24,12 @@ class Weapon10B3Projectile extends _DamagingProjectile {
     }
 
     _onCollisionWithMonster(m){
-        m.takeDmg(this.calculateDamage());
         // this one does not expire on collision WITH MONSTER
+        m.takeDmg(this.calculateDamage());
+        var numberOfProjectiles = Util.randInt(2, 5);
+        for(var i = 0; i < numberOfProjectiles; i++){
+            ParticleSpawner.spawn(CyanSparkParticle,  this.x, this.y);
+        }
     }
 
 }

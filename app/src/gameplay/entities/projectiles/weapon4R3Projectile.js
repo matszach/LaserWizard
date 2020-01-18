@@ -5,13 +5,13 @@ class Weapon4R3Projectile extends _DamagingProjectile {
         // super constructor
         super(parentEntity, direction, x, y);
 
-        this.speed = 0.14;
+        this.speed = Util.randFloat(0.12, 0.16);
         this.minDmg = 1;
         this.maxDmg = 3;
-        this.duration = 60;
+        this.duration = Util.randInt(50, 70);
         this.accuracy = 92;
         
-        this.tileX = 2;
+        this.tileX = 8;
         this.tileY = 1;
         
         this.collisionSize = 0.1;
@@ -21,6 +21,14 @@ class Weapon4R3Projectile extends _DamagingProjectile {
 
     animate(){
         
+    }
+
+    _onExpire(){
+        super._onExpire();
+        var numberOfProjectiles = Util.randInt(1, 2);
+        for(var i = 0; i < numberOfProjectiles; i++){
+            ParticleSpawner.spawn(RedSparkParticle,  this.x, this.y);
+        }
     }
 
 }

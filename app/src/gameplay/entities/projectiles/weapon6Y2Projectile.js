@@ -11,7 +11,7 @@ class Weapon6Y2Projectile extends _DamagingProjectile {
         this.duration = 90;
         this.accuracy = 99.5;
         
-        this.tileX = 1;
+        this.tileX = 4;
         this.tileY = 2;
         
         this.collisionSize = 0.1;
@@ -21,6 +21,14 @@ class Weapon6Y2Projectile extends _DamagingProjectile {
 
     animate(){
         
+    }
+
+    _onExpire(){
+        super._onExpire();
+        var numberOfProjectiles = Util.randInt(2, 8);
+        for(var i = 0; i < numberOfProjectiles; i++){
+            ParticleSpawner.spawn(YellowSparkParticle,  this.x, this.y);
+        }
     }
 
 }

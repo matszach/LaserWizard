@@ -37,7 +37,7 @@ const StagePainter = {
     },
 
     _doPaint(){        
-        if(PauseHandler.paused) return;
+        // if(PauseHandler.paused) return; // <- CANVAS WOULD BLACK OUT ON RESIZE WHEN
         var stg = StageManager.currentStage;
         if(!stg) return;
         var c = StagePainter.calcDisplaySizes();
@@ -153,21 +153,15 @@ const StagePainter = {
     },
 
     drawShadows(c, shadowsHolder){
-        // c.ctx.fillStyle = '#000000';
         for(var x = Math.floor(c.xMin); x <= Math.ceil(c.xMax); x++){
             for(var y = Math.floor(c.yMin); y <= Math.ceil(c.yMax); y++){ 
                 var dx = x - c.xMin;
                 var dy = y - c.yMin;
-                // var dx = (x - c.xMin - 0.5) * c.unit + c.vOffset;
-                // var dy = (y - c.yMin - 0.5) * c.unit + c.hOffset;
                 var opacity = shadowsHolder.get(x, y)/(ShadowsCalculator.MAX_DEPTH);
-                // c.ctx.fillRect(dx + 1, dy + 1, c.unit - 2, c.unit - 2);
-                // opacity = opacity < ShadowsCalculator.LIM_OPACITY ? opacity : ShadowsCalculator.LIM_OPACITY;
                 CanvasManager.paintImageAt(ImageLoader.misc, 3, 0, c.unit,
                    dx, dy, c.vOffset, c.hOffset, 1, opacity); 
             }
         }
-        // c.ctx.globalAlpha = 1;
     },
 
     drawDamageAnimations(c){

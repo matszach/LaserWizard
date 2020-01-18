@@ -17,6 +17,6 @@ class _Character extends _Damageable{
     }
 
     _onIsInWall(){
-        this.restorePreviousPosition(); // if moved into t
+        this.restorePreviousPosition();
     }
 }

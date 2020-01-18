@@ -200,7 +200,7 @@ class Player extends _Character {
 
 
     handlePause(){
-        if(UserInputHandler.isKeyDown('P')){
+        if(UserInputHandler.isKeyDown('P') || UserInputHandler.isEscDown()){
             PauseHandler.pause();
         }
     }

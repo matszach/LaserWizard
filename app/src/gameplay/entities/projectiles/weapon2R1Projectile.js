@@ -23,4 +23,12 @@ class Weapon2R1Projectile extends _DamagingProjectile {
         
     }
 
+    _onExpire(){
+        super._onExpire();
+        var numberOfProjectiles = Util.randInt(1, 4);
+        for(var i = 0; i < numberOfProjectiles; i++){
+            ParticleSpawner.spawn(RedSparkParticle,  this.x, this.y);
+        }
+    }
+
 }

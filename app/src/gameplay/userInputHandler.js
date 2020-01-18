@@ -10,7 +10,7 @@ const UserInputHandler = {
         left : false,       // - is mouse left button down
         middle : false,     // - is mouse middle button down
         right : false,      // - is mouse right button down
-        wheel : 0,          // - mouse wheel state, reduced on mouse down, increased on mouse up
+        wheel : 0,          // - mouse wheel state, decremented on mouse down, incremented on mouse up
     },
 
     init(){
@@ -27,6 +27,7 @@ const UserInputHandler = {
     onKeyDown(e){
         var k = e.which;
         this.keys[k] = true;
+        console.log(k);
     },
 
     onKeyUp(e){
@@ -42,6 +43,13 @@ const UserInputHandler = {
         keySymbol = keySymbol.charCodeAt(0);
         if(keySymbol in this.keys){
             return this.keys[keySymbol];
+        }
+        return false;
+    },
+
+    isEscDown(){
+        if(27 in this.keys){ // 27 is the 'key' of the escape key on the keboard
+            return this.keys[27];
         }
         return false;
     },
