@@ -20,7 +20,7 @@ class Stage {
     items;
 
     // animations
-    damageAnimations;
+    numberAnimations;
 
     constructor(player){
         // if a player is passed as an argument then it will be used
@@ -32,7 +32,7 @@ class Stage {
         this.particles = [];
         this.items = [];
         this.beacons = [];
-        this.damageAnimations = [];
+        this.numberAnimations = [];
     }
 
 }

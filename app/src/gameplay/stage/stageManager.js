@@ -46,7 +46,7 @@ const StageManager = {
         cs.particles = cs.particles.filter(e => !e.expired);
         cs.projectiles = cs.projectiles.filter(e => !e.expired);
         cs.barriers = cs.barriers.filter(e => !e.expired);
-        cs.damageAnimations = cs.damageAnimations.filter(e => !e.expired);
+        cs.numberAnimations = cs.numberAnimations.filter(e => !e.expired);
     },
 
     recycle(){

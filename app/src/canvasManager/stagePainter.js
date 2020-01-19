@@ -55,7 +55,7 @@ const StagePainter = {
         StagePainter.drawParticles(c);
         StagePainter.drawProjectiles(c);
         StagePainter.drawShadows(c, shadowsHolder);
-        StagePainter.drawDamageAnimations(c);
+        StagePainter.drawNumberAnimations(c);
         StagePainter.clearUnuseableArea(c);
     },
 
@@ -165,12 +165,12 @@ const StagePainter = {
         }
     },
 
-    drawDamageAnimations(c){
+    drawNumberAnimations(c){
         c.ctx.font = parseInt(c.unit/2) + 'px Arial';
-        c.ctx.fillStyle = '#ff0000';
-        StageManager.currentStage.damageAnimations.filter(e => !e.expired).forEach((e) =>{
+        StageManager.currentStage.numberAnimations.filter(e => !e.expired).forEach((e) =>{
             var x = (e.x - c.xMin) * c.unit + c.vOffset;
             var y = (e.y - c.yMin) * c.unit + c.hOffset;
+            c.ctx.fillStyle = e.color;
             c.ctx.globalAlpha = e.opacity;
             c.ctx.fillText(parseInt(e.value), x, y);
         });
