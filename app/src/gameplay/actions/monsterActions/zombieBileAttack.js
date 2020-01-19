@@ -7,7 +7,7 @@ class ZombieBileAttack extends _Action {
     }
 
     onSuccess(){
-        for(var i = 0; i < 8; i++){
+        for(var i = 0; i < 15; i++){
             ProjectileSpawner.spawn(ZombieBileProjectile, this.user, this.user.x, this.user.y, this.user.direction);
         }
     }

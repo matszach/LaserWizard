@@ -9,6 +9,7 @@ class Drone extends _Monster {
         this.hp = 25;
         this.defence = 10;
         this.speed = 0.03;
+        this.bulletAttack = new DroneBulletAttack(this);
     }
 
     _onDamaged(d){
@@ -21,4 +22,17 @@ class Drone extends _Monster {
         ParticleSpawner.createExplosion(ScrapParticle, this.x, this.y, Util.randInt(10, 30));
     }
 
+    _doExist(thisEntity){
+        var p = StageManager.currentStage.player;
+        var dir = thisEntity.getDirectionToPoint(p.x, p.y);
+        var dist = thisEntity.getDistanceToPoint(p.x, p.y);
+        if(dist < 8) {
+            thisEntity.bulletAttack.execute();
+        }
+        if(dist > 3) {
+            thisEntity.travel(dir);
+        }
+        thisEntity.turn(dir);
+        thisEntity.checkForInWall();
+    }
 }

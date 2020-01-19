@@ -27,10 +27,10 @@ class Zombie extends _Monster {
         var p = StageManager.currentStage.player;
         var dir = thisEntity.getDirectionToPoint(p.x, p.y);
         var dist = thisEntity.getDistanceToPoint(p.x, p.y);
-        if(dist < 2.5) {
+        if(dist < 3) {
             thisEntity.bileAttack.execute();
         }
-        if(dist > 0.5) {
+        if(dist > 0.75) {
             thisEntity.travel(dir);
         }
         thisEntity.turn(dir);
