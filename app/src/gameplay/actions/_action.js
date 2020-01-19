@@ -42,7 +42,6 @@ class _Action{
     }
 
     /**
-     * 
      * @param {function} f - called after the delay, must take "this" as an argument (can be labda'd as a => (...))
      * @param {Number} delay - f's execution delay in ms
      */
