@@ -21,7 +21,7 @@ class Weapon7Y3Projectile extends _DamagingProjectile {
     }
 
     animate(){
-        
+        ParticleSpawner.createExplosion(RocketSmokeParticle, this.x, this.y, 1);
     }
 
     _onExpire(){
