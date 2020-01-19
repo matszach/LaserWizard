@@ -12,6 +12,7 @@ EMPTY = (255, 255, 255)
 WALL = (0, 0, 0)
 DECOR_1_FLOOR = (180, 250, 180)
 DECOR_2_FLOOR = (180, 180, 180)
+DECOR_3_FLOOR_4T = (160, 160, 160)
 
 # --- doors and keys
 CYAN_DOOR = (255, 0, 255)
@@ -134,6 +135,21 @@ for i in range(1, nof_stages_ready + 1):
 				
             elif c == DECOR_2_FLOOR:
                 level['floorIds'][x][y] = [randint(4, 11), 1]
+
+
+            elif c == DECOR_3_FLOOR_4T:
+                left = is_field_in(pixels, x-1, y, [DECOR_3_FLOOR_4T])
+                top = is_field_in(pixels, x, y-1, [DECOR_3_FLOOR_4T])
+                right = is_field_in(pixels, x+1, y, [DECOR_3_FLOOR_4T])
+                bottom = is_field_in(pixels, x, y+1, [DECOR_3_FLOOR_4T])
+                if(right and bottom):
+                    level['floorIds'][x][y] = [10, 3]
+                elif(left and bottom):
+                    level['floorIds'][x][y] = [11, 3]
+                elif(right and top):
+                    level['floorIds'][x][y] = [10, 4]
+                elif(left and top):
+                    level['floorIds'][x][y] = [11, 4]
 
                 
             elif c == WALL:

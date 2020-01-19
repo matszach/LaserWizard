@@ -3,11 +3,11 @@
 		"triggerRange": 3,
 		"condition": 1,
 		"affectedTiles": [
-			{"relX" : -2, "relY" : -2},
-			{"relX" : -1, "relY" : -2},
-			{"relX" : 0, "relY" : -2},
-			{"relX" : 1, "relY" : -2},
-			{"relX" : 2, "relY" : -2}
+			{"relX" : -2, "relY" : -1},
+			{"relX" : -1, "relY" : -1},
+			{"relX" : 0, "relY" : -1},
+			{"relX" : 1, "relY" : -1},
+			{"relX" : 2, "relY" : -1}
 		]
 	}
 
