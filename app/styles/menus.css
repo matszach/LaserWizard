@@ -2,8 +2,8 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(168deg, #000044, #000022, #000011, #000000);
-    background-size: 800% 800%;
+    background: linear-gradient(170deg, #000066 -100%, #110000 100%);
+    background-size: 200% 200%;
     animation-iteration-count: infinite;
     animation-duration: 10s;
     animation-name: menu-bg-animation;
@@ -91,13 +91,13 @@
     min-height: 20px;
     width: calc(13% - 20px);
     min-width: 30px;
-    opacity: 0.1;
+    opacity: 0.2;
     transition-duration: 300ms;   
     background-color: #333333;
     font-size: 20px;
     font-family: Impact;
     letter-spacing: 5px;
-    color: #dddddd;
+    color: #aaaaaa;
     border: none;
     text-align: center;
     margin-left: 3px;
@@ -107,12 +107,10 @@
 
 .ss-stage-item-button.unlocked{
     background-color: #444488;
+    color: #aaaaff;
 }
 
-.ss-stage-item-button.unlocked{
-    color: #6666dd;
-}
 
 .ss-stage-item-button.unlocked:hover{
-    opacity: 0.4;
+    opacity: 0.6;
 }
