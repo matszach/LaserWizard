@@ -2,9 +2,10 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #000000;
+    background: linear-gradient(168deg, #000044, #000022, #000011, #000000);
+    background-size: 800% 800%;
     animation-iteration-count: infinite;
-    animation-duration: 3s;
+    animation-duration: 10s;
     animation-name: menu-bg-animation;
     white-space: nowrap;
 }
