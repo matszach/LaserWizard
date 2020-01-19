@@ -9,6 +9,7 @@ class Zombie extends _Monster {
         this.hp = 20;
         this.defence = 0;
         this.speed = 0.025;
+        this.bileAttack = new ZombieBileAttack(this);
     }
 
     _onDamaged(d){
@@ -19,8 +20,21 @@ class Zombie extends _Monster {
     _onExpire(){
         super._onExpire();
         ParticleSpawner.createExplosion(ZombieGutsParticle, this.x, this.y, Util.randInt(5, 10));
-        ParticleSpawner.createExplosion(BloodParticle, this.x, this.y, Util.randInt(10, 20));
-        
+        ParticleSpawner.createExplosion(BloodParticle, this.x, this.y, Util.randInt(10, 20)); 
+    }
+
+    _doExist(thisEntity){
+        var p = StageManager.currentStage.player;
+        var dir = thisEntity.getDirectionToPoint(p.x, p.y);
+        var dist = thisEntity.getDistanceToPoint(p.x, p.y);
+        if(dist < 2.5) {
+            thisEntity.bileAttack.execute();
+        }
+        if(dist > 0.5) {
+            thisEntity.travel(dir);
+        }
+        thisEntity.turn(dir);
+        thisEntity.checkForInWall();
     }
 
 }

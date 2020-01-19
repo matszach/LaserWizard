@@ -9,7 +9,7 @@ class Weapon4R3Projectile extends _DamagingProjectile {
         this.speed = Util.randFloat(0.12, 0.16);
         this.minDmg = 1;
         this.maxDmg = 3;
-        this.duration = Util.randInt(50, 70);
+        this.duration = Util.randInt(40, 80);
         this.accuracy = 92;
         
         this.tileX = 8;
@@ -26,7 +26,7 @@ class Weapon4R3Projectile extends _DamagingProjectile {
 
     _onExpire(){
         super._onExpire();
-        ParticleSpawner.createExplosion(RedSparkParticle,  this.x, this.y, Util.randInt(1, 2));
+        ParticleSpawner.createExplosion(RedSparkParticle,  this.x, this.y, Util.randInt(3, 5));
     }
 
 }

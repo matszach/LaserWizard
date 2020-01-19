@@ -1,14 +1,14 @@
 "use strict";
-class _WeaponAction{
+class _Action{
 
     // ==================== fields ====================
-    player;
+    user;
     cooldownDuration;
     isOnCooldown;
 
     // ==================== constructor ====================
-    constructor(player){
-        this.player = player;        
+    constructor(user){
+        this.user = user;        
         this.cooldownDuration = 250;
         this.isOnCooldown = false;
     }

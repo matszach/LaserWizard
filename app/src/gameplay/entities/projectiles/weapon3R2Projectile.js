@@ -26,7 +26,7 @@ class Weapon3R2Projectile extends _DamagingProjectile {
 
     _onExpire(){
         super._onExpire();
-        ParticleSpawner.createExplosion(RedSparkParticle,  this.x, this.y, Util.randInt(5, 10));
+        ParticleSpawner.createExplosion(RedSparkParticle,  this.x, this.y, Util.randInt(8, 16));
     }
 
 }

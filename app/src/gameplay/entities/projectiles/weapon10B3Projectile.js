@@ -6,10 +6,10 @@ class Weapon10B3Projectile extends _DamagingProjectile {
         // super constructor
         super(parentEntity, direction, x, y);
 
-        this.speed = 0.08;
+        this.speed = 0.06;
         this.minDmg = 1;
         this.maxDmg = 4;
-        this.duration = 100;
+        this.duration = 110;
         this.accuracy = 98;
         
         this.tileX = 8;
@@ -21,7 +21,7 @@ class Weapon10B3Projectile extends _DamagingProjectile {
     }
 
     animate(){
-        this.rotate(10);
+        this.rotate(5);
         ParticleSpawner.createExplosion(CyanSparkParticle, this.x, this.y, Util.randInt(1, 2));
     }
 
