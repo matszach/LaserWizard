@@ -51,8 +51,8 @@ const StageManager = {
 
     recycle(){
         this.sleepAll();
-        this.currentStage = null;
         StagePainter.clearCanvas(StagePainter.calcDisplaySizes());
+        this.currentStage = null;
     }
 
 }

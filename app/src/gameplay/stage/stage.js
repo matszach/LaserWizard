@@ -1,6 +1,9 @@
 "use strict";
 class Stage {   
 
+    // stage id
+    stageId;
+
     // ids to diplay the correct image from tilesets
     floorIds;
     wallIds;
@@ -22,9 +25,10 @@ class Stage {
     // animations
     numberAnimations;
 
-    constructor(player){
+    constructor(id, player){
         // if a player is passed as an argument then it will be used
         // a brand new one is created otherwise
+        this.stageId = id;
         this.player = player ?  player : new Player(); 
         this.monsters = [];
         this.projectiles = [];

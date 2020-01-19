@@ -9,9 +9,9 @@ const StageLoader = {
         }
     },
 
-    _loadPrototype(stageNum){
+    _loadPrototype(stageNum, player){
         $.get(`assets\\stages\\stage${stageNum}.json`, (data) => {
-            var stage = new Stage();
+            var stage = new Stage(stageNum, player);
             stage.player.x = data.player.x;
             stage.player.y = data.player.y;
             stage.wallIds = data.wallIds;
@@ -23,6 +23,7 @@ const StageLoader = {
                 stage.beacons.push(mb);
             });
             data.doorBeacons.forEach(e => stage.beacons.push(DoorBeaconFactory.getDoorBeacon(e)));
+            stage.beacons.push(new PlayerExitBeacon(data.playerExitBeacon.x, data.playerExitBeacon.y));
             data.items.forEach(e => stage.items.push(ItemFactory.getItem(e.id, e.x, e.y)));
             StageManager.currentStage = stage;
             HudManager.start();
@@ -32,6 +33,14 @@ const StageLoader = {
             Hax.unlockAllWeapons();
             Hax.insaneAmmo();
         });
+    },
+
+    loadNext(){
+        // TODO unlocking next level etc.
+        var id = parseInt(StageManager.currentStage.stageId) + 1;
+        var player = StageManager.currentStage.player;
+        StageManager.recycle();
+        this._loadPrototype(id, player);
     }
 
 }

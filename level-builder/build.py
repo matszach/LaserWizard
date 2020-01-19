@@ -274,6 +274,11 @@ for i in range(1, nof_stages_ready + 1):
 
                 sx, sy = player_exit_map[(left, top, right, bottom)]
                 level['floorIds'][x][y] = [sx, sy]
+                if(left and right and top and bottom):
+                    level['playerExitBeacon'] = {
+                        'x': x,
+                        'y': y
+                    }
 
             elif c == PLAYER_SPAWN:
                 level['player'] = {
