@@ -4,10 +4,10 @@ class SkeletonRocketProjectile extends _DamagingProjectile {
     constructor(parentEntity, direction, x, y){
         super(parentEntity, direction, x, y);
 
-        this.speed = 0.14
+        this.speed = 0.11
         this.minDmg = 8;
         this.maxDmg = 12;
-        this.duration = Util.randInt(60, 80);
+        this.duration = Util.randInt(90, 110);
         this.accuracy = 95;
     
         this.tileX = 4;
@@ -19,7 +19,15 @@ class SkeletonRocketProjectile extends _DamagingProjectile {
     }
 
     animate(){
-        ParticleSpawner.createExplosion(RocketSmokeParticle, this.x, this.y, 1);
+        if(Util.chance(0.5)){
+            ParticleSpawner.createExplosion(RocketSmokeParticle, this.x, this.y, 1);
+        }
+
+        // home-ing on the player
+        var p = StageManager.currentStage.player;
+        var dir = this.getDirectionToPoint(p.x, p.y);
+        this.turnToDirection(dir, 0.5);
+        this.travelDirection = this.direction;
     }
 
     _onExpire(){

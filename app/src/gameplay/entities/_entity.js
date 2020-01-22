@@ -228,6 +228,15 @@ class _Entity {
         return dir;
     }
 
+    turnToDirection(targetDirection, turnRate){
+        var thisDir = this.direction % 360;
+        if(thisDir - targetDirection > 0){
+            this.direction -= turnRate;
+        } else if (thisDir - targetDirection < 0){
+            this.direction += turnRate;
+        }
+    }
+
     getDistanceToPoint(x, y){
         var dx = x - this.x;
         var dy = y - this.y;
