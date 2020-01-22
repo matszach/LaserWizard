@@ -26,10 +26,10 @@ class Skeleton extends _Monster {
         var p = StageManager.currentStage.player;
         var dir = thisEntity.getDirectionToPoint(p.x, p.y);
         var dist = thisEntity.getDistanceToPoint(p.x, p.y);
-        if(dist < 8) {
+        if(dist < 9) {
             thisEntity.rocketAttack.execute();
         }
-        if(dist > 3) {
+        if(dist > 4) {
             thisEntity.travel(dir);
         }
         thisEntity.turn(dir);
