@@ -21,6 +21,7 @@ class _Entity {
     collidesItem;           // - states if the entity checks for collision with an item
     tileX;                  // - x position in tileset (can be changed through animations)
     tileY;                  // - y position in tileset (can be changed through animations)
+    opacity;                // opacity with which the antity is drawn on canvas
 
     lifecycleInterval;      // - entity's lifecycle interval reference
 
@@ -47,6 +48,7 @@ class _Entity {
         this.collidesItem = false;
         this.tileX = 0;
         this.tileY = 0;
+        this.opacity = 1;
     }
 
     // ==================== methods ====================

@@ -1,15 +1,15 @@
 "use strict";
-class Drone extends _Monster {
+class Skeleton extends _Monster {
 
     constructor(){
         super();
         this.tileX = Util.randInt(0, 3);
-        this.tileY = 1;
-        this.maxHp = Util.randInt(25, 30);
-        this.displaySize = Util.randFloat(1.1, 1.3);
-        this.defence = 20;
-        this.speed = Util.randFloat(0.026, 0.030);
-        this.bulletAttack = new DroneBulletAttack(this);
+        this.tileY = 3;
+        this.maxHp = Util.randInt(32, 40);
+        this.displaySize = Util.randFloat(1.4, 1.6);
+        this.defence = 15;
+        this.speed = Util.randFloat(0.018, 0.020);
+        this.rocketAttack = new SkeletonRocketAttack(this);
     }
 
     _onDamaged(d){
@@ -19,7 +19,7 @@ class Drone extends _Monster {
 
     _onExpire(){
         super._onExpire();
-        ParticleSpawner.createExplosion(ScrapParticle, this.x, this.y, Util.randInt(10, 30));
+        ParticleSpawner.createExplosion(ScrapParticle, this.x, this.y, Util.randInt(20, 40));
     }
 
     _doExist(thisEntity){
@@ -27,7 +27,7 @@ class Drone extends _Monster {
         var dir = thisEntity.getDirectionToPoint(p.x, p.y);
         var dist = thisEntity.getDistanceToPoint(p.x, p.y);
         if(dist < 8) {
-            thisEntity.bulletAttack.execute();
+            thisEntity.rocketAttack.execute();
         }
         if(dist > 3) {
             thisEntity.travel(dir);

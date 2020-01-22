@@ -15,7 +15,7 @@ class Weapon5Y1Projectile extends _DamagingProjectile {
         this.tileX = 0;
         this.tileY = 2;
         
-        this.collisionSize = 0.1;
+        this.collisionSize = 0.2;
         this.displaySize = 0.3;
         this.collidesMonster = true;
     }

@@ -3,8 +3,8 @@ const StagePainter = {
 
     _stagePainterInterval: null,
 
-    displayHeightInUnits: 18,
-    displayWidthInUnits: 32,
+    displayHeightInUnits: 16,
+    displayWidthInUnits: 26,
 
     unit: 0,
 
@@ -118,10 +118,10 @@ const StagePainter = {
             if(x  > -1 && y > -1 && x < this.displayWidthInUnits + 1 && y < this.displayHeightInUnits + 1){
                 // rotating item image
                 CanvasManager.paintRotatedImageAt(ImageLoader.items, e.tileX, e.tileY, c.unit,
-                    x, y, c.vOffset, c.hOffset, e.direction, e.displaySize);
+                    x, y, c.vOffset, c.hOffset, e.direction, e.displaySize, e.opacity);
                 // item sphere
                 CanvasManager.paintImageAt(ImageLoader.misc, 1, 0, c.unit,
-                    x, y, c.vOffset, c.hOffset, e.displaySize + 0.6, 0.3);
+                    x, y, c.vOffset, c.hOffset, e.displaySize + 0.4, 0.3);
             } 
         });
     },
@@ -129,27 +129,27 @@ const StagePainter = {
     drawMonsters(c){
         StageManager.currentStage.monsters.filter(e => {return !e.expired}).forEach(e => {
             CanvasManager.paintRotatedImageAt(ImageLoader.monsters, e.tileX, e.tileY, c.unit,
-                (e.x - c.xMin), (e.y - c.yMin), c.vOffset, c.hOffset, e.direction, e.displaySize);
+                (e.x - c.xMin), (e.y - c.yMin), c.vOffset, c.hOffset, e.direction, e.displaySize, e.opacity);
         });
     },
 
     drawPlayer(c){
         var p = StageManager.currentStage.player;
         CanvasManager.paintRotatedImageAt(ImageLoader.player, p.tileX, p.tileY, c.unit,
-            (p.x - c.xMin), (p.y - c.yMin), c.vOffset, c.hOffset, p.direction, p.displaySize);
+            (p.x - c.xMin), (p.y - c.yMin), c.vOffset, c.hOffset, p.direction, p.displaySize, p.opacity);
     },
 
     drawProjectiles(c){
         StageManager.currentStage.projectiles.filter(e => {return !e.expired}).forEach(e => {
             CanvasManager.paintRotatedImageAt(ImageLoader.projectiles, e.tileX, e.tileY, c.unit,
-                (e.x - c.xMin), (e.y - c.yMin), c.vOffset, c.hOffset, e.direction, e.displaySize);
+                (e.x - c.xMin), (e.y - c.yMin), c.vOffset, c.hOffset, e.direction, e.displaySize, e.opacity);
         });
     },
 
     drawParticles(c){
         StageManager.currentStage.particles.filter(e => {return !e.expired}).forEach(e => {
             CanvasManager.paintRotatedImageAt(ImageLoader.particles, e.tileX, e.tileY, c.unit,
-                (e.x - c.xMin), (e.y - c.yMin), c.vOffset, c.hOffset, e.direction, e.displaySize);
+                (e.x - c.xMin), (e.y - c.yMin), c.vOffset, c.hOffset, e.direction, e.displaySize, e.opacity);
         });
     },
 

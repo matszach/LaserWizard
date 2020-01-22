@@ -39,7 +39,7 @@ class ShadowHolder{
 
 const ShadowsCalculator = {
 
-    MAX_DEPTH : 13,
+    MAX_DEPTH : 12,
     DIAG_MOD : Math.sqrt(2),
 
     /**

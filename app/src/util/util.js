@@ -16,12 +16,15 @@ const Util = {
     },
 
     randInt(min, max){
-        return Math.floor(min + (max - min) * Math.random()); 
+        return Math.round(min + (max - min) * Math.random()); 
     },
 
     randFloat(min, max){
         return min + (max - min) * Math.random(); 
-    }
+    },
 
+    chance(p){
+        return Math.random() < p;
+    }
 
 }

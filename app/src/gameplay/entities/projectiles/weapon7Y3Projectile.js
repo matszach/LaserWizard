@@ -6,7 +6,7 @@ class Weapon7Y3Projectile extends _DamagingProjectile {
         // super constructor
         super(parentEntity, direction, x, y);
 
-        this.speed = 0.12;
+        this.speed = 0.15;
         this.minDmg = 20;
         this.maxDmg = 30;
         this.duration = 100;
@@ -26,7 +26,7 @@ class Weapon7Y3Projectile extends _DamagingProjectile {
 
     _onExpire(){
         super._onExpire();
-        ParticleSpawner.createExplosion(YellowSparkParticle,  this.x, this.y, Util.randInt(200, 300));
+        ParticleSpawner.createExplosion(YellowSparkParticle,  this.x, this.y, Util.randInt(100, 200));
     }
 
 }

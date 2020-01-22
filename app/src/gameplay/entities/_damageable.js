@@ -19,19 +19,18 @@ class _Damageable extends _Entity{
     // ==================== methods ====================
     // damage and death
     takeDmg(d){
-        this.hp -= d * (100 - this.defence)/100;
+        var trueDmg = d * (100 - this.defence)/100;
+        this.hp -= trueDmg;
         if(this.hp <= 0){
             this.expire();
         }
-        this._onDamaged(d);
+        this._onDamaged(trueDmg);
     }
 
     healDmg(h){
-        this.hp += h;
-        if(this.hp > this.maxHp){
-            this.hp = this.maxHp;
-        }
-        this._onHealed(h);
+        var trueHealing = this.maxHp - this.hp > h ? h : this.maxHp - this.hp;
+        this.hp += trueHealing;
+        this._onHealed(trueHealing);
     }
 
     // "on" triggers
