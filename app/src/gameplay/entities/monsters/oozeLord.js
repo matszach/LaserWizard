@@ -11,7 +11,7 @@ class OozeLord extends _Monster {
         this.speed = Util.randFloat(0.014, 0.016);
         this.opacity = 0.8;
 
-        // this.bileAttack = new ZombieBileAttack(this);
+        this.bileAttack = new OozeLordBileAttack(this);
     }
 
     _onDamaged(d){
@@ -29,10 +29,10 @@ class OozeLord extends _Monster {
         var p = StageManager.currentStage.player;
         var dir = thisEntity.getDirectionToPoint(p.x, p.y);
         var dist = thisEntity.getDistanceToPoint(p.x, p.y);
-        // if(dist < 3) {
-        //     thisEntity.bileAttack.execute();
-        // }
-        if(dist > 0.75) {
+        if(dist < 7) {
+            thisEntity.bileAttack.execute();
+        }
+        if(dist > 1) {
             thisEntity.travel(dir);
         }
         thisEntity.turn(dir);
