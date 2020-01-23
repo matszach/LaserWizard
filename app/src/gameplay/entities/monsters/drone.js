@@ -34,5 +34,6 @@ class Drone extends _Monster {
         }
         thisEntity.turn(dir);
         thisEntity.checkForInWall();
+        thisEntity.doCheckCollisions();
     }
 }

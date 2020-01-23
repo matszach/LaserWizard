@@ -6,7 +6,8 @@ const MonsterFactory = {
         1 : Drone,
         2 : Ghost,
         3 : Skeleton,
-        4 : OozeLord,
+        4 : GelCube,
+        5 : OozeLord,
 
         default : Zombie
     },
@@ -17,7 +18,7 @@ const MonsterFactory = {
      * @param {number} y - monster y position
      */
     getMonster(id, x, y){
-        id = Util.randInt(0, 4);
+        id = Util.randInt(0, 5);
         var monsterClass = this._monsterTypeDict[id] ? this._monsterTypeDict[id] : this._monsterTypeDict.default;
         var monster = new monsterClass();
         if(x && y){

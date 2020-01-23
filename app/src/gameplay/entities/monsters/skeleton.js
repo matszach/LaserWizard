@@ -5,7 +5,7 @@ class Skeleton extends _Monster {
         super();
         this.tileX = Util.randInt(0, 3);
         this.tileY = 3;
-        this.maxHp = Util.randInt(32, 40);
+        this.maxHp = Util.randInt(50, 60);
         this.displaySize = Util.randFloat(1.4, 1.6);
         this.defence = 15;
         this.speed = Util.randFloat(0.018, 0.020);
@@ -34,5 +34,6 @@ class Skeleton extends _Monster {
         }
         thisEntity.turn(dir);
         thisEntity.checkForInWall();
+        thisEntity.doCheckCollisions();
     }
 }
