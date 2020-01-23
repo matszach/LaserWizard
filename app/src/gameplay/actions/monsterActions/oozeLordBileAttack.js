@@ -12,4 +12,4 @@ class OozeLordBileAttack extends _Action {
         }
     }
 
-}j
+}

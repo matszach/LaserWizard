@@ -15,13 +15,13 @@ class Ghost extends _Monster {
 
     _onDamaged(d){
         super._onDamaged(d);
-        ParticleSpawner.createExplosion(BloodParticle, this.x, this.y, Util.randInt(1, 1/d));
+        ParticleSpawner.createExplosion(RedSparkParticle, this.x, this.y, Util.randInt(1, 1/d));
     }
 
     _onExpire(){
         super._onExpire();
-        ParticleSpawner.createExplosion(ZombieGutsParticle, this.x, this.y, Util.randInt(5, 10));
-        ParticleSpawner.createExplosion(BloodParticle, this.x, this.y, Util.randInt(10, 20)); 
+        ParticleSpawner.createExplosion(RedSparkParticle, this.x, this.y, Util.randInt(15, 30));
+
     }
 
     _doExist(thisEntity){

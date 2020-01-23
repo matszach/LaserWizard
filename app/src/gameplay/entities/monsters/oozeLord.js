@@ -12,17 +12,19 @@ class OozeLord extends _Monster {
         this.opacity = 0.8;
 
         this.bileAttack = new OozeLordBileAttack(this);
+        this.death = new OozeLordDeath(this);
+        this.damaged = new OozeLordDamaged(this);
     }
 
     _onDamaged(d){
         super._onDamaged(d);
-        // ParticleSpawner.createExplosion(BloodParticle, this.x, this.y, Util.randInt(1, 1/d));
+        this.damaged.execute();
     }
 
     _onExpire(){
         super._onExpire();
-        // ParticleSpawner.createExplosion(ZombieGutsParticle, this.x, this.y, Util.randInt(5, 10));
-        // ParticleSpawner.createExplosion(BloodParticle, this.x, this.y, Util.randInt(10, 20)); 
+        this.death.execute();
+        ParticleSpawner.createExplosion(ZombieGutsParticle, this.x, this.y, Util.randInt(15, 30));
     }
 
     _doExist(thisEntity){
