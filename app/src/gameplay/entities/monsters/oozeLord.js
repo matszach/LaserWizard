@@ -6,7 +6,7 @@ class OozeLord extends _Monster {
         this.tileX = 8;
         this.tileY = 0;
         this.maxHp = Util.randInt(200, 220);
-        this.displaySize = Util.randFloat(2, 2.2);
+        this.displaySize = Util.randFloat(2.8, 3.0);
         this.defence = 25;
         this.speed = Util.randFloat(0.014, 0.016);
         this.opacity = 0.8;

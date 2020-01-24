@@ -10,6 +10,7 @@ BORDER = 4
 # --- structure
 EMPTY = (255, 255, 255)
 WALL = (0, 0, 0)
+DECOR_1_WALL = (30, 30, 30)
 DECOR_1_FLOOR = (180, 250, 180)
 DECOR_2_FLOOR = (180, 180, 180)
 DECOR_3_FLOOR_4T = (160, 160, 160)
@@ -154,10 +155,10 @@ for i in range(1, nof_stages_ready + 1):
                 
             elif c == WALL:
 
-                left = is_field_in(pixels, x-1, y, [WALL])
-                top = is_field_in(pixels, x, y-1, [WALL])
-                right = is_field_in(pixels, x+1, y, [WALL])
-                bottom = is_field_in(pixels, x, y+1, [WALL])
+                left = is_field_in(pixels, x-1, y, [DECOR_1_WALL, WALL])
+                top = is_field_in(pixels, x, y-1, [DECOR_1_WALL, WALL])
+                right = is_field_in(pixels, x+1, y, [DECOR_1_WALL, WALL])
+                bottom = is_field_in(pixels, x, y+1, [DECOR_1_WALL, WALL])
 
                 x_index = 0
                 y_index = 0
@@ -202,6 +203,39 @@ for i in range(1, nof_stages_ready + 1):
                 level['wallIds'][x][y] = [x_index, y_index]
                 level['collisionMap'][x][y] = 1
 				
+				
+            elif c == DECOR_1_WALL:
+
+                left = is_field_in(pixels, x-1, y, [DECOR_1_WALL, WALL])
+                top = is_field_in(pixels, x, y-1, [DECOR_1_WALL, WALL])
+                right = is_field_in(pixels, x+1, y, [DECOR_1_WALL, WALL])
+                bottom = is_field_in(pixels, x, y+1, [DECOR_1_WALL, WALL])
+
+                x_index = 0
+                y_index = 0
+
+                if not left and top and right and bottom:
+                    x_index = 0
+                    y_index = 5
+                elif left and not top and right and bottom:
+                    x_index = 1
+                    y_index = 5
+                elif left and top and not right and bottom:
+                    x_index = 2
+                    y_index = 5
+                elif left and top and right and not bottom:
+                    x_index = 3
+                    y_index = 5
+
+                t = randint(1, 100)
+                if t > 66:
+                    x_index += 4
+                elif t > 33:
+                    x_index += 8
+
+                level['wallIds'][x][y] = [x_index, y_index]
+                level['collisionMap'][x][y] = 1
+                
 
             elif c == TEAL_DOOR:
                 level['wallIds'][x][y] = [1, 3]
