@@ -16,3 +16,13 @@ class RocketSmokeParticle extends _Particle {
     }
 
 }
+
+
+class LastingSmoke extends RocketSmokeParticle {
+
+    constructor(direction, x, y){
+        super(direction, x, y);
+        this.duration = Util.randInt(100, 150);
+    }
+
+}

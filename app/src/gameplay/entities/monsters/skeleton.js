@@ -14,12 +14,13 @@ class Skeleton extends _Monster {
 
     _onDamaged(d){
         super._onDamaged(d);
-        ParticleSpawner.createExplosion(ScrapParticle, this.x, this.y, Util.randInt(0, d/3));
+        ParticleSpawner.createExplosion(BoneParticle, this.x, this.y, Util.randInt(0, d/3));
     }
 
     _onExpire(){
         super._onExpire();
-        ParticleSpawner.createExplosion(ScrapParticle, this.x, this.y, Util.randInt(20, 40));
+        ParticleSpawner.createExplosion(ScrapParticle, this.x, this.y, Util.randInt(10, 20));
+        ParticleSpawner.createExplosion(BoneParticle, this.x, this.y, Util.randInt(10, 20));
     }
 
     _doExist(thisEntity){

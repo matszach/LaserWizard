@@ -26,7 +26,8 @@ class Weapon7Y3Projectile extends _DamagingProjectile {
 
     _onExpire(){
         super._onExpire();
-        ParticleSpawner.createExplosion(YellowSparkParticle,  this.x, this.y, Util.randInt(100, 200));
+        ParticleSpawner.createExplosion(YellowSparkParticle,  this.x, this.y, Util.randInt(80, 160));
+        ParticleSpawner.createExplosion(LastingSmoke,  this.x, this.y, Util.randInt(20, 30));
     }
 
 }

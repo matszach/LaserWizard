@@ -28,8 +28,10 @@ class GelCube extends _Monster {
             var monster = new GelCubeSmall();
             monster.x = this.x + Util.randFloat(-1, 1);
             monster.y = this.y + Util.randFloat(-1, 1);
-            StageManager.currentStage.monsters.push(monster);
-            monster.awaken();
+            if(!monster._isInWall()){
+                StageManager.currentStage.monsters.push(monster);
+                monster.awaken();
+            }
         }
     }
 
@@ -47,7 +49,7 @@ class GelCube extends _Monster {
     }
 
     _onCollisionWithPlayer(entity){
-        entity.takeDmg(1);
+        entity.takeDmg(Util.randFloat(1, 3));
     }
 }
 
@@ -56,6 +58,7 @@ class GelCubeSmall extends GelCube {
     constructor(){
         super();
         this.maxHp = Util.randInt(30, 40);
+        this.hp = this.maxHp;
         this.displaySize = Util.randFloat(1, 1.1);
         this.speed = Util.randFloat(0.012, 0.013);
     }
@@ -65,9 +68,15 @@ class GelCubeSmall extends GelCube {
             var monster = new GelCubeTiny();
             monster.x = this.x + Util.randFloat(-1, 1);
             monster.y = this.y + Util.randFloat(-1, 1);
-            StageManager.currentStage.monsters.push(monster);
-            monster.awaken();
+            if(!monster._isInWall()){
+                StageManager.currentStage.monsters.push(monster);
+                monster.awaken();
+            }
         }
+    }
+
+    _onCollisionWithPlayer(entity){
+        entity.takeDmg(Util.randFloat(0, 2));
     }
 }
 
@@ -76,12 +85,17 @@ class GelCubeTiny extends GelCube {
     constructor(){
         super();
         this.maxHp = Util.randInt(10, 15);
+        this.hp = this.maxHp;
         this.displaySize = Util.randFloat(0.5, 0.6);
         this.speed = Util.randFloat(0.015, 0.016);
     }
 
     _onExpire(){
         // todo
+    }
+
+    _onCollisionWithPlayer(entity){
+        entity.takeDmg(Util.randFloat(0, 1));
     }
 }
 
