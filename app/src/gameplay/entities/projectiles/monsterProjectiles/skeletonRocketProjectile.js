@@ -10,11 +10,11 @@ class SkeletonRocketProjectile extends _DamagingProjectile {
         this.duration = Util.randInt(90, 110);
         this.accuracy = 95;
     
-        this.tileX = 4;
+        this.tileX = 5;
         this.tileY = 4;
         
-        this.collisionSize = 0.15;
-        this.displaySize = 0.5;
+        this.collisionSize = 0.3;
+        this.displaySize = 1.0;
         this.collidesPlayer = true;
     }
 
