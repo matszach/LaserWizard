@@ -25,8 +25,14 @@ const Hax = {
         p.gainBlueEnergy(9999);
     },
 
+    highDefence(){
+        var p = StageManager.currentStage.player;
+        p.defence = 75;
+    },
 
-
-
+    invulnerability(){
+        var p = StageManager.currentStage.player;
+        p.defence = 100;
+    }
 
 }

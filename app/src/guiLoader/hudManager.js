@@ -8,6 +8,7 @@ const HudManager = {
             redEnergy: 0,
             yellowEnergy: 0,
             blueEnergy: 0,
+            defence: 0,
             selectedWeaponIndex: 0, 
             wheel: UserInputHandler.mouse.wheel
         }
@@ -57,6 +58,7 @@ const HudManager = {
         var p = StageManager.currentStage.player;
         var dv = HudManager.onDisplayValues;
         HudManager.applyEnergyDisplayChange(p, dv);
+        HudManager.applyStatsDisplayChange(p, dv);
         HudManager.applyHpDisplayChage(p, dv);
         HudManager.applyScrollSelectWeapon(p, dv);
         HudManager.applyWeaponChange(p, dv);
@@ -84,6 +86,14 @@ const HudManager = {
         $('.hud-value-span.blue').html(dv.blueEnergy);
     },
 
+    applyStatsDisplayChange(p, dv){
+        if(p.defence > dv.defence){
+            dv.defence++;
+        } else {
+            dv.defence = Math.floor(p.defence);
+        }
+        $('.hud-value-span.defence').html(dv.defence);
+    },
 
     applyHpDisplayChage(p, dv){
   

@@ -32,6 +32,7 @@ const StageLoader = {
             // hax todo remove this
             Hax.unlockAllWeapons();
             Hax.insaneAmmo();
+            Hax.highDefence();
         });
     },
 

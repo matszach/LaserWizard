@@ -7,16 +7,16 @@ class Weapon10B3Projectile extends _DamagingProjectile {
         super(parentEntity, direction, x, y);
 
         this.speed = 0.06;
-        this.minDmg = 1;
-        this.maxDmg = 4;
+        this.minDmg = 3;
+        this.maxDmg = 7;
         this.duration = 110;
         this.accuracy = 98;
         
         this.tileX = 8;
         this.tileY = 3;
         
-        this.collisionSize = 0.6;
-        this.displaySize = 0.8;
+        this.collisionSize = 1.0;
+        this.displaySize = 0.6;
         this.collidesMonster = true;
     }
 
@@ -27,7 +27,6 @@ class Weapon10B3Projectile extends _DamagingProjectile {
 
     _onCollisionWithMonster(m){
         // this one does not expire on collision WITH MONSTER
-        m.takeDmg(this.calculateDamage()); // this projectile deals damage twice
         m.takeDmg(this.calculateDamage());
         ParticleSpawner.createExplosion(CyanSparkParticle, this.x, this.y, Util.randInt(2, 5));
     }
