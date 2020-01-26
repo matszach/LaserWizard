@@ -9,6 +9,8 @@ const HudManager = {
             yellowEnergy: 0,
             blueEnergy: 0,
             defence: 0,
+            keyMagenta: false, // unused
+            keyCyan: false, // unused
             selectedWeaponIndex: 0, 
             wheel: UserInputHandler.mouse.wheel
         }
@@ -93,6 +95,16 @@ const HudManager = {
             dv.defence = Math.floor(p.defence);
         }
         $('.hud-value-span.defence').html(dv.defence);
+        if(p.keys.magenta){
+            $('#key-magenta').css('opacity', 1);
+        } else {
+            $('#key-magenta').css('opacity', 0.1);
+        }
+        if(p.keys.cyan){
+            $('#key-cyan').css('opacity', 1);
+        } else {
+            $('#key-cyan').css('opacity', 0.1);
+        }
     },
 
     applyHpDisplayChage(p, dv){
