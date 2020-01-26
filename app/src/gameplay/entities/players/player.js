@@ -48,6 +48,9 @@ class Player extends _Character {
             new WeaponAction10B3(this)
         ];
         this.speed = 0.04;
+
+        this.tileX = 0;
+        this.tileY = 1;
     }
 
 
@@ -65,8 +68,10 @@ class Player extends _Character {
 
     selectNextWeapon(){
         this.selectedWeaponIndex++; // to next weapon
+        this.tileX++;
         if(this.selectedWeaponIndex > 9){ // if last weapon -> wrap to first
             this.selectedWeaponIndex = 0;
+            this.tileX = 0;
         }
         if(!this.weaponsUnlockedState[this.selectedWeaponIndex]){ // if next weapon not unlocked -> to next weapon
             this.selectNextWeapon();
@@ -75,8 +80,10 @@ class Player extends _Character {
 
     selectPrevWeapon(){
         this.selectedWeaponIndex--; // to prev weapon
+        this.tileX--;
         if(this.selectedWeaponIndex < 0){ // if first weapon -> wrap to last
             this.selectedWeaponIndex = 9;
+            this.tileX = 9;
         }
         if(!this.weaponsUnlockedState[this.selectedWeaponIndex]){ // if prev weapon not unlocked -> to next weapon
             this.selectPrevWeapon();
@@ -86,6 +93,7 @@ class Player extends _Character {
     selectWeaponIfUnlocked(id){
         if(this.weaponsUnlockedState[id]){
             this.selectedWeaponIndex = id;
+            this.tileX = id;
         }
     }
 

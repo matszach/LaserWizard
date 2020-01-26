@@ -135,6 +135,7 @@ const StagePainter = {
 
     drawPlayer(c){
         var p = StageManager.currentStage.player;
+        console.log(p.tileX, p.tileY);
         CanvasManager.paintRotatedImageAt(ImageLoader.player, p.tileX, p.tileY, c.unit,
             (p.x - c.xMin), (p.y - c.yMin), c.vOffset, c.hOffset, p.direction, p.displaySize, p.opacity);
     },
