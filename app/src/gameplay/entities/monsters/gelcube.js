@@ -50,7 +50,9 @@ class GelCube extends _Monster {
     }
 
     _onCollisionWithPlayer(entity){
-        entity.takeDmg(Util.randFloat(1, 3));
+        if(Util.chance(0.25)){
+            entity.takeDmg(Util.randFloat(6, 10));
+        }
     }
 }
 
@@ -77,7 +79,9 @@ class GelCubeSmall extends GelCube {
     }
 
     _onCollisionWithPlayer(entity){
-        entity.takeDmg(Util.randFloat(0, 2));
+        if(Util.chance(0.25)){
+            entity.takeDmg(Util.randFloat(3, 5));
+        }
     }
 }
 
@@ -96,7 +100,9 @@ class GelCubeTiny extends GelCube {
     }
 
     _onCollisionWithPlayer(entity){
-        entity.takeDmg(Util.randFloat(0, 1));
+        if(Util.chance(0.25)){
+            entity.takeDmg(Util.randFloat(1, 3));
+        }
     }
 }
 
