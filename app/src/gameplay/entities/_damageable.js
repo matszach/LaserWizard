@@ -39,7 +39,9 @@ class _Damageable extends _Entity{
     }
 
     _onHealed(healing){
-        StageManager.currentStage.numberAnimations.push(new FadingNumber(healing, this.x, this.y, '#00ff00'));
+        if(healing >= 1){
+            StageManager.currentStage.numberAnimations.push(new FadingNumber(healing, this.x, this.y, '#00ff00'));
+        }
     }
 
 }
