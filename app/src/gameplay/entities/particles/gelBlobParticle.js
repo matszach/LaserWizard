@@ -9,7 +9,7 @@ class GelBlobParticle extends _Particle {
         this.tileX = Util.randInt(0, 3);
         this.tileY = 6;
     }
-S
+    
     animate(){
         this.rotate(2);
     }
