@@ -8,6 +8,7 @@ class GelCube extends _Monster {
         this.maxHp = Util.randInt(70, 80);
         this.displaySize = Util.randFloat(2, 2.1);
         this.defence = 0;
+        this.opacity = 0.6;
         this.speed = Util.randFloat(0.010, 0.011);
 
 

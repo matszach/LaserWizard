@@ -8,7 +8,7 @@ class Ghost extends _Monster {
         this.maxHp = Util.randInt(15, 20);
         this.displaySize = Util.randFloat(0.8, 1.0);
         this.defence = 35;
-        this.speed = 0.04;
+        this.speed = 0.035;
         this.opacity = 0.6;
         this.drainAttack = new GhostDrainAttack(this);
     }

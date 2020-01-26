@@ -5,8 +5,8 @@ class OozeLordBileProjectile extends _DamagingProjectile {
         super(parentEntity, direction, x, y);
 
         this.speed = Util.randFloat(0.05, 0.07);
-        this.minDmg = 2;
-        this.maxDmg = 5;
+        this.minDmg = 8;
+        this.maxDmg = 12;
         this.duration = Util.randInt(90, 110);
         this.accuracy = 85;
         

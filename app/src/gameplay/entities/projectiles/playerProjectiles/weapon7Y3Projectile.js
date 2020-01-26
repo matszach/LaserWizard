@@ -7,8 +7,8 @@ class Weapon7Y3Projectile extends _DamagingProjectile {
         super(parentEntity, direction, x, y);
 
         this.speed = 0.15;
-        this.minDmg = 20;
-        this.maxDmg = 30;
+        this.minDmg = 30;
+        this.maxDmg = 40;
         this.duration = 100;
         this.accuracy = 99;
         
