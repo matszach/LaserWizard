@@ -21,6 +21,7 @@ class GelCube extends _Monster {
 
     _onDamaged(d){
         super._onDamaged(d);
+        ParticleSpawner.createExplosion(GelBlobParticle, this.x, this.y, Util.randInt(1, d/2));
     }
 
     _onExpire(){
@@ -34,15 +35,13 @@ class GelCube extends _Monster {
                 monster.awaken();
             }
         }
+        ParticleSpawner.createExplosion(GelBlobParticle, this.x, this.y, Util.randInt(20, 30));
     }
 
     _doExist(thisEntity){
         var p = StageManager.currentStage.player;
         var dir = thisEntity.getDirectionToPoint(p.x, p.y);
         var dist = thisEntity.getDistanceToPoint(p.x, p.y);
-        // if(dist < 9) {
-        //     thisEntity.rocketAttack.execute();
-        // }
         thisEntity.travel(dir);
         thisEntity.turn(dir);
         thisEntity.checkForInWall();
@@ -76,6 +75,7 @@ class GelCubeSmall extends GelCube {
                 monster.awaken();
             }
         }
+        ParticleSpawner.createExplosion(GelBlobParticle, this.x, this.y, Util.randInt(10, 15));
     }
 
     _onCollisionWithPlayer(entity){
@@ -96,7 +96,7 @@ class GelCubeTiny extends GelCube {
     }
 
     _onExpire(){
-        // todo
+        ParticleSpawner.createExplosion(GelBlobParticle, this.x, this.y, Util.randInt(3, 6));
     }
 
     _onCollisionWithPlayer(entity){

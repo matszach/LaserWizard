@@ -214,4 +214,9 @@ class Player extends _Character {
         }
     }
 
+    _onDamaged(damage){
+        super._onDamaged(damage);
+        ParticleSpawner.createExplosion(BloodParticle, this.x, this.y, Util.randInt(1, damage/2));
+    }
+
 }

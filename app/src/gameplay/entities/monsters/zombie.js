@@ -14,7 +14,7 @@ class Zombie extends _Monster {
 
     _onDamaged(d){
         super._onDamaged(d);
-        ParticleSpawner.createExplosion(BloodParticle, this.x, this.y, Util.randInt(1, 1/d));
+        ParticleSpawner.createExplosion(BloodParticle, this.x, this.y, Util.randInt(1, d/2));
     }
 
     _onExpire(){
