@@ -27,7 +27,6 @@ class OozeLord extends _Monster {
     _onExpire(){
         super._onExpire();
         this.death.execute();
-        ParticleSpawner.createExplosion(ZombieGutsParticle, this.x, this.y, Util.randInt(15, 30));
     }
 
     _doExist(thisEntity){

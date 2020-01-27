@@ -14,7 +14,6 @@ const StageManager = {
             this.currentStage.monsters.forEach(e => e.sleep());
             this.currentStage.particles.forEach(e => e.sleep());
             this.currentStage.projectiles.forEach(e => e.sleep());
-            this.currentStage.barriers.forEach(e => e.sleep());
             this.currentStage.player.sleep();
             clearInterval(this.beaconTestInterval);
             clearInterval(this.cullEntitiesInterval);
@@ -28,7 +27,6 @@ const StageManager = {
             this.currentStage.monsters.forEach(e => e.awaken());
             this.currentStage.particles.forEach(e => e.awaken());
             this.currentStage.projectiles.forEach(e => e.awaken());
-            this.currentStage.barriers.forEach(e => e.awaken());
             this.currentStage.player.awaken();
             this.beaconTestInterval = setInterval(this.testAllBeacons, 200);
             this.cullEntitiesInterval = setInterval(this.cullEntityLists, 5000);
@@ -45,7 +43,6 @@ const StageManager = {
         cs.monsters = cs.monsters.filter(e => !e.expired);
         cs.particles = cs.particles.filter(e => !e.expired);
         cs.projectiles = cs.projectiles.filter(e => !e.expired);
-        cs.barriers = cs.barriers.filter(e => !e.expired);
         cs.numberAnimations = cs.numberAnimations.filter(e => !e.expired);
     },
 

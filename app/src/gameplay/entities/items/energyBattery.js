@@ -31,8 +31,7 @@ class RedEnergyBattery extends EnergyBattery{
 
 }
 
-
-class BlueEnergyBattery extends EnergyBattery{
+class YellowEnergyBattery extends EnergyBattery{
 
     constructor(){
         super();
@@ -41,17 +40,17 @@ class BlueEnergyBattery extends EnergyBattery{
     }
 
     shouldPickUp(player){
-        return player.currentBlueEnergy < player.maxBlueEnergy;
+        return player.currentYellowEnergy < player.maxYellowEnergy;
     }
 
     onPickUp(player){
-        player.gainBlueEnergy(this.energyRestoBlue);
+        player.gainYellowEnergy(this.energyRestored);
     }
 
 }
 
 
-class YellowEnergyBattery extends EnergyBattery{
+class BlueEnergyBattery extends EnergyBattery{
 
     constructor(){
         super();
@@ -60,11 +59,13 @@ class YellowEnergyBattery extends EnergyBattery{
     }
 
     shouldPickUp(player){
-        return player.currentYellowEnergy < player.maxYellowEnergy;
+        return player.currentBlueEnergy < player.maxBlueEnergy;
     }
 
     onPickUp(player){
-        player.gainYellowEnergy(this.energyRestoYellow);
+        player.gainBlueEnergy(this.energyRestored);
     }
 
 }
+
+

@@ -18,7 +18,6 @@ class Stage {
     player;
     monsters;
     projectiles;
-    barriers;
     particles;
     items;
 
@@ -32,7 +31,6 @@ class Stage {
         this.player = player ?  player : new Player(); 
         this.monsters = [];
         this.projectiles = [];
-        this.barriers = [];
         this.particles = [];
         this.items = [];
         this.beacons = [];

@@ -15,7 +15,6 @@ class _Projectile extends _Entity {
         this.direction = direction;
         this.travelDirection = direction;
         this.checksCollisions = true;
-        this.collidesBarrier = true;
         this.parentEntity = parentEntity;
         this.x = x;
         this.y = y;

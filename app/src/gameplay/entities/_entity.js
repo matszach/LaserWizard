@@ -17,7 +17,6 @@ class _Entity {
     collidesPlayer;         // - states if the entity checks for collision with a player
     collidesMonster;        // - states if the entity checks for collision with a monster
     collidesProjectile;     // - states if the entity checks for collision with a projectile
-    collidesBarrier;        // - states if the entity checks for collision with a barrier
     collidesItem;           // - states if the entity checks for collision with an item
     tileX;                  // - x position in tileset (can be changed through animations)
     tileY;                  // - y position in tileset (can be changed through animations)
@@ -43,7 +42,6 @@ class _Entity {
         this.collisionCheckTimer = 0;
         this.collidesPlayer = false;
         this.collidesMonster = false;
-        this.collidesBarrier = false;
         this.collidesProjectile = false;
         this.collidesItem = false;
         this.tileX = 0;
@@ -156,13 +154,6 @@ class _Entity {
                 }
             });
         }
-        if(this.collidesBarrier){
-            st.barriers.filter(e => {return !e.expired}).forEach(e => {
-                if(this._isCollisionWithEntity(e)){
-                    this._onCollisionWithBarrier(e);
-                }
-            });
-        }
         if(this.collidesItem){
             st.items.filter(e => {return !e.expired}).forEach(e => {
                 if(this._isCollisionWithEntity(e)){
@@ -190,10 +181,6 @@ class _Entity {
     }
 
     _onCollisionWithProjectile(entity){
-        // abstract
-    }
-
-    _onCollisionWithBarrier(entity){
         // abstract
     }
 

@@ -16,7 +16,7 @@ class Weapon9B2Projectile extends _DamagingProjectile {
         this.tileY = 3;
         
         this.collisionSize = 0.1;
-        this.displaySize = 0.4;
+        this.displaySize = 0.35;
         this.collidesMonster = true;
     }
 
