@@ -21,7 +21,10 @@ const MonsterFactory = {
      * @param {number} y - monster y position
      */
     getMonster(id, x, y){
+        
+        // TODO REMOVE TEST
         id = Util.randInt(0, 8);
+
         var monsterClass = this._monsterTypeDict[id] ? this._monsterTypeDict[id] : this._monsterTypeDict.default;
         var monster = new monsterClass();
         if(x && y){

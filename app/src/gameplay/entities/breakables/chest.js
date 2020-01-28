@@ -12,7 +12,7 @@ class Chest extends _Breakable {
 
     _onExpire(){
         super._onExpire();
-        ParticleSpawner.createExplosion(ChestSplinterParticle, this.x, this.y, Util.randInt(5, 10));
+        ParticleSpawner.createExplosion(ChestSplinterParticle, this.x, this.y, Util.randInt(10, 20));
     }
 
 }

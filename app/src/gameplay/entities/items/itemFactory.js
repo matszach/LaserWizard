@@ -19,6 +19,12 @@ const ItemFactory = {
         14 : WeaponBlue3,
         15 : CyanKey,
         16 : MagentaKey,
+        17 : RedBackPack,
+        18 : RedBigBackPack,
+        19 : YellowBackPack, 
+        20 : YellowBigBackPack,
+        21 : BlueBackPack,
+        22 : BlueBigBackPack,
 
         default : SmallHealthKit
     },
@@ -29,6 +35,10 @@ const ItemFactory = {
      * @param {number} y - item y position
      */
     getItem(id, x, y){
+
+        // TODO REMOVE TEST
+        id = Util.randInt(0, 22);
+
         var itemClass = this._itemTypeDict[id] ? this._itemTypeDict[id] : this._itemTypeDict.default;
         var item = new itemClass();
         if(x && y){

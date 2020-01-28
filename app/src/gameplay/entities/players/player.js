@@ -29,6 +29,12 @@ class Player extends _Character {
         cyan : false
     };
 
+    gear = {
+        head: false,
+        chest: false,
+        feet: false,
+    }
+
     weaponActions = [];
     
 

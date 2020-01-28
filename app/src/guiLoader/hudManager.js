@@ -71,21 +71,21 @@ const HudManager = {
         if(p.currentRedEnergy > dv.redEnergy){
             dv.redEnergy++;
         } else {
-            dv.redEnergy = Math.floor(p.currentRedEnergy);
+            dv.redEnergy = p.currentRedEnergy;
         }
-        $('.hud-value-span.red').html(dv.redEnergy);
+        $('.hud-value-span.red').html(`${Math.floor(dv.redEnergy)}/${p.maxRedEnergy}`);
         if(p.currentYellowEnergy > dv.yellowEnergy){
             dv.yellowEnergy++;
         } else {
-            dv.yellowEnergy = Math.floor(p.currentYellowEnergy);
+            dv.yellowEnergy = p.currentYellowEnergy;
         }
-        $('.hud-value-span.yellow').html(dv.yellowEnergy);
+        $('.hud-value-span.yellow').html(`${Math.floor(dv.yellowEnergy)}/${p.maxYellowEnergy}`);
         if(p.currentBlueEnergy > dv.blueEnergy){
             dv.blueEnergy++;
         } else {
-            dv.blueEnergy = Math.floor(p.currentBlueEnergy);
+            dv.blueEnergy = p.currentBlueEnergy;
         }
-        $('.hud-value-span.blue').html(dv.blueEnergy);
+        $('.hud-value-span.blue').html(`${Math.floor(dv.blueEnergy)}/${p.maxBlueEnergy}`);
     },
 
     applyStatsDisplayChange(p, dv){
