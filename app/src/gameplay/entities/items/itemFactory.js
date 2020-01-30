@@ -25,6 +25,8 @@ const ItemFactory = {
         20 : YellowBigBackPack,
         21 : BlueBackPack,
         22 : BlueBigBackPack,
+        23 : HeadArmor,
+        24 : ChestArmor,
 
         default : SmallHealthKit
     },
@@ -37,7 +39,7 @@ const ItemFactory = {
     getItem(id, x, y){
 
         // TODO REMOVE TEST
-        id = Util.randInt(0, 22);
+        id = Util.randInt(0, 24);
 
         var itemClass = this._itemTypeDict[id] ? this._itemTypeDict[id] : this._itemTypeDict.default;
         var item = new itemClass();
