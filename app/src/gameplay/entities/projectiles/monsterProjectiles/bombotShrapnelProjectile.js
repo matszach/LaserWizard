@@ -4,7 +4,7 @@ class BombotShrapnelProjectile extends _DamagingProjectile {
     constructor(parentEntity, direction, x, y){
         super(parentEntity, direction, x, y);
 
-        this.speed = 0.15
+        this.speed = 0.12
         this.minDmg = 8;
         this.maxDmg = 12;
         this.duration = Util.randInt(15, 20);

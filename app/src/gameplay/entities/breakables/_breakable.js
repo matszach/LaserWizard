@@ -15,6 +15,8 @@ class _Breakable extends _Monster {
         super._onExpire();
         this.dropLoot();
     }
+
+    
   
    /**
     * @see ItemFactory

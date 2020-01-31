@@ -208,17 +208,17 @@ for i in range(1, nof_stages_ready + 1):
                 level['collisionMap'][x][y] = 1
 				
 				
-			elif c == DECOR_1_WALL:
+            elif c == DECOR_1_WALL:
 
                 left = is_field_in(pixels, x-1, y, [DECOR_1_WALL, WALL])
                 top = is_field_in(pixels, x, y-1, [DECOR_1_WALL, WALL])
                 right = is_field_in(pixels, x+1, y, [DECOR_1_WALL, WALL])
                 bottom = is_field_in(pixels, x, y+1, [DECOR_1_WALL, WALL])
 				
-				x_index = 0
+                x_index = 0
                 y_index = 0
 				
-				if not left and top and right and bottom:
+                if not left and top and right and bottom:
                     x_index = 0
                     y_index = 5
                 elif left and not top and right and bottom:
@@ -231,7 +231,7 @@ for i in range(1, nof_stages_ready + 1):
                     x_index = 3
                     y_index = 5
 				
-				t = randint(1, 100)
+                t = randint(1, 100)
                 if t > 66:
                     x_index += 4
                 elif t > 33:

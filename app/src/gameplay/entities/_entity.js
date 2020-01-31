@@ -59,6 +59,7 @@ class _Entity {
         if(!this.lifecycleInterval){
             this.lifecycleInterval = setInterval(this._doExist, 10, this);
         }
+        this._onAwaken();
     }
 
     sleep(){
@@ -168,6 +169,10 @@ class _Entity {
         // abstract
     }
 
+    _onAwaken(){
+        // abstract
+    }
+
     _onTravel(direction){
         // abstract
     }
@@ -228,6 +233,24 @@ class _Entity {
         var dx = x - this.x;
         var dy = y - this.y;
         return Math.sqrt(dx*dx + dy*dy);
+    }
+
+    lockFieldForCollision(){
+        StageManager.currentStage.collisionMap[
+            Math.round(this.x),
+            Math.round(this.y)
+        ] = 1;
+    }
+
+    unlockFieldForCollision(){
+        StageManager.currentStage.collisionMap[
+            Math.round(this.x),
+            Math.round(this.y)
+        ] = 0;
+    }
+
+    rotate(val){
+        this.direction += val;
     }
 
 }

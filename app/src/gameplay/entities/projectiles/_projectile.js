@@ -40,10 +40,6 @@ class _Projectile extends _Entity {
         // abstract
     }
 
-    rotate(val){
-        this.direction += val;
-    }
-
     _onIsInWall(){
         this.expire();
     }
