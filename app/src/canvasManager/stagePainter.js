@@ -172,7 +172,7 @@ const StagePainter = {
             var y = (e.y - c.yMin) * c.unit + c.hOffset;
             c.ctx.fillStyle = e.color;
             c.ctx.globalAlpha = e.opacity;
-            c.ctx.fillText(parseInt(e.value), x, y);
+            c.ctx.fillText(e.value, x, y);
         });
         c.ctx.globalAlpha = 1;
     }

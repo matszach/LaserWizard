@@ -21,7 +21,7 @@ class OozeLord extends _Monster {
         this.damaged.execute();
         this.displaySize = 1 + 2 * this.hp / this.maxHp;
         this.collisionSize = this.displaySize * 0.95;
-        this.speed = 0.015 + 0.03 * (1 - this.hp / this.maxHp);
+        this.speed = 0.015 + 0.02 * (1 - this.hp / this.maxHp);
     }
 
     _onExpire(){

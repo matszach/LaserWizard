@@ -3,7 +3,7 @@ class SkeletonRocketAttack extends _Action {
 
     constructor(user){
         super(user);
-        this.cooldownDuration = 4000;
+        this.cooldownDuration = 2500;
     }
 
     onSuccess(){

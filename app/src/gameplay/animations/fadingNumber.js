@@ -27,6 +27,7 @@ class FadingNumber {
 
     tick(fdm){
         fdm.opacity -= 0.1;
+        fdm.y -= 0.05;
         if(fdm.opacity <= 0){
             fdm.expired = true;
             clearInterval(fdm.lifecycleInterval);

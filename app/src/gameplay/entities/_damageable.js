@@ -35,13 +35,30 @@ class _Damageable extends _Entity{
 
     // "on" triggers
     _onDamaged(damage){
+        if(damage < 1){
+            if(!Util.chance(damage)){
+                return;
+            } else {
+                damage = 1;
+            }
+        } else {
+            damage = Math.round(damage);
+        }
         StageManager.currentStage.numberAnimations.push(new FadingNumber(damage, this.x, this.y, '#ff0000'));
     }
 
     _onHealed(healing){
-        if(healing >= 1){
-            StageManager.currentStage.numberAnimations.push(new FadingNumber(healing, this.x, this.y, '#00ff00'));
+        if(healing < 1){
+            if(!Util.chance(healing)){
+                return;
+            } else {
+                healing = 1;
+            }
+        } else {
+            healing = Math.round(healing);
         }
+        healing = '+' + Math.round(healing);
+        StageManager.currentStage.numberAnimations.push(new FadingNumber(healing, this.x, this.y, '#00ff00'));
     }
 
 }
