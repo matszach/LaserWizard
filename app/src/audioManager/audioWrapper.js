@@ -26,4 +26,18 @@ class AudioWrapper {
         }
     }
 
+    pause(){
+        this.audioInstances.forEach(e => e.pause());
+    }
+
+    isOn(){
+        var on = false;
+        this.audioInstances.forEach(e =>{
+            if(!e.paused){
+                on = true;
+            }
+        });
+        return on;
+    }
+
 }

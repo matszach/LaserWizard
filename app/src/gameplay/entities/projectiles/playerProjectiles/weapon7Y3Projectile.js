@@ -20,14 +20,26 @@ class Weapon7Y3Projectile extends _DamagingProjectile {
         this.collidesMonster = true;
     }
 
+    _onCollisionWithMonster(m){
+        this.expire();
+    }
+
     animate(){
-        ParticleSpawner.createExplosion(RocketSmokeParticle, this.x, this.y, 1);
+        if(Util.chance(0.5)){
+            ParticleSpawner.createExplosion(RocketSmokeParticle, this.x, this.y, 1);
+        }
     }
 
     _onExpire(){
         super._onExpire();
-        ParticleSpawner.createExplosion(YellowSparkParticle,  this.x, this.y, Util.randInt(80, 160));
+        ParticleSpawner.createExplosion(YellowSparkParticle,  this.x, this.y, Util.randInt(50, 100));
         ParticleSpawner.createExplosion(LastingSmoke,  this.x, this.y, Util.randInt(20, 30));
+        
+        StageManager.currentStage.monsters.forEach(m => {
+            if(!m.expired && this.getDistanceToPoint(m.x, m.y) < 2.5){
+                m.takeDmg(this.calculateDamage());
+            }
+        });
     }
 
 }

@@ -6,7 +6,13 @@ const AudioRegistry = {
 
     init(){
         this.sounds.itemPickup = new AudioWrapper('click', 3);
-    }
+        
+        this.music.hunter = new AudioWrapper('music\\s-hunter', 1);
+        this.music.echo = new AudioWrapper('music\\s-echo', 1);   
 
+
+        MusicPlayer.start();
+
+    }
 
 }

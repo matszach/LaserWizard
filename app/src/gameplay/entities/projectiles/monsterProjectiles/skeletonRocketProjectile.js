@@ -5,8 +5,8 @@ class SkeletonRocketProjectile extends _DamagingProjectile {
         super(parentEntity, direction, x, y);
 
         this.speed = 0.11
-        this.minDmg = 8;
-        this.maxDmg = 12;
+        this.minDmg = 16;
+        this.maxDmg = 20;
         this.duration = Util.randInt(90, 110);
         this.accuracy = 95;
     
