@@ -30,6 +30,10 @@ class AudioWrapper {
         this.audioInstances.forEach(e => e.pause());
     }
 
+    rewind(){
+        this.audioInstances.forEach(i => i.currentTime = 0);
+    }
+
     isOn(){
         var on = false;
         this.audioInstances.forEach(e =>{

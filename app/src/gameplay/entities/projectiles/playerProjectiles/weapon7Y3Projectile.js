@@ -32,7 +32,7 @@ class Weapon7Y3Projectile extends _DamagingProjectile {
 
     _onExpire(){
         super._onExpire();
-        ParticleSpawner.createExplosion(YellowSparkParticle,  this.x, this.y, Util.randInt(50, 100));
+        ParticleSpawner.createExplosion(FireParticle,  this.x, this.y, Util.randInt(30, 40));
         ParticleSpawner.createExplosion(LastingSmoke,  this.x, this.y, Util.randInt(20, 30));
         
         StageManager.currentStage.monsters.forEach(m => {
