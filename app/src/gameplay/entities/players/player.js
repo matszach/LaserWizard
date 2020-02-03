@@ -225,4 +225,7 @@ class Player extends _Character {
         ParticleSpawner.createExplosion(BloodParticle, this.x, this.y, Util.randInt(1, damage/2));
     }
 
+    _onExpire(){
+        GameOverHandler.invoke();
+    }
 }

@@ -57,9 +57,10 @@ const HudManager = {
 
 
     manage(){
+        if(!StageManager.currentStage){return;}
         var p = StageManager.currentStage.player;
-        var dv = HudManager.onDisplayValues;
         if(!p){return;}
+        var dv = HudManager.onDisplayValues;
         HudManager.applyEnergyDisplayChange(p, dv);
         HudManager.applyStatsDisplayChange(p, dv);
         HudManager.applyHpDisplayChage(p, dv);
