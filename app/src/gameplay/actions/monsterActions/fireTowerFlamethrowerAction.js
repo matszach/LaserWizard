@@ -15,7 +15,7 @@ class FireTowerFlamethrowerAttack extends _Action {
                 }
             }, i * 50);
         }
-        ParticleSpawner.createExplosion(LastingSmoke, this.user.x, this.user.y, Util.randInt(20, 30));
+        ParticleSpawner.createExplosion(LastingSmokeParticle, this.user.x, this.user.y, Util.randInt(20, 30));
     }
 
 }

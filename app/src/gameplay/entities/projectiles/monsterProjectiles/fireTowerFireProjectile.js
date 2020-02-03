@@ -26,7 +26,7 @@ class FireTowerFireProjectile extends _DamagingProjectile {
     _onCollisionWithPlayer(p){
         if(Util.chance(0.5)){
             p.takeDmg(this.calculateDamage());
-            ParticleSpawner.createExplosion(LastingSmoke, this.x, this.y, Util.randInt(1, 3));
+            ParticleSpawner.createExplosion(LastingSmokeParticle, this.x, this.y, Util.randInt(1, 3));
         }
     }
 

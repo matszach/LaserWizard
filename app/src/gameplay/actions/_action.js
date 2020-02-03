@@ -14,12 +14,12 @@ class _Action{
     }
 
     // ==================== methods ====================
-    execute(){
+    execute(...args){
         if(!this.isOnCooldown && this.test()){
             this.startCooldown();
-            this.onSuccess();
+            this.onSuccess(...args);
         } else {
-            this.onFailure();
+            this.onFailure(...args);
         }
     }
 

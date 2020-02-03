@@ -2,6 +2,8 @@
 class Player extends _Character {
 
     // ==================== fields ====================
+    
+    //energy
     maxRedEnergy = 100;
     currentRedEnergy = 0;
     maxBlueEnergy = 100; 
@@ -9,6 +11,7 @@ class Player extends _Character {
     maxYellowEnergy = 100;
     currentYellowEnergy = 0;
 
+    // weapons
     selectedWeaponIndex = 0;
 
     weaponsUnlockedState = [
@@ -37,8 +40,11 @@ class Player extends _Character {
 
     weaponActions = [];
     
+    // other actions
+    dashUnlocked = false;
+    dash = new Dash(this);
 
-    // ==================== constructor ====================
+    // =================== constructor ====================
     constructor(){
         super();
         this.weaponActions = [
@@ -176,19 +182,45 @@ class Player extends _Character {
         var down = UserInputHandler.isKeyDown('S');
         var left = UserInputHandler.isKeyDown('A');
         var right = UserInputHandler.isKeyDown('D');
+      
+        var dir = 0;
+
         if((up && down) || (!up && !down)){
-            if((left && right) || (!left && !right)){}
-            else if(left){this.travel(270)}
-            else if(right){this.travel(90)}            
+            if((left && right) || (!left && !right)){
+                return; // no direction button spressed or the directions cancel out
+            }
+            else if(left){
+                dir = 270;
+            }
+            else if(right){
+                dir = 90;
+            }            
         } else if (up){
-            if((left && right) || (!left && !right)){this.travel(0)}
-            else if(left){this.travel(315)}
-            else if(right){this.travel(45)}  
+            if((left && right) || (!left && !right)){
+                dir = 0;
+            }
+            else if(left){
+                dir = 315;
+            }
+            else if(right){
+                dir = 45;
+            }  
         } else if(down){
-            if((left && right) || (!left && !right)){this.travel(180)}
-            else if(left){this.travel(225)}
-            else if(right){this.travel(135)}  
-        }
+            if((left && right) || (!left && !right)){
+                dir = 180;
+            }
+            else if(left){
+                dir = 225;
+            }
+            else if(right){
+                dir = 135;
+            }  
+        } 
+
+        this.travel(dir);
+        if(UserInputHandler.isSpaceDown() && this.dashUnlocked){
+            this.dash.execute(dir);
+        };
     }
 
     handleTurning(){

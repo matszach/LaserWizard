@@ -253,4 +253,15 @@ class _Entity {
         this.direction += val;
     }
 
+    applyPushback(direction, speed, duration, onStep) {
+        for(var i = 0; i < duration; i++) {
+            setTimeout(e => {
+                e._move(direction, speed);
+                e.checkForInWall();
+                if(onStep){
+                    onStep(e);
+                }
+            }, i * 10, this);   
+        }
+    }
 }

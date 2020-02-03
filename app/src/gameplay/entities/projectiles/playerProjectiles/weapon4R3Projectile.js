@@ -8,7 +8,7 @@ class Weapon4R3Projectile extends _DamagingProjectile {
 
         this.speed = Util.randFloat(0.12, 0.16);
         this.minDmg = 2;
-        this.maxDmg = 3;
+        this.maxDmg = 4;
         this.duration = Util.randInt(40, 50);
         this.accuracy = 94;
         

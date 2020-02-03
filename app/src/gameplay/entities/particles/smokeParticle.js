@@ -18,7 +18,7 @@ class RocketSmokeParticle extends _Particle {
 }
 
 
-class LastingSmoke extends RocketSmokeParticle {
+class LastingSmokeParticle extends RocketSmokeParticle {
 
     constructor(direction, x, y){
         super(direction, x, y);

@@ -54,6 +54,13 @@ const UserInputHandler = {
         return false;
     },
 
+    isSpaceDown(){
+        if(32 in this.keys){ // 32 is the 'key' of the space key on the keboard
+            return this.keys[32];
+        }
+        return false;
+    },
+
     /**
      * @param {List<char>} keySymbolList 
      * @returns true if all the keys are down, else false

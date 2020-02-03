@@ -33,7 +33,7 @@ class Weapon7Y3Projectile extends _DamagingProjectile {
     _onExpire(){
         super._onExpire();
         ParticleSpawner.createExplosion(FireParticle,  this.x, this.y, Util.randInt(30, 40));
-        ParticleSpawner.createExplosion(LastingSmoke,  this.x, this.y, Util.randInt(20, 30));
+        ParticleSpawner.createExplosion(LastingSmokeParticle,  this.x, this.y, Util.randInt(20, 30));
         
         StageManager.currentStage.monsters.forEach(m => {
             if(!m.expired && this.getDistanceToPoint(m.x, m.y) < 2.5){
