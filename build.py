@@ -2,7 +2,7 @@ import os
 
 
 version = 0
-subversion = 15
+subversion = 16
 package_name = f'laser-wizard-{version}-{subversion}'
 
 commands = [

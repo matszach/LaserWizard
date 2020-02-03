@@ -6,7 +6,7 @@ class Bombot extends _Monster {
         this.tileX = Util.randInt(0, 3);
         this.tileY = 6;
         this.maxHp = Util.randInt(10, 15);
-        this.displaySize = Util.randFloat(0.6, 0.7);
+        this.displaySize = Util.randFloat(0.75, 0.85);
         this.defence = 20;
         this.speed = Util.randFloat(0.038, 0.042);
         this.selfDestruct = new BombotExplosion(this);
