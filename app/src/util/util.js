@@ -25,6 +25,17 @@ const Util = {
 
     chance(p){
         return Math.random() < p;
+    },
+
+    easeTo(value, target, maxStep) {
+        var diff = target - value;
+        if(Math.abs(diff) <= maxStep){
+            return target;
+        } else if(diff < 0) {
+            return value - maxStep;
+        } else {
+            return value + maxStep;
+        }
     }
 
 }

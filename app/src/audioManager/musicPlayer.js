@@ -8,6 +8,7 @@ const MusicPlayer = {
 
     init() {
         this.songs.push(AudioRegistry.music.hunter);
+        this.songs.push(AudioRegistry.music.ooze);
         this.songs.push(AudioRegistry.music.echo);
     },
 
@@ -29,7 +30,7 @@ const MusicPlayer = {
             if (this.songs[this.songIndex]){
                 this.songs[this.songIndex].play();
             }
-            this.interval = setInterval(this.playMusic, 5000);
+            this.interval = setInterval(this.playMusic, 3000);
         }
     }, 
 

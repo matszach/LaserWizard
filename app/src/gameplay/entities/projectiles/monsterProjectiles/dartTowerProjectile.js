@@ -1,19 +1,19 @@
 "use strict";
-class DroneBulletProjectile extends _DamagingProjectile {
+class DartTowerProjectile extends _DamagingProjectile {
 
     constructor(parentEntity, direction, x, y){
         super(parentEntity, direction, x, y);
 
         this.speed = 0.10
-        this.minDmg = 3;
+        this.minDmg = 4;
         this.maxDmg = 6;
-        this.duration = Util.randInt(70, 90);
-        this.accuracy = 97;
+        this.duration = 90;
+        this.accuracy = 95;
     
-        this.tileX = 4;
+        this.tileX = 6;
         this.tileY = 4;
         
-        this.collisionSize = 0.1;
+        this.collisionSize = 0.2;
         this.displaySize = 0.3;
         this.collidesPlayer = true;
     }
