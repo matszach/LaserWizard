@@ -7,15 +7,9 @@ class GhostDrainAttack extends _Action {
     }
 
     onSuccess(){
-        this.doOnDelay(a => {
-            ProjectileSpawner.spawn(GhostDrainProjectile, a.user, a.user.x, a.user.y, a.user.direction);
-        }, 50);
-        this.doOnDelay(a => {
-            ProjectileSpawner.spawn(GhostDrainProjectile, a.user, a.user.x, a.user.y, a.user.direction + 15);
-        }, 200);
-        this.doOnDelay(a => {
-            ProjectileSpawner.spawn(GhostDrainProjectile, a.user, a.user.x, a.user.y, a.user.direction - 15);
-        }, 200);
+        ProjectileSpawner.spawn(GhostDrainProjectile, this.user, this.user.x, this.user.y, this.user.direction);
+        ProjectileSpawner.spawn(GhostDrainProjectile, this.user, this.user.x, this.user.y, this.user.direction + 15);
+        ProjectileSpawner.spawn(GhostDrainProjectile, this.user, this.user.x, this.user.y, this.user.direction - 15);
     }
 
 }
