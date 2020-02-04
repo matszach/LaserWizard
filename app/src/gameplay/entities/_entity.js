@@ -254,6 +254,9 @@ class _Entity {
     }
 
     applyPushback(direction, speed, duration, onStep) {
+        if(this.speed <= 0){
+            return; // immobile entitiescant be pushed back TODO ?
+        }
         for(var i = 0; i < duration; i++) {
             setTimeout(e => {
                 e._move(direction, speed);

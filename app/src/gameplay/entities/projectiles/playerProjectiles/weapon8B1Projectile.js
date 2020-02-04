@@ -6,7 +6,7 @@ class Weapon8B1Projectile extends _DamagingProjectile {
         // super constructor
         super(parentEntity, direction, x, y);
 
-        this.speed = 0.13;
+        this.speed = 0.16;
         this.minDmg = 8;
         this.maxDmg = 12;
         this.duration = 100;
@@ -22,6 +22,11 @@ class Weapon8B1Projectile extends _DamagingProjectile {
 
     animate(){
         
+    }
+
+    _onCollisionWithMonster(m){
+        super._onCollisionWithMonster(m);
+        m.applyPushback(this.direction, 0.03, 30);
     }
 
     _onExpire(){

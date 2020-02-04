@@ -14,6 +14,7 @@ const MonsterFactory = {
         9 : Bombot,
         10: FireTower,
         11: DartTower,
+        12: Mine,
 
         default : Zombie
     },
@@ -26,7 +27,7 @@ const MonsterFactory = {
     getMonster(id, x, y){
         
         // TODO REMOVE TEST
-        id = Util.randInt(0, 11);
+        id = Util.randInt(11, 12);
 
         var monsterClass = this._monsterTypeDict[id] ? this._monsterTypeDict[id] : this._monsterTypeDict.default;
         var monster = new monsterClass();
