@@ -15,8 +15,12 @@ class Dash extends _WeaponAction{
             a.player.opacity = 1;
         }, 250, this);
         // args[0] - player direction based on key 
+        var afterImageSpawn = true;
         this.player.applyPushback(args[0], 0.1, 25, (p) => {
-            ParticleSpawner.createExplosion(LastingSmokeParticle, p.x, p.y, 1);
+            if(afterImageSpawn){
+                ParticleSpawner.spawn(PlayerAfterimageParticle, p.x, p.y, p.direction);
+            }
+            afterImageSpawn = !afterImageSpawn;
         });
     }
 
