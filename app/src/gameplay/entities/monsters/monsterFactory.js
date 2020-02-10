@@ -18,6 +18,7 @@ const MonsterFactory = {
         13: StormOrb,
         14: LaserAcolyte,
         15: MazeMaster,
+        16: Marine,
 
         default : Zombie
     },
@@ -30,7 +31,7 @@ const MonsterFactory = {
     getMonster(id, x, y){
         
         // TODO REMOVE TEST
-        id = Util.randInt(0, 15);
+        id = Util.randInt(16, 16);
 
         var monsterClass = this._monsterTypeDict[id] ? this._monsterTypeDict[id] : this._monsterTypeDict.default;
         var monster = new monsterClass();
