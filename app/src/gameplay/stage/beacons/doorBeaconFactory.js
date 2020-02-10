@@ -6,6 +6,7 @@ const DoorBeaconFactory = {
             case 0: return new DoorBeacon(x, y, range);
             case 1: return new MagentaDoorBeacon(x, y, range);
             case 2: return new CyanDoorBeacon(x, y, range);
+            case 3: return new CloseDoorBeacon(x, y, range);
             default: return new DoorBeacon(x, y, range);
         }
     },

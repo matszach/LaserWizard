@@ -18,11 +18,11 @@ class DoorBeacon extends _Beacon {
         this.doorTileIds.forEach(t => {
             StageManager.currentStage.wallIds[t[0]][t[1]] = [0, 0]; // empty tile 
             StageManager.currentStage.collisionMap[t[0]][t[1]] = 0; // pass-through tile
-            this._onTileRemoved(t[0], t[1]);
+            this._onTileChanged(t[0], t[1]);
         });
     }
 
-    _onTileRemoved(x, y){
+    _onTileChanged(x, y){
         // abstract
     }
 
@@ -33,7 +33,7 @@ class MagentaDoorBeacon extends DoorBeacon {
         return StageManager.currentStage.player.keys.magenta;
     }
 
-    _onTileRemoved(x, y){
+    _onTileChanged(x, y){
         ParticleSpawner.createExplosion(MagentaSparkParticle, x, y, Util.randInt(20, 40)); 
     }
 }
@@ -43,7 +43,21 @@ class CyanDoorBeacon extends DoorBeacon {
         return StageManager.currentStage.player.keys.cyan;
     }
 
-    _onTileRemoved(x, y){
+    _onTileChanged(x, y){
         ParticleSpawner.createExplosion(CyanSparkParticle, x, y, Util.randInt(20, 40)); 
     }
+}
+
+class CloseDoorBeacon extends DoorBeacon {
+
+    newWallTile = [2, 3];
+
+    _fire(){
+        this.doorTileIds.forEach(t => {
+            StageManager.currentStage.wallIds[t[0]][t[1]] = this.newWallTile 
+            StageManager.currentStage.collisionMap[t[0]][t[1]] = 1;
+            this._onTileChanged(t[0], t[1]);
+        });
+    }
+
 }
