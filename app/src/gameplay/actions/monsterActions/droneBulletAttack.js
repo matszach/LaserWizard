@@ -9,7 +9,9 @@ class DroneBulletAttack extends _Action {
     onSuccess(){
         for(var i = 0; i < 5; i++){
             this.doOnDelay(a => {
-                ProjectileSpawner.spawn(DroneBulletProjectile, a.user, a.user.x, a.user.y, a.user.direction);
+                if(!a.user.expired){
+                    ProjectileSpawner.spawn(DroneBulletProjectile, a.user, a.user.x, a.user.y, a.user.direction);
+                }
             }, i * 150);
         }
     }
