@@ -26,3 +26,15 @@ class LastingSmokeParticle extends RocketSmokeParticle {
     }
 
 }
+
+
+class FastSmokeParticle extends RocketSmokeParticle {
+
+    constructor(direction, x, y){
+        super(direction, x, y);
+        this.speed = 0.08;
+        this.duration = 50;
+        this.opacity = 0.6;
+    }
+
+}

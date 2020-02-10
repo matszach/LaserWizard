@@ -9,7 +9,7 @@ class LaserAcoliteAttack extends _Action {
     onSuccess(){
         let dirMod = Util.chance(0.5) ? 1 : -1;
         for(var i = 0; i < 5; i++){
-            let dir = dirMod * (-30 + 15 * i);
+            let dir = dirMod * (-20 + 10 * i);
             this.doOnDelay(a => {
                 ProjectileSpawner.spawn(LaserAcoliteOrbProjectile, a.user, a.user.x, a.user.y, 
                     a.user.direction + dir);
