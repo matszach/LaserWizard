@@ -1,1 +1,25 @@
-[]
+[
+	{
+		"triggerRange": 3,
+		"condition": 1,
+		"affectedTiles": [
+			{"relX" : 1, "relY" : -2},
+			{"relX" : 1, "relY" : -1},
+			{"relX" : 1, "relY" : 0},
+			{"relX" : 1, "relY" : 1},
+			{"relX" : 1, "relY" : 2}
+		]
+	},
+	{
+		"triggerRange": 3,
+		"condition": 2,
+		"affectedTiles": [
+			{"relX" : 1, "relY" : -2},
+			{"relX" : 1, "relY" : -1},
+			{"relX" : 1, "relY" : 0},
+			{"relX" : 1, "relY" : 1},
+			{"relX" : 1, "relY" : 2}
+		]
+	}
+
+]

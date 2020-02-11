@@ -14,11 +14,14 @@ DECOR_1_WALL = (30, 30, 30)
 DECOR_1_FLOOR = (180, 250, 180)
 DECOR_2_FLOOR = (180, 180, 180)
 DECOR_3_FLOOR_4T = (160, 160, 160)
+DECOR_4_FLOOR = (160, 160, 200)
 
 # --- doors and keys
 CYAN_DOOR = (255, 0, 255)
 
 TEAL_DOOR = (0, 255, 255)
+
+DOOR = (220, 220, 220)
 
 DOOR_BEACON = (120, 60, 30)
 
@@ -48,7 +51,16 @@ ITEMS = {
     (0, 0, 100)     : (13, 'weapon 9 (blue + +)'),
     (0, 0, 50)      : (14, 'weapon 0 (blue + + +)'),
     (0, 150, 150)   : (15, 'cyan key'),
-    (150, 0, 150)   : (16, 'magenta key')
+    (150, 0, 150)   : (16, 'magenta key'),
+	(255, 50, 50)   : (17, 'red backpack'),
+	(255, 100, 100) : (18, 'red big backpack'),
+	(255, 255, 50)  : (19, 'yellow backpack'),
+	(255, 255, 100) : (20, 'yellow big backpack'),
+	(50, 50, 255)   : (21, 'blue backpack'),
+	(100, 100, 255) : (22, 'blue big backpack'),
+	(200, 100, 0)   : (23, 'head armor'),
+	(180, 90, 0)    : (24, 'chest armor'),
+	(160, 80, 0)    : (25, 'boots')
 }
 
 ITEMS_IMG = {
@@ -68,7 +80,16 @@ ITEMS_IMG = {
     13: (8, 1),
     14: (9, 1),
     15: (7, 0),
-    16: (6, 0)
+    16: (6, 0),
+	17: (0, 2),
+	18: (0, 3),
+	19: (1, 2),
+	20: (1, 3),
+	21: (2, 2),
+	22: (2, 3),
+	23: (3, 2),
+	24: (4, 2),
+	25: (5, 2)
 }
 
 MONSTER_IMG = {
@@ -77,7 +98,18 @@ MONSTER_IMG = {
 	2 : ((0, 2), 'ghost'),
 	3 : ((0, 3), 'skeleton'),
 	4 : ((0, 4), 'gelcube'),
-	5 : ((8, 0), 'oozelord')
+	5 : ((8, 0), 'oozelord'),
+	6 : ((8, 5), 'redChest'),
+	7 : ((8, 5), 'yellowChest'),
+	8 : ((8, 5), 'blueChest'),
+	9 : ((0, 6), 'bombot'),
+	10 : ((8, 4), 'fireTower'),
+	11 : ((8, 3), 'dartTower'),
+	12 : ((0, 7), 'mine'),
+	13 : ((4, 2), 'stormOrb'),
+	14 : ((0, 5), 'laserAcolite'),
+	15 : ((9, 0), 'mazeMaster'),
+	16 : ((4, 3), 'marine')
 }
 
 # --- event triggers
@@ -156,13 +188,15 @@ for i in range(1, nof_stages_ready + 1):
                 elif(left and top):
                     level['floorIds'][x][y] = [11, 4]
 
+            elif c == DECOR_4_FLOOR:
+                level['floorIds'][x][y] = [2, 3]
                 
             elif c == WALL:
 
-                left = is_field_in(pixels, x-1, y, [WALL])
-                top = is_field_in(pixels, x, y-1, [WALL])
-                right = is_field_in(pixels, x+1, y, [WALL])
-                bottom = is_field_in(pixels, x, y+1, [WALL])
+                left = is_field_in(pixels, x-1, y, [WALL, DECOR_1_WALL])
+                top = is_field_in(pixels, x, y-1, [WALL, DECOR_1_WALL])
+                right = is_field_in(pixels, x+1, y, [WALL, DECOR_1_WALL])
+                bottom = is_field_in(pixels, x, y+1, [WALL, DECOR_1_WALL])
 
                 x_index = 0
                 y_index = 0
@@ -250,6 +284,12 @@ for i in range(1, nof_stages_ready + 1):
             elif c == CYAN_DOOR:
                 level['wallIds'][x][y] = [0, 3]
                 level['floorIds'][x][y] = [0, 3]
+                level['collisionMap'][x][y] = 1
+				
+				
+            elif c == DOOR:
+                level['wallIds'][x][y] = [2, 3]
+                level['floorIds'][x][y] = [2, 3]
                 level['collisionMap'][x][y] = 1
 
 

@@ -2,82 +2,79 @@
 	{
 		"triggerRange": 3,
 		"monsterList": [
-			{"id": 0, "relX" : -2, "relY" : -6},
-			{"id": 0, "relX" : 2, "relY" : -6},
-			{"id": 0, "relX" : -2, "relY" : -19},
-			{"id": 0, "relX" : 2, "relY" : -19},
-			{"id": 0, "relX" : -6, "relY" : -9},
-			{"id": 0, "relX" : 6, "relY" : -9},
-			{"id": 1, "relX" : -6, "relY" : -16},
-			{"id": 1, "relX" : 6, "relY" : -16},
-			{"id": 0, "relX" : -10, "relY" : -8},
-			{"id": 0, "relX" : 10, "relY" : -8}
-		]
-	},
-	{
-		"triggerRange": 8,
-		"monsterList": [
-			{"id": 1, "relX" : 0, "relY" : -13},
-			{"id": 0, "relX" : -2, "relY" : -9},
-			{"id": 0, "relX" : 2, "relY" : -9},
-			{"id": 0, "relX" : -2, "relY" : -5},
-			{"id": 0, "relX" : 2, "relY" : -5}
+			{"id": 0, "relX" : 4, "relY" : -4},
+			{"id": 0, "relX" : 4, "relY" : 4},
+			{"id": 1, "relX" : 10, "relY" : -2},
+			{"id": 0, "relX" : 12, "relY" : -4},
+			{"id": 0, "relX" : 12, "relY" : 4},
+			{"id": 1, "relX" : 14, "relY" : 2}
 		]
 	},
 	{
 		"triggerRange": 4,
 		"monsterList": [
-			{"id": 0, "relX" : 4, "relY" : -6},
-			{"id": 0, "relX" : 6, "relY" : -4}
-
+			{"id": 0, "relX" : 4, "relY" : -5},
+			{"id": 0, "relX" : 4, "relY" : 5},
+			{"id": 0, "relX" : 6, "relY" : -5},
+			{"id": 0, "relX" : 6, "relY" : 5},
+			{"id": 16, "relX" : 7, "relY" : 0}
 		]
 	},
 	{
-		"triggerRange": 4,
+		"triggerRange": 3,
 		"monsterList": [
-			{"id": 0, "relX" : -4, "relY" : -6},
-			{"id": 0, "relX" : -6, "relY" : -4}
-
-		]
-	},
-	{
-		"triggerRange": 7,
-		"monsterList": [
-			{"id": 0, "relX" : -5, "relY" : -8},
-			{"id": 0, "relX" : -3, "relY" : -9},
-			{"id": 0, "relX" : 3, "relY" : -9},
-			{"id": 0, "relX" : 5, "relY" : -8}
-
-		]
-	},
-	{
-		"triggerRange": 2,
-		"monsterList": [
-			{"id": 0, "relX" : -1, "relY" : 6},
-			{"id": 0, "relX" : 2, "relY" : 6}
-
-		]
-	},
-	{
-		"triggerRange": 2,
-		"monsterList": [
-			{"id": 0, "relX" : -2, "relY" : 6},
-			{"id": 0, "relX" : 1, "relY" : 6}
-
-		]
-	},
-	{
-		"triggerRange": 4,
-		"monsterList": [
-			{"id": 0, "relX" : -3, "relY" : -6},
-			{"id": 0, "relX" : 0, "relY" : -7},
-			{"id": 0, "relX" : 3, "relY" : -6}
+			{"id": 0, "relX" : 0, "relY" : -8},
+			{"id": 0, "relX" : -3, "relY" : -7},
+			{"id": 0, "relX" : 3, "relY" : -7}
 		]
 	},
 	{
 		"triggerRange": 5,
 		"monsterList": [
-			{"id": 0, "relX" : 0, "relY" : -4}
+			{"id": 0, "relX" : 4, "relY" : -4},
+			{"id": 0, "relX" : 4, "relY" : 4},
+			{"id": 0, "relX" : 7, "relY" : -4},
+			{"id": 0, "relX" : 7, "relY" : 4},
+			{"id": 1, "relX" : 9, "relY" : 2},
+			{"id": 1, "relX" : 9, "relY" : -2}
+		]
+	},
+	{
+		"triggerRange": 5,
+		"monsterList": [
+			{"id": 0, "relX" : 4, "relY" : -1},
+			{"id": 0, "relX" : 4, "relY" : 1},
+			{"id": 0, "relX" : 8, "relY" : -1},
+			{"id": 0, "relX" : 8, "relY" : 1}
+		]
+	},
+	{
+		"triggerRange": 3,
+		"monsterList": [
+			{"id": 0, "relX" : 0, "relY" : 8},
+			{"id": 0, "relX" : -3, "relY" : 7},
+			{"id": 0, "relX" : 3, "relY" : 7}
+		]
+	},
+	{
+		"triggerRange": 3,
+		"monsterList": [
+			{"id": 0, "relX" : 4, "relY" : -4},
+			{"id": 0, "relX" : 4, "relY" : 4},
+			{"id": 1, "relX" : 10, "relY" : 2},
+			{"id": 0, "relX" : 12, "relY" : -4},
+			{"id": 0, "relX" : 12, "relY" : 4},
+			{"id": 1, "relX" : 14, "relY" : -2}
+		]
+	},
+	{
+		"triggerRange": 4,
+		"monsterList": [
+			{"id": 0, "relX" : 4, "relY" : -5},
+			{"id": 0, "relX" : 4, "relY" : 5},
+			{"id": 0, "relX" : 6, "relY" : -5},
+			{"id": 0, "relX" : 6, "relY" : 5},
+			{"id": 16, "relX" : 7, "relY" : 0}
 		]
 	}
 
