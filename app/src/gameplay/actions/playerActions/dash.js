@@ -1,11 +1,9 @@
 "use strict";
 class Dash extends _WeaponAction{
 
-    cost = 1;
-
     constructor(player){
         super(player);
-        this.cooldownDuration = 1000;
+        this.cooldownDuration = 2500;
     }
 
     onSuccess(...args){
@@ -22,10 +20,6 @@ class Dash extends _WeaponAction{
             }
             afterImageSpawn = !afterImageSpawn;
         });
-    }
-
-    test(){
-        return this.player.payRedEnergy(this.cost);
     }
 
 }

@@ -6,7 +6,6 @@ const Hax = {
         for(var i = 0; i < p.weaponsUnlockedState.length; i++){
             p.unlockWeapon(i);
         }
-        p.dashUnlocked = true;
     },
 
     refillAmmo(){

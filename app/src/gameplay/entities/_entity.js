@@ -71,9 +71,11 @@ class _Entity {
     }
 
     expire(){
-        this.expired = true;
+        if(!this.expired){
+            this._onExpire();
+            this.expired = true;
+        }
         this.sleep();
-        this._onExpire();
     }
 
     // movement and turning

@@ -41,7 +41,6 @@ class Player extends _Character {
     weaponActions = [];
     
     // other actions
-    dashUnlocked = false;
     dash = new Dash(this);
 
     // =================== constructor ====================
@@ -218,7 +217,7 @@ class Player extends _Character {
         } 
 
         this.travel(dir);
-        if(UserInputHandler.isSpaceDown() && this.dashUnlocked){
+        if(UserInputHandler.isSpaceDown()){
             this.dash.execute(dir);
         };
     }
@@ -258,6 +257,7 @@ class Player extends _Character {
     }
 
     _onExpire(){
-        GameOverHandler.invoke();
+        ParticleSpawner.createExplosion(BloodParticle, this.x, this.y, Util.randInt(400, 500));
+        setTimeout(GameOverHandler.invoke, 500);
     }
 }
