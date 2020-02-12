@@ -1,0 +1,52 @@
+[
+	{
+		"triggerRange": 3,
+		"condition": 2,
+		"affectedTiles": [
+			{"relX" : -1, "relY" : -1},
+			{"relX" : 0, "relY" : -1},
+			{"relX" : 1, "relY" : -1}
+		]
+	},
+	{
+		"triggerRange": 2,
+		"condition": 0,
+		"affectedTiles": [
+			{"relX" : -1, "relY" : -1},
+			{"relX" : 0, "relY" : -1},
+			{"relX" : 1, "relY" : -1}
+		]
+	},
+	{
+		"triggerRange": 1,
+		"condition": 0,
+		"affectedTiles": [
+			{"relX" : 1, "relY" : 0},
+			{"relX" : 2, "relY" : 0},
+			{"relX" : 3, "relY" : 0},
+			{"relX" : 4, "relY" : 0},
+			{"relX" : 5, "relY" : 0},
+			{"relX" : 6, "relY" : 0},
+			{"relX" : 7, "relY" : 0}
+		]
+	},
+	{
+		"triggerRange": 2,
+		"condition": 0,
+		"affectedTiles": [
+			{"relX" : -1, "relY" : 1},
+			{"relX" : 0, "relY" : 1},
+			{"relX" : 1, "relY" : 1}
+		]
+	},
+	{
+		"triggerRange": 2,
+		"condition": 0,
+		"affectedTiles": [
+			{"relX" : -1, "relY" : 1},
+			{"relX" : 0, "relY" : 1},
+			{"relX" : 1, "relY" : 1}
+		]
+	}
+
+]

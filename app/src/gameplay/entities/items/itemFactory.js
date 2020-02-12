@@ -38,8 +38,10 @@ const ItemFactory = {
      */
     getItem(id, x, y){
 
-        // TODO REMOVE TEST
-        id = Util.randInt(0, 24);
+        // randomize items if testMode
+        if(SaveStateHandler.get().testMode){
+            id = Util.randInt(0, 24);
+        }
 
         var itemClass = this._itemTypeDict[id] ? this._itemTypeDict[id] : this._itemTypeDict.default;
         var item = new itemClass();

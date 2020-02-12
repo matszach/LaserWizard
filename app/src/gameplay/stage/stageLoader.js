@@ -29,10 +29,12 @@ const StageLoader = {
             HudManager.start();
             PauseHandler.unpause();
 
-            // hax todo remove this
-            Hax.unlockAllWeapons();
-            Hax.insaneAmmo();
-            Hax.highDefence();
+            // hax on if test mode on
+            if(SaveStateHandler.get().testMode){
+                Hax.unlockAllWeapons();
+                Hax.insaneAmmo();
+                Hax.highDefence();
+            }
         });
     },
 

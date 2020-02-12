@@ -30,8 +30,10 @@ const MonsterFactory = {
      */
     getMonster(id, x, y){
         
-        // TODO REMOVE TEST
-        id = Util.randInt(0, 16);
+        // randomize monster if testMode
+        if(SaveStateHandler.get().testMode){
+            id = Util.randInt(0, 16);
+        }
 
         var monsterClass = this._monsterTypeDict[id] ? this._monsterTypeDict[id] : this._monsterTypeDict.default;
         var monster = new monsterClass();

@@ -1,0 +1,82 @@
+[
+	{
+		"triggerRange": 4,
+		"monsterList": [
+			{"id": 6, "relX" : 5, "relY" : -1},
+			{"id": 6, "relX" : 6, "relY" : 1}
+		]
+	},
+	{
+		"triggerRange": 5,
+		"monsterList": [
+			{"id": 0, "relX" : 6, "relY" : 1},
+			{"id": 0, "relX" : 6, "relY" : 3},
+			{"id": 0, "relX" : 10, "relY" : 1},
+			{"id": 0, "relX" : 10, "relY" : 3}
+		]
+	},
+	{
+		"triggerRange": 5,
+		"monsterList": [
+			{"id": 0, "relX" : 4, "relY" : -3},
+			{"id": 0, "relX" : 4, "relY" : 3},
+			{"id": 0, "relX" : 2, "relY" : -5},
+			{"id": 0, "relX" : 2, "relY" : 5},
+			{"id": 1, "relX" : 6, "relY" : -6},
+			{"id": 1, "relX" : 6, "relY" : 6}
+		]
+	},
+	{
+		"triggerRange": 10,
+		"monsterList": [
+			{"id": 0, "relX" : 1, "relY" : 1},
+			{"id": 0, "relX" : 1, "relY" : -1},
+			{"id": 0, "relX" : 3, "relY" : 1},
+			{"id": 0, "relX" : 3, "relY" : -1},
+			{"id": 0, "relX" : 2, "relY" : 3},
+			{"id": 0, "relX" : 2, "relY" : -3}
+		]
+	},
+	{
+		"triggerRange": 4,
+		"monsterList": [
+			{"id": 6, "relX" : 5, "relY" : 0},
+			{"id": 6, "relX" : 6, "relY" : 2},
+			{"id": 0, "relX" : 1, "relY" : 0},
+			{"id": 0, "relX" : 3, "relY" : 2}
+		]
+	},
+	{
+		"triggerRange": 4,
+		"monsterList": [
+			{"id": 6, "relX" : 2, "relY" : 0}
+		]
+	},
+	{
+		"triggerRange": 6,
+		"monsterList": [
+			{"id": 0, "relX" : 2, "relY" : 5},
+			{"id": 0, "relX" : -2, "relY" : 5},
+			{"id": 16, "relX" : 0, "relY" : 6}
+		]
+	},
+	{
+		"triggerRange": 6,
+		"monsterList": [
+			{"id": 16, "relX" : -9, "relY" : 2},
+			{"id": 16, "relX" : -9, "relY" : -2},
+			{"id": 0, "relX" : -6, "relY" : 2},
+			{"id": 0, "relX" : -6, "relY" : -2},
+			{"id": 1, "relX" : -7, "relY" : 4},
+			{"id": 1, "relX" : -7, "relY" : -4}
+			
+		]
+	},
+	{
+		"triggerRange": 6,
+		"monsterList": [
+			{"id": 16, "relX" : 2, "relY" : 4},
+			{"id": 16, "relX" : -4, "relY" : 1}
+		]
+	}
+]
