@@ -1,6 +1,6 @@
 [
 	{
-		"triggerRange": 4,
+		"triggerRange": 5,
 		"monsterList": [
 			{"id": 6, "relX" : 5, "relY" : -1},
 			{"id": 6, "relX" : 6, "relY" : 1}
@@ -38,7 +38,7 @@
 		]
 	},
 	{
-		"triggerRange": 4,
+		"triggerRange": 5,
 		"monsterList": [
 			{"id": 6, "relX" : 5, "relY" : 0},
 			{"id": 6, "relX" : 6, "relY" : 2},
@@ -47,7 +47,7 @@
 		]
 	},
 	{
-		"triggerRange": 4,
+		"triggerRange": 5,
 		"monsterList": [
 			{"id": 6, "relX" : 2, "relY" : 0}
 		]
