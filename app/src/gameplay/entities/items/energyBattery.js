@@ -5,9 +5,9 @@ class EnergyBattery extends _Item {
 
     constructor(){
         super();
-        this.energyRestored = 15;
-        this.displaySize = 0.7;
-        this.collisionSize = 0.6;
+        this.energyRestored = 25;
+        this.displaySize = 0.6;
+        this.collisionSize = 0.5;
     }
 
 }
