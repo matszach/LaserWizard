@@ -44,6 +44,14 @@ const StageLoader = {
         var player = StageManager.currentStage.player;
         StageManager.recycle();
         this._loadPrototype(id, player);
+    },
+
+    retry(){
+        // TODO unlocking next level etc.
+        var id = parseInt(StageManager.currentStage.stageId);
+        var player = new Player();
+        StageManager.recycle();
+        this._loadPrototype(id, player);
     }
 
 }
