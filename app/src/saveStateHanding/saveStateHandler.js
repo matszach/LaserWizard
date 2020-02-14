@@ -2,20 +2,13 @@
 const SaveStateHandler = {
 
     fs : require('fs'),
+    path : 'out/saveState.sav',
     _saveStateData : null,
 
-    decode(data) {
-        return data;
-    },
-
-    encode(data) {
-        return data;
-    },
-
     init(){
-        if(this.fs.existsSync('out/saveState.json')) {
-            this.fs.readFile('out/saveState.json', (err, data) => {
-                SaveStateHandler._saveStateData = JSON.parse(SaveStateHandler.decode(data));
+        if(this.fs.existsSync(SaveStateHandler.path)) {
+            this.fs.readFile(SaveStateHandler.path, (err, data) => {
+                SaveStateHandler._saveStateData = JSON.parse(Cypher.decode(data));
             });
         } else {
             this._createDefault();
@@ -25,7 +18,7 @@ const SaveStateHandler = {
 
     _createDefault() {
         this._saveStateData = {
-            testMode : true,
+            testMode : false,
             lastStageUnlocked: 1,
             settings : {}
         }
@@ -36,8 +29,8 @@ const SaveStateHandler = {
     },
 
     save(){        
-        let content = JSON.stringify(SaveStateHandler.encode(SaveStateHandler._saveStateData));
-        this.fs.writeFile('out/saveState.json', content, e => {});
+        let content = Cypher.encode(JSON.stringify(SaveStateHandler._saveStateData));
+        this.fs.writeFile(SaveStateHandler.path, content, e => {});
     }
 
 }
