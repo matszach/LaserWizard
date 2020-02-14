@@ -42,9 +42,16 @@ const StageLoader = {
         // TODO unlocking next level etc.
         var id = parseInt(StageManager.currentStage.stageId) + 1;
         var player = StageManager.currentStage.player;
+
         player.hp = player.maxHp; // player hp is refilled on next level load
         StageManager.recycle();
         this._loadPrototype(id, player);
+
+        // save state if nev level unlocked
+        if(id > SaveStateHandler.get().lastStageUnlocked) {
+            SaveStateHandler.get().lastStageUnlocked = id;
+            SaveStateHandler.save();
+        }
     },
 
     retry(){

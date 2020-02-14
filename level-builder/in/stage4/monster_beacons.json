@@ -1,0 +1,8 @@
+[
+	{
+		"triggerRange": 4,
+		"monsterList": [
+			{"id": 0, "relX" : 4, "relY" : -4}
+		]
+	}
+]

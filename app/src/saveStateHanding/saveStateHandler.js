@@ -1,35 +1,43 @@
 "use strict";
 const SaveStateHandler = {
 
+    fs : require('fs'),
     _saveStateData : null,
 
+    decode(data) {
+        return data;
+    },
+
+    encode(data) {
+        return data;
+    },
+
     init(){
-        try {
-            $.get('out/saveState.json', (data) => {this._saveStateData = data;});
-        } catch {
-            this._createSaveState();
+        if(this.fs.existsSync('out/saveState.json')) {
+            this.fs.readFile('out/saveState.json', (err, data) => {
+                SaveStateHandler._saveStateData = JSON.parse(SaveStateHandler.decode(data));
+            });
+        } else {
+            this._createDefault();
+            this.save();
         }
     },
 
-    _createSaveState(){
-        var saveState = {
+    _createDefault() {
+        this._saveStateData = {
+            testMode : true,
             lastStageUnlocked: 1,
             settings : {}
         }
-        this._saveStateData = saveState;
-        this._createSaveState();
-    },
-
-    _createSaveStateFile(){
-        // todo
     },
 
     get(){
         return this._saveStateData;
     },
 
-    save(){
-        // todo
+    save(){        
+        let content = JSON.stringify(SaveStateHandler.encode(SaveStateHandler._saveStateData));
+        this.fs.writeFile('out/saveState.json', content, e => {});
     }
 
 }
