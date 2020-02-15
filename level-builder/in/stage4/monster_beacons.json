@@ -39,7 +39,7 @@
 		]
 	},
 	{
-		"triggerRange": 3,
+		"triggerRange": 4,
 		"monsterList": [
 			{"id": 0, "relX" : 0, "relY" : 7},
 			{"id": 0, "relX" : 4, "relY" : 7},
@@ -53,7 +53,7 @@
 		]
 	},
 	{
-		"triggerRange": 3,
+		"triggerRange": 4,
 		"monsterList": [
 			{"id": 0, "relX" : 7, "relY" : 0},
 			{"id": 0, "relX" : 7, "relY" : 4},

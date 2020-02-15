@@ -1,4 +1,6 @@
 "use strict";
+
+// encodes and decodes save state json file content
 const Cypher = {
 
     key: 5, // set != 0 value in release

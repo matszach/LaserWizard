@@ -117,7 +117,7 @@ MONSTER_IMG = {
 
 
 # =================================== config ===================================
-nof_stages_ready = 4
+nof_stages_ready = 5
 
 
 # =================================== functions ===================================
@@ -416,11 +416,11 @@ for i in range(1, nof_stages_ready + 1):
             preview.paste(m_image, ((msb['x'] + m['relX']) * UNIT, (msb['y'] + m['relY']) * UNIT), m_image)
             preview_draw.line((msb['x'] * UNIT + UNIT/2 , msb['y'] * UNIT + UNIT/2, 
                             (msb['x'] + m['relX']) * UNIT + UNIT/2, (msb['y'] + m['relY']) * UNIT + UNIT/2), 
-                            fill='white', width=2)
+                            fill='white', width=4)
         tr = msb['triggerRange']
         preview_draw.ellipse(((msb['x'] - tr) * UNIT + UNIT/2, (msb['y'] - tr) * UNIT + UNIT/2,
                         (msb['x'] + tr) * UNIT + UNIT/2, (msb['y'] + tr) * UNIT + UNIT/2), 
-                        fill=None, outline='red', width=3)
+                        fill=None, outline='red', width=8)
 
     # db
     for db in level['doorBeacons']:
@@ -429,11 +429,11 @@ for i in range(1, nof_stages_ready + 1):
         for d in db['affectedTiles']:
             preview_draw.line((db['x'] * UNIT + UNIT/2 , db['y'] * UNIT + UNIT/2, 
                             (db['x'] + d['relX']) * UNIT + UNIT/2, (db['y'] + d['relY']) * UNIT + UNIT/2), 
-                            fill='black', width=2)
+                            fill='black', width=4)
         tr = db['triggerRange']
         preview_draw.ellipse(((db['x'] - tr) * UNIT + UNIT/2, (db['y'] - tr) * UNIT + UNIT/2,
                         (db['x'] + tr) * UNIT + UNIT/2, (db['y'] + tr) * UNIT + UNIT/2), 
-                        fill=None, outline='green', width=3)
+                        fill=None, outline='blue', width=8)
 
     # player
     plr_image = player.crop((0, 0, UNIT, UNIT))

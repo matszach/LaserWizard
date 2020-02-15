@@ -2,7 +2,9 @@
 const SaveStateHandler = {
 
     fs : require('fs'),
+
     path : 'out/saveState.sav',
+    
     _saveStateData : null,
 
     init(){
@@ -19,22 +21,22 @@ const SaveStateHandler = {
 
     _createDefault() {
         /* ***** DEFAULT ***** */
-        // this._saveStateData = {
-        //     testMode : false,
-        //     lastStageUnlocked: 1,
-        //     settings : {
-        //         music : true
-        //     }
-        // }
-
-        /* ***** TEST ***** */
         this._saveStateData = {
-            testMode : true,
-            lastStageUnlocked: 4,
+            testMode : false,
+            lastStageUnlocked: 5,
             settings : {
-                music : false
+                music : true
             }
         }
+
+        /* ***** TEST ***** */
+        // this._saveStateData = {
+        //     testMode : true,
+        //     lastStageUnlocked: 5,
+        //     settings : {
+        //         music : false
+        //     }
+        // }
     },
 
     get(){

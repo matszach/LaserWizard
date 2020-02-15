@@ -1,0 +1,101 @@
+[
+	{
+		"triggerRange": 3,
+		"condition": 0,
+		"affectedTiles": [
+			{"relX" : -2, "relY" : 1},
+			{"relX" : -1, "relY" : 1},
+			{"relX" : 0, "relY" : 1},
+			{"relX" : 1, "relY" : 1}
+		]
+	},
+	{
+		"triggerRange": 3,
+		"condition": 0,
+		"affectedTiles": [
+			{"relX" : -1, "relY" : -3},
+			{"relX" : 0, "relY" : -3},
+			{"relX" : 1, "relY" : -3},
+			{"relX" : -1, "relY" : -10},
+			{"relX" : 0, "relY" : -10},
+			{"relX" : 1, "relY" : -10}
+		]
+	},
+	{
+		"triggerRange": 3,
+		"condition": 0,
+		"affectedTiles": [
+			{"relX" : -1, "relY" : -2},
+			{"relX" : -1, "relY" : -1},
+			{"relX" : -1, "relY" : 0},
+			{"relX" : -1, "relY" : 1}
+		]
+	},
+	{
+		"triggerRange": 4,
+		"condition": 0,
+		"affectedTiles": [
+			{"relX" : -5, "relY" : 2},
+			{"relX" : -5, "relY" : 1},
+			{"relX" : -5, "relY" : 0},
+			{"relX" : -5, "relY" : -1},
+			{"relX" : -5, "relY" : -2},
+			{"relX" : -5, "relY" : -3},
+			{"relX" : -5, "relY" : -4},
+			{"relX" : -5, "relY" : -5},
+			{"relX" : -5, "relY" : -6},
+			{"relX" : -4, "relY" : 2},
+			{"relX" : -4, "relY" : 1},
+			{"relX" : -4, "relY" : 0},
+			{"relX" : -4, "relY" : -1},
+			{"relX" : -4, "relY" : -2},
+			{"relX" : -4, "relY" : -3},
+			{"relX" : -4, "relY" : -4},
+			{"relX" : -4, "relY" : -5},
+			{"relX" : -4, "relY" : -6},
+			{"relX" : 3, "relY" : 2},
+			{"relX" : 3, "relY" : 1},
+			{"relX" : 3, "relY" : 0},
+			{"relX" : 3, "relY" : -1},
+			{"relX" : 3, "relY" : -2},
+			{"relX" : 3, "relY" : -3},
+			{"relX" : 3, "relY" : -4},
+			{"relX" : 3, "relY" : -5},
+			{"relX" : 3, "relY" : -6},
+			{"relX" : 4, "relY" : 2},
+			{"relX" : 4, "relY" : 1},
+			{"relX" : 4, "relY" : 0},
+			{"relX" : 4, "relY" : -1},
+			{"relX" : 4, "relY" : -2},
+			{"relX" : 4, "relY" : -3},
+			{"relX" : 4, "relY" : -4},
+			{"relX" : 4, "relY" : -5},
+			{"relX" : 4, "relY" : -6}
+		]
+	},
+	{
+		"triggerRange": 3,
+		"condition": 2,
+		"affectedTiles": [
+			{"relX" : -2, "relY" : -2},
+			{"relX" : -1, "relY" : -2},
+			{"relX" : 0, "relY" : -2},
+			{"relX" : 1, "relY" : -2},
+			{"relX" : 2, "relY" : -2},
+			{"relX" : -2, "relY" : -3},
+			{"relX" : -1, "relY" : -3},
+			{"relX" : 0, "relY" : -3},
+			{"relX" : 1, "relY" : -3},
+			{"relX" : 2, "relY" : -3}
+		]
+	},
+	{
+		"triggerRange": 2,
+		"condition": 0,
+		"affectedTiles": [
+			{"relX" : -1, "relY" : 1},
+			{"relX" : 0, "relY" : 1},
+			{"relX" : 1, "relY" : 1}
+		]
+	}
+]
