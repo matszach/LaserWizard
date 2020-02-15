@@ -10,6 +10,12 @@ const MusicPlayer = {
         this.songs.push(AudioRegistry.music.hunter);
         this.songs.push(AudioRegistry.music.ooze);
         this.songs.push(AudioRegistry.music.echo);
+
+        setTimeout(() => {
+            if(SaveStateHandler.get().settings.music) {
+                MusicPlayer.start();
+            }
+        }, 1000);
     },
 
     playMusic() {
@@ -43,9 +49,12 @@ const MusicPlayer = {
     toggle(){
         if(this.isOn()){
             this.stop();
+            SaveStateHandler.get().settings.music = false;
         } else {
             this.start();
+            SaveStateHandler.get().settings.music = true;
         }
+        SaveStateHandler.save();
     }
 
 }

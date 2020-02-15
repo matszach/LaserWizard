@@ -1,7 +1,7 @@
 "use strict";
 const Cypher = {
 
-    key: 5,
+    key: 5, // set != 0 value in release
 
     decode(data) {
         let decoded = '';

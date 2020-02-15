@@ -19,9 +19,3 @@ $(document).ready(Main.init);
 $(document).ready(window.resizeTo(800, 601));
 $(document).ready(window.resizeTo(800, 600)); // temporary solution
 
-
-// TODO REMOVE THIS
-
-
-
-

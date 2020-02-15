@@ -9,10 +9,7 @@ const AudioRegistry = {
         
         this.music.ooze = new AudioWrapper('music\\s-ooze', 1);   
         this.music.hunter = new AudioWrapper('music\\s-hunter', 1);
-        this.music.echo = new AudioWrapper('music\\s-echo', 1);   
-
-
-        MusicPlayer.start();
+        this.music.echo = new AudioWrapper('music\\s-echo', 1); 
 
     }
 

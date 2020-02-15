@@ -43,7 +43,9 @@ const StageLoader = {
         var id = parseInt(StageManager.currentStage.stageId) + 1;
         var player = StageManager.currentStage.player;
 
-        player.hp = player.maxHp; // player hp is refilled on next level load
+        player.hp = player.maxHp;    // player hp is refilled on next level load
+        player.keys.cyan = false;    // reset keys
+        player.keys.magenta = false; // reset keys
         StageManager.recycle();
         this._loadPrototype(id, player);
 
