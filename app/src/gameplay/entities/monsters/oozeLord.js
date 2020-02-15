@@ -27,6 +27,8 @@ class OozeLord extends _Monster {
     _onExpire(){
         super._onExpire();
         this.death.execute();
+
+        // drops key
         var key = ItemFactory.getItem(15, this.x, this.y);
         StageManager.currentStage.items.push(key);
         key.awaken();

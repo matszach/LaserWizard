@@ -25,6 +25,8 @@ class MazeMaster extends _Monster {
     _onExpire(){
         super._onExpire();
         ParticleSpawner.createExplosion(BloodParticle, this.x, this.y, Util.randInt(80, 100));
+
+        // drops key
         var key = ItemFactory.getItem(15, this.x, this.y);
         StageManager.currentStage.items.push(key);
         key.awaken();

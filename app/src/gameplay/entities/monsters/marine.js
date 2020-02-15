@@ -22,6 +22,8 @@ class Marine extends _Monster {
     _onExpire(){
         super._onExpire();
         ParticleSpawner.createExplosion(BloodParticle, this.x, this.y, Util.randInt(15, 25));
+        
+        // drops red ammo
         if (Util.chance(0.75)) {
             var key = ItemFactory.getItem(3, this.x, this.y);
             StageManager.currentStage.items.push(key);
